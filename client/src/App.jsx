@@ -1,15 +1,25 @@
-import { RouterProvider, CreateBrowserRouter } from 'react-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import NavBar from './components/NavBar/NavBar.jsx';
+// import './App.css';
+import { Suspense } from 'react';
 
-import './App.css';
 
-const routes = CreateBrowserRouter([
-])
+const routes = [
+  {path: '/navbar', element: <NavBar />},
+];
 
 const App = () => {
+
+  const router = createBrowserRouter(routes);
+
   return (
-    <RouterProvider routes={routes}>
-      
-    </RouterProvider>
+    <NavBar />
+  )
+
+  return (
+    <Suspense fallback={null}>
+      <RouterProvider router={router} />
+    </Suspense>
   )
 }
 
