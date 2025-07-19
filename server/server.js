@@ -16,7 +16,7 @@ app.get('', (req, res) =>{
 
 app.use('/users', userRoutes);
 
-app.listen(5000, (req, res) => {
+app.listen(5000, async (req, res) => {
     console.log('Server running on localhost:5000...');
-    connectDB();
+    await connectDB();
 });
