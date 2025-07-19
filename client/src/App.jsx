@@ -1,11 +1,12 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar.jsx';
-// import './App.css';
 import { Suspense } from 'react';
 
+import Login from "./pages/login/Login.jsx";
+
+import './App.css';
 
 const routes = [
-  {path: '/login', element: <NavBar />},
+  {path: '/', element: <Login />},
 ];
 
 const App = () => {
