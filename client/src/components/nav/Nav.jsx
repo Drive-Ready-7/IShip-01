@@ -21,7 +21,7 @@ const Nav = () => {
             </ul>
             <main>
                 {isLoggedIn ? (
-                    <img alt="profile.png"/ />
+                    <img alt="profile.png"/>
                 ) :
                     (
                       <>
