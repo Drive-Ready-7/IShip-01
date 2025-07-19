@@ -3,7 +3,6 @@ import { RouterProvider, CreateBrowserRouter } from 'react-dom';
 import './App.css';
 
 const routes = CreateBrowserRouter([
-  // {path='/login', element}
 ])
 
 const App = () => {
