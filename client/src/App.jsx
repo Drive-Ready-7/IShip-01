@@ -5,16 +5,12 @@ import { Suspense } from 'react';
 
 
 const routes = [
-  {path: '/navbar', element: <NavBar />},
+  {path: '/login', element: <NavBar />},
 ];
 
 const App = () => {
 
   const router = createBrowserRouter(routes);
-
-  return (
-    <NavBar />
-  )
 
   return (
     <Suspense fallback={null}>
