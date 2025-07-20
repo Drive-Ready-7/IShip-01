@@ -1,0 +1,12 @@
+# LastLine
+# Powered by MailByLR
+
+Tech Stack:
+    MERN -> MongoDB | Express | React (Vite) | Node
+    ML Model -> MailByLR
+
+
+Developers:
+    ML Team: Nagendra, Umar
+    FRONTEND: Geetha Sri, Surekha, Vishnu Priya
+    Backend: Nikhil
