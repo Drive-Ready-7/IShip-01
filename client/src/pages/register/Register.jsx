@@ -5,17 +5,18 @@ import {FaEye, FaPhone, FaUser, FaVoicemail} from 'react-icons/fa';
 import {useState} from "react";
 
 
-const [showPassword, setShowPassword] = useState(false);
-
-  const togglePassword = () => {
-    setShowPassword(prev => !prev);
-  };
-
 const Register = () => {
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePassword = () => {
+        setShowPassword(prev => !prev);
+    };
+    
     return (
         <>
        
-        <div class="register-container">
+        <div className="register-container">
                 <div id="logo_img"></div>
                 <div className="register-div">
                     <h1>Register</h1>
