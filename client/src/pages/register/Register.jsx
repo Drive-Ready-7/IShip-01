@@ -2,14 +2,14 @@ import './Register.css'
 
 import {FaEye, FaPhone, FaUser, FaVoicemail} from 'react-icons/fa';
 
-import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa6";  //import this
+import {useState} from "react";
 
 
 const [showPassword, setShowPassword] = useState(false);
 
   const togglePassword = () => {
     setShowPassword(prev => !prev);
-  };   //paste this before the return
+  };
 
 const Register = () => {
     return (
@@ -42,7 +42,7 @@ const Register = () => {
                     <div className="register-input">
                         <input type="password" id="register-passwd" name="passwd" required placeholder=" " />
                         <label for="passwd">Confirm Password</label>
-                        <FaEye className='icon' />
+                        <FaEye className='icon' onClick={togglePassword} />
                     </div>
                     <button>Submit</button>
                     <p>Already have an Account? <a href="#">Login</a></p>
