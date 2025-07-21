@@ -18,6 +18,7 @@ const Nav = () => {
                 <li>About</li>
                 <li>DashBoard</li>
                 <li>Contact Us</li>
+                <li>Add Email</li>
             </ul>
             <main>
                 {isLoggedIn ? (
