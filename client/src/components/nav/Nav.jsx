@@ -25,7 +25,8 @@ const Nav = () => {
                 ) :
                     (
                       <>
-                          
+                          <button onClick={handleLogin}>login</button>
+                          <button onClick={handleRegister}>register</button>
                       </>
                     )}
             </main>
