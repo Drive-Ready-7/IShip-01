@@ -1,0 +1,120 @@
+@import url("https://fonts.cdnfonts.com/css/technopollas");
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+}
+
+#last {
+    width: auto;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#last-l{
+    position: relative;
+    height: 265px;
+    width: 110px;
+    bottom:27px;
+    left:15px;
+}
+
+#last-long{
+    height: 190px;
+    width: 65px;
+    position: absolute;
+    right: 0;
+    background-color: rgb(58, 160, 255);
+    transform: rotatex(180deg) skewX(30deg) ;
+    overflow: hidden;
+}
+
+#last-small{
+    height: 76px;
+    width: 65px;
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    background-color: rgb(58, 160, 255);
+    transform: skewX(38deg);
+}
+
+#line {
+    width: auto;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#line-l{
+    position: relative;
+    height: 265px;
+    width: 110px;
+    bottom:27px;
+    left:15px;
+}
+
+#line-long{
+    height: 190px;
+    width: 65px;
+    position: absolute;
+    right: 0;
+    background-color: rgb(255, 59, 59);
+    transform: rotateX(180deg) skewX(30deg) ;
+    overflow: hidden;
+}
+
+#line-small{
+    height: 76px;
+    width: 65px;
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    background-color: rgb(255, 59, 59);
+    transform: skewX(38deg);
+
+}
+
+.suffix{
+    height: 265px;
+    width:0;
+    transform: rotateX(180deg) skewX(30deg) ;
+    overflow: hidden;
+    animation: suffix-animation 2.5s ease-out ;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 265px;
+    width: auto;
+    color: black;
+    font-size: 100px;
+    font-family: 'Technopollas', sans-serif;
+    transform: translateX(-300px) skewX(-30deg) rotatex(-180deg) ;
+    animation: text-animation 2.5s ease-out ;
+}
+
+@keyframes suffix-animation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 300px;
+    }
+}
+
+@keyframes text-animation {
+    from {
+        transform: translateX(-300px) skewX(-30deg) rotatex(-180deg) ;
+    }
+    to {
+        transform: translatex(0px) skewX(-30deg) rotatex(-180deg);
+    }
+}
