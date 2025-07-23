@@ -23,7 +23,7 @@ router.post('/register', async (req, res) => {
 
     try {
         const user = await userHelper.userExists(email);
-        if (!user) {
+        if (user) {
             res.status(400).json({ error: 'User already exists' });
         }
 
@@ -39,7 +39,6 @@ router.post('/register', async (req, res) => {
         res.status(200).json({ message: 'Registered Successfully' });
     } catch(err) {
         console.log(err);
-
         res.status(500).json({ error: 'Internal Server Error' });
     }
 })

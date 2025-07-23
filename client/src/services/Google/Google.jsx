@@ -1,10 +1,11 @@
 
 const Google = () => {
+
     const handleGmailLogin = () => {
         window.open(
             `${import.meta.env.VITE_BACKEND_URI}/auth/google/start`,
             'Login with Gmail',
-            'width=500,height=600,right=0',
+            'width=500,height=600',
         );
 
         window.addEventListener('message', (event) => {

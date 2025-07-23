@@ -13,5 +13,5 @@ export const saveUser = async (user) => {
 
 export const userExists = async (email) => {
     const user = await User.findOne({ email: email });
-    return user !== null || user !== undefined;
+    return user !== null && user !== undefined;
 }
