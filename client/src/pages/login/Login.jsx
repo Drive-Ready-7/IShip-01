@@ -60,7 +60,7 @@ const Login = () => {
 
           {/* Register Link */}
           <div className="register-link">
-            <p>Don't have an account? <Link to="./pages/register/Register.jsx">Register</Link></p>
+            <p>Don't have an account? <Link to="https://www.lastline.life/register">Register</Link></p>
           </div>
         </form>
       </div>
