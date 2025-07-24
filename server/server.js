@@ -3,9 +3,12 @@ import { config } from 'dotenv';
 import cors from 'cors';
 
 import connectDB from './config/db.js';
+import transporter from "./services/transporters/mail.js";
+
 import userRoutes from './routes/userRoutes.js';
 import googleAuthRoutes from './services/carieers/OAuthGoogle.js';
-import transporter from "./services/transporters/mail.js";
+import mailRoutes from './routes/mailRoutes.js';
+
 
 config();
 
@@ -21,6 +24,7 @@ app.get('', (req, res) => {
 
 app.use('/api/user', userRoutes);
 app.use('/auth', googleAuthRoutes);
+app.use('/api/secure/', mailRoutes);
 
 app.get('/am-i-alive', (req, res) => {
     res.status(200).send("Im Alive");

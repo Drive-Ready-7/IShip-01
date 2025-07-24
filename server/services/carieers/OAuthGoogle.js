@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { Router } from 'express';
+import {Router} from 'express';
 import dotenv from 'dotenv';
 
 import User from '../../models/user.js';
+import { saveUser } from "../../helpers/userHelper.js";
 
 dotenv.config();
 
@@ -12,17 +13,22 @@ const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI;
 
-const SCOPE = 'https://www.googleapis.com/auth/gmail.readonly';
+const SCOPE = [
+    'https://www.googleapis.com/auth/gmail.readonly',
+    'https://www.googleapis.com/auth/userinfo.profile',
+    'https://www.googleapis.com/auth/userinfo.email'
+].join(' ');
+
 
 router.get('/google/start', (req, res) => {
-    const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&&scope=${encodeURIComponent(SCOPE)}&access_type=offline&prompt=consent`;
+    const { state } = req.query;
+    console.log(state);
+    const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&&scope=${encodeURIComponent(SCOPE)}&access_type=offline&prompt=consent&state=${state}`;
     res.redirect(url);
 })
 
 router.get('/google/callback', async (req, res) => {
-    const code = req.query.code;
-    console.log(req)
-    console.log("Received code:", code);
+    const { code, state } = req.query;
     try {
         const tokenRes = await axios.post('https://oauth2.googleapis.com/token', null, {
             params: {
@@ -33,12 +39,37 @@ router.get('/google/callback', async (req, res) => {
                 grant_type: 'authorization_code'
             }
         });
-        console.log(tokenRes);
 
-        const access_token = tokenRes.data.access_token;
+        const accessToken = tokenRes.data.access_token;
+        const refreshToken = tokenRes.data.refresh_token;
 
-        // You can store the token securely here or fetch data
-        console.log("ACCESS TOKEN:", access_token);
+        let userInfo = null;
+        try {
+            userInfo = await axios.get('https://www.googleapis.com/oauth2/v2/userinfo', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${accessToken}`
+                }
+            });
+        } catch (error) {
+            console.error("User info fetch failed:", error.response?.data || error.message);
+        }
+
+        // dont forget to add if email already exists to avoid duplicates
+
+        const user = await User.findById(state);
+        user.userMails.push({
+            email: userInfo.data.email,
+            picture: userInfo.data.picture,
+            googleAccessToken: accessToken,
+            googleRefreshToken: refreshToken | accessToken,
+            googleTokenExpiryDate: Date.now()
+        });
+
+
+        console.log(user);
+
+        await saveUser(user);
 
         res.send(`
               <script>
