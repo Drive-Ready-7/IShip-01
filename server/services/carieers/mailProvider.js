@@ -114,9 +114,6 @@ const fetchRecentEmails = async (accessToken) => {
 
         const plainTextBody = extractBody(message.payload);
 
-        // console.log("From:", from);
-        // console.log("\nSubject:", subject);
-        // console.log("\nBody:\n", flattenEmailContent(plainTextBody));
         const body = flattenEmailContent(plainTextBody);
         const curEmail = {
             subject,
