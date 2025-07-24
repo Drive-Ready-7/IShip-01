@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.bdy {
+  width: 100svw;
+  height: 100svh;
+  position: relative;
+  background-color: #f5f5f5;
+}
+
+.login-box {
+ background-image: linear-gradient(to right, #0abde3, #54a0ff);
+  width: min(90%, 450px);
+  height: max-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1.5rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 2rem;
+}
+
+.login-box h1 {
+  color: black;
+  font-size: 2rem;
+}
+
+.register-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Floating Label Style */
+.Login-Input {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Login-Input:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.Login-Input input {
+  width: 100%;
+  height: 100%;
+  padding: 14px 40px 14px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  background: none;
+}
+
+.Login-Input label {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  font-size: 16px;
+  color: #999;
+  background: #0abde3;
+  padding: 0 4px;
+  transition: 0.2s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.Login-Input input:focus + label,
+.Login-Input input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 12px;
+  color: #1a73e8;
+}
+
+.Login-Input .icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #555;
+  cursor: pointer;
+}
+
+/* Button */
+.btn {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #ffffff;
+  color: #0b4f59;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #dcf9fd;
+}
+
+/* Login Link */
+.login-link {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.login-link a {
+  color: #002233;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
