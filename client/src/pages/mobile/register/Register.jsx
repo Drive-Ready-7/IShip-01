@@ -1,92 +1,149 @@
 import React, { useState } from "react";
-import "./Register.css";
+import "./mobile_register.css";
+import { Link } from 'react-router-dom';
 import {
   FaUser,
-  FaEnvelope,
+  FaVoicemail,
   FaPhone,
-  FaLock,
   FaEye,
   FaEyeSlash
 } from "react-icons/fa";
 
 export default function Register() {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: ""
+  });
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const togglePassword = () => {
+    setShowPassword(prev => !prev);
+  };
+
+  const toggleConfirmPassword = () => {
+    setShowConfirmPassword(prev => !prev);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+   
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      alert('not match the passwords')
+      return;
+    }
+
+  };
+
   return (
-    <>
     <section>
-       <div className="bdy">
-      <form>
-        <div className="register-box">
-          <h1>Register</h1>
+      <div className="mobile-register-div">
+        <form className="register-box" onSubmit={handleSubmit}>
+          <h2>Register</h2>
 
-          <div className="register-input">
-            {/* Username */}
-            <div className="Register-Input">
-              <input type="text" id="username" name="username" required placeholder=" " />
-              <label htmlFor="username">Username</label>
-              <FaUser className="icon" />
-            </div>
-
-            {/* Email */}
-            <div className="Register-Input">
-              <input type="email" id="email" name="email" required placeholder=" " />
-              <label htmlFor="email">Email</label>
-              <FaEnvelope className="icon" />
-            </div>
-
-            {/* Phone */}
-            <div className="Register-Input">
-              <input type="tel" id="phone" name="phone" required placeholder=" " />
-              <label htmlFor="phone">Phone Number</label>
-              <FaPhone className="icon" />
-            </div>
-
-            {/* Password */}
-            <div className="Register-Input">
-              <input
-                type={showPassword ? "text" : "password"}
-                id="password"
-                name="password"
-                required
-                placeholder=" "
-              />
-              <label htmlFor="password">Enter Password</label>
-              {showPassword ? (
-                <FaEye className="icon" onClick={() => setShowPassword(!showPassword)} />
-              ) : (
-                <FaEyeSlash className="icon" onClick={() => setShowPassword(!showPassword)} />
-              )}
-            </div>
-
-            {/* Confirm Password */}
-            <div className="Register-Input">
-              <input
-                type={showConfirmPassword ? "text" : "password"}
-                id="confirmPassword"
-                name="confirmPassword"
-                required
-                placeholder=" "
-              />
-              <label htmlFor="confirmPassword">Confirm Password</label>
-              {showConfirmPassword ? (
-                <FaEye className="icon" onClick={() => setShowConfirmPassword(!showConfirmPassword)} />
-              ) : (
-                <FaEyeSlash className="icon" onClick={() => setShowConfirmPassword(!showConfirmPassword)} />
-              )}
-            </div>
-
-            <button className="btn">Register</button>
-            <p className="login-link">
-              Already have an account? <a href="#">Login</a>
-            </p>
+          <div className="mobile-register-input">
+            <input
+              type="text"
+              id="register-username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="register-username">Username</label>
+            <FaUser className="icon" />
           </div>
-        </div>
-      </form>
-    </div>
-         
+
+          <div className="mobile-register-input">
+            <input
+              type="email"
+              id="register-email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="register-email">Email</label>
+            <FaVoicemail className="icon" />
+          </div>
+
+          <div className="mobile-register-input">
+            <input
+              type="tel"
+              id="register-phone"
+              
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              placeholder=""
+
+              maxLength={10}
+            />
+            <label htmlFor="register-phone">Phone Number</label>
+            <FaPhone className="icon" />
+          </div>
+
+          <div className="mobile-register-input">
+            <input
+              type={showPassword ? "text" : "password"}
+              id="register-password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="register-password">Enter Password</label>
+            <span onClick={togglePassword} style={{ cursor: "pointer" }}>
+              {showPassword ? <FaEye className="icon" /> : <FaEyeSlash className="icon" />}
+            </span>
+          </div>
+
+          <div className="mobile-register-input">
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              id="register-confirm-password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="register-confirm-password">Confirm Password</label>
+            <span onClick={toggleConfirmPassword} style={{ cursor: "pointer" }}>
+              {showConfirmPassword ? <FaEye className="icon" /> : <FaEyeSlash className="icon" />}
+            </span>
+            {formData.password !== formData.confirmPassword?(
+               <p className="passwd">Passwords do not match</p> ) : null  
+            }
+          </div>
+    
+          <button type="submit" onClick={handleSubmit}>Submit</button>
+
+          <p>
+            Already have an Account?{" "}
+            <Link to="https://www.lastline.life/" target="_blank" rel="noopener noreferrer">
+              Login
+            </Link>
+          </p>
+        </form>
+      </div>
     </section>
-    </>
   );
 }
