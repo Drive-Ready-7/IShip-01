@@ -12,7 +12,7 @@ const App = () => {
     return (
         <Suspense fallback={ <Loader /> }>
             {/* routes ternary condtion */}
-            { width>768 ? <DesktopRoutes /> : <MobileRoutes/>}
+            { width>768 ? <DesktopRoutes/>: <MobileRoutes/>}
         </Suspense>
     )
 }
