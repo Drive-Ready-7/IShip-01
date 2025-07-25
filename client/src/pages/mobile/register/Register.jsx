@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./mobile_register.css";
+import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import {
   FaUser,
@@ -17,6 +18,8 @@ export default function Register() {
     password: "",
     confirmPassword: ""
   });
+  const str = "  ";
+  const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -52,7 +55,7 @@ export default function Register() {
     <section>
       <div className="mobile-register-div">
         <form className="register-box" onSubmit={handleSubmit}>
-          <h2>Register</h2>
+          <h1><span style={{color:"blue"}}>L</span>ast <span style={{color:"red"}}> L</span>ine</h1>
 
           <div className="mobile-register-input">
             <input
@@ -82,7 +85,7 @@ export default function Register() {
             <FaVoicemail className="icon" />
           </div>
 
-          <div className="mobile-register-input">
+          {/* <div className="mobile-register-input">
             <input
               type="tel"
               id="register-phone"
@@ -97,7 +100,7 @@ export default function Register() {
             />
             <label htmlFor="register-phone">Phone Number</label>
             <FaPhone className="icon" />
-          </div>
+          </div> */}
 
           <div className="mobile-register-input">
             <input
@@ -134,13 +137,12 @@ export default function Register() {
             }
           </div>
     
-          <button type="submit" onClick={handleSubmit}>Submit</button>
+          <button type="submit" onClick={handleSubmit}>Register</button>
 
-          <p>
-            Already have an Account?{" "}
-            <Link to="https://www.lastline.life/" target="_blank" rel="noopener noreferrer">
-              Login
-            </Link>
+          <p className="have-account">
+            Already have an Account?{str+"  "}
+            
+              <span onClick={() => navigate('/login') }>Login</span>
           </p>
         </form>
       </div>

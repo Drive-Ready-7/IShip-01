@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import './Login.css';
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePassword = () => {
         setShowPassword(prev => !prev);
     };
-
+    const navigate = useNavigate()
     return (
 
         <div className="M-Login">
@@ -64,7 +64,7 @@ const Login = () => {
 
                     {/* Register Link */}
                     <div className="M-register-link">
-                        <p>Don't have an account? <Link to="https://www.lastline.life/register">Register</Link></p>
+                        <p>Don't have an account? <spam onClick ={()=>{navigate('/register')}} >Register</spam></p>
                     </div>
                 </form>
             </div>
