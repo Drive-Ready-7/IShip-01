@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "../pages/desktop/login/Login.jsx";
 import Register from "../pages/desktop/register/Register.jsx";
-import Google from "../services/Google/Google.jsx";
+import Main from "../pages/desktop/main/Main.jsx";
 
 const router = createBrowserRouter([
-    { path: '/', element: <Login /> },
+    { path: '/', element: <Main /> },
     { path: '/register', element: <Register /> },
-    { path:'/google', element: <Google /> },
+    { path: '/login', element: <Login /> },
 ])
 
 const DesktopRoutes = () => {

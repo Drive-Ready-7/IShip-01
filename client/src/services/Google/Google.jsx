@@ -2,7 +2,7 @@
 const Google = () => {
 
     const handleGmailLogin = () => {
-        const userId = localStorage.getItem('userId') || "687e92e60346933562bd23bb";
+        const userId = localStorage.getItem('userId');
         window.open(
             `${import.meta.env.VITE_BACKEND_URI}/auth/google/start?state=${userId}`,
             'Login with Gmail',
