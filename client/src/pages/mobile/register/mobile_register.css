@@ -19,12 +19,12 @@ body {
 
 .register-box {
   background-color: aqua;
-  width: min(90%, 450px);
+  width: min(80%, 450px);
   height: max-content;
   position: absolute;
-  top: 50%;
+  top: 10%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   border-radius: 1.5rem;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   display: flex;
