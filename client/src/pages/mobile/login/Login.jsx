@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePassword = () => {
         setShowPassword(prev => !prev);
     };
+
     const navigate = useNavigate()
+
     return (
 
         <div className="M-Login">
