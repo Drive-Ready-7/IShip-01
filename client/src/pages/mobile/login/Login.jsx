@@ -15,7 +15,7 @@ const Login = () => {
         <div className="M-Login">
         
             <div id="M-navbar">
-                <img id="M-logo" src="/../../../src/assets/lastline_ll.png" alt="lastline_logo" />
+                <img id="M-logo" src="/images/logo.png" alt="lastline_logo" />
                 <div id="M-menu">&#9776;</div>
             </div>
             <div className="M-LoginForm">
@@ -57,14 +57,14 @@ const Login = () => {
                     {/* Remember Me & Forgot */}
                     <div className="M-Login-forget">
                         <label className="M-label" ><input type="checkbox" /> Remember me</label>
-                        <a href="#">Forgot Password?</a>
+                        <span onClick={() => navigate('/forgot-password')}>Forgot Password?</span>
                     </div>
 
-                    <button type="submit">Login</button>
+                    <button type="submit" className="M-Login-Button">Login</button>
 
                     {/* Register Link */}
                     <div className="M-register-link">
-                        <p>Don't have an account? <spam onClick ={()=>{navigate('/register')}} >Register</spam></p>
+                        <p>Don't have an account? <span onClick ={()=>{navigate('/register')}} >Register</span></p>
                     </div>
                 </form>
             </div>

@@ -1,15 +1,4 @@
 
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-}
-
 .mobile-register-div {
   width: 100svw;
   height: 100svh;
@@ -57,7 +46,7 @@ body {
   height:30px;
 }
 
-.mobile-register-input input {
+.mobile-register-input > input {
   width: 100%;
   padding: 12px 40px 12px 12px;
   font-size: 15px;
@@ -74,7 +63,7 @@ body {
   font-size: 16px;
   background-color: #f5f5f5;
   color: #2f3639a8;
-  
+
   padding: 0 4px;
   transition: 0.2s ease;
   pointer-events: none;
@@ -84,22 +73,22 @@ body {
 .mobile-register-input input:not(:placeholder-shown) + label {
   top: -8px;
   font-size: 13px;
-  
+
   color: rgb(119, 19, 10);
-  
-  
+
+
 }
- .icon {
+.icon {
   position: absolute;
   right: 12px;
   top: 75%;
   transform: translateY(-50%);
   color:  rgba(163, 0, 0, 0.246);;
   cursor: pointer;
-  
+
 }
 .mobile-register-input input:focus ~ .icon {
-  color: #000000; 
+  color: #000000;
 }
 .register-div h1 {
   color: white;
@@ -117,7 +106,7 @@ body {
 }
 .mobile-register-div button:hover {
   cursor: pointer;
-  
+
 }
 
 
@@ -129,6 +118,6 @@ body {
 
 }
 
-/* .register-box p {
-  margin-bottom: 20px;
-} */
+.have-account > span {
+  margin-left: 5px;
+}

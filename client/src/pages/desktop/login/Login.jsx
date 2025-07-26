@@ -1,75 +1,96 @@
-import React, { useState } from 'react';
+import {useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
+import Axios from "@api";
+
+import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import './Login.css';
-import myImage from './Login-img1.jpeg';
-import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
 
-const Login = () => {
-  const [showPassword, setShowPassword] = useState(false);
+export default function Login() {
+    const [usernameOrEmail, setUsernameOrEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState("");
+    const [rememberMe, setRememberMe] = useState(false);
 
-  const togglePassword = () => {
-    setShowPassword(prev => !prev);
-  };
+    const navigate = useNavigate();
 
-  return (
-    <div className="Login">
-      <div className="LoginForm">
-        <form action="">
-          <h1>Login</h1>
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        if(rememberMe) {
+            console.log(rememberMe);
+            handleRememberMe();
+        }
+        try {
+            const res = await Axios.post("/api/user/login", { usernameOrEmail, password });
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('userData', res.data.user);
+            navigate('/');
+        } catch (err) {
+            console.error(err);
+            setError("Login failed. Please check your credentials.");
+        }
+    };
 
-          {/* Username Input */}
-          <div className="Login-Input">
-            <input
-              type="text"
-              id="username"
-              name="username"
-              required
-              placeholder=" "
-            />
-            <label htmlFor="username">Username or Email</label>
-            <FaUser className="icon" />
-          </div>
+    const handleRememberMe = () => {
+        localStorage.setItem("rememberMe", JSON.stringify(true));
+    }
 
-          {/* Password Input with toggle */}
-          <div className="Login-Input">
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              name="password"
-              required
-              placeholder=" "
-            />
-            <label htmlFor="password">Password</label>
-            <span onClick={togglePassword} style={{ cursor: 'pointer' }}>
-              {showPassword ? (
-                 <FaEye className="icon" />
-              ) : (
-              
-                 <FaEyeSlash className="icon" />
-              )}
-            </span>
-          </div>
+    useEffect(() => {
+        (() => {
+            const canRememberMe = localStorage.getItem("rememberMe");
+            if (canRememberMe) {
+                navigate("/");
+            }
+        })();
+    }, [navigate]);
 
-          {/* Remember Me & Forgot */}
-          <div className="Login-forget">
-            <label><input type="checkbox" /> Remember me</label>
-            <a href="#">Forgot Password?</a>
-          </div>
+    return (
+        <div className="login">
+            <form className="login-form" onSubmit={handleLogin}>
+                <h1>
+                    <span style={{ color: "blue" }}>L</span>ast <span style={{ color: "red" }}>L</span>ine
+                </h1>
 
-          <button type="submit">Login</button>
+                <div className="login-input">
+                    <input
+                        type="text"
+                        placeholder=" "
+                        value={usernameOrEmail}
+                        onChange={(e) => setUsernameOrEmail(e.target.value)}
+                        required
+                    />
+                    <label htmlFor="username">Username or Email</label>
+                    <FaUser className="icon" />
+                </div>
 
-          {/* Register Link */}
-          <div className="register-link">
-            <p>Don't have an account? <Link to="https://www.lastline.life/register">Register</Link></p>
-          </div>
-        </form>
-      </div>
+                <div className="login-input">
+                    <input
+                        type={showPassword ? "text" : "password"}
+                        placeholder=" "
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <label htmlFor="password">Password</label>
+                    <span onClick={() => setShowPassword(prev => !prev)} style={{ cursor: "pointer" }}>
+            {showPassword ? <FaEyeSlash className="icon" /> : <FaEye className="icon" />}
+          </span>
+                </div>
 
-      <div className="Login-img">
-        <img src={myImage} alt="img1" />
-      </div>
-    </div>
-  );
-};
+                {error && <p className="error">{error}</p>}
 
-export default Login;
+                <div className="login-actions">
+                    <label onClick={() => setRememberMe(prev => !prev)} ><input type="checkbox" /> Remember me</label>
+                    <span onClick={() => navigate('/forgot-password')}>Forgot Password?</span>
+                </div>
+
+                <button type="submit" className="login-btn">Login</button>
+
+                <p className="register-text">
+                    Don't have an account?
+                    <span onClick={() => navigate("/register")}> Register</span>
+                </p>
+            </form>
+        </div>
+    );
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./mobile_register.css";
+import "./Register.css";
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
+
 import {
   FaUser,
   FaVoicemail,
@@ -85,23 +85,6 @@ export default function Register() {
             <FaVoicemail className="icon" />
           </div>
 
-          {/* <div className="mobile-register-input">
-            <input
-              type="tel"
-              id="register-phone"
-              
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              placeholder=""
-
-              maxLength={10}
-            />
-            <label htmlFor="register-phone">Phone Number</label>
-            <FaPhone className="icon" />
-          </div> */}
-
           <div className="mobile-register-input">
             <input
               type={showPassword ? "text" : "password"}
@@ -140,9 +123,9 @@ export default function Register() {
           <button type="submit" onClick={handleSubmit}>Register</button>
 
           <p className="have-account">
-            Already have an Account?{str+"  "}
+            Already have an Account?
             
-              <span onClick={() => navigate('/login') }>Login</span>
+            <span onClick={() => navigate('/login') }>Login</span>
           </p>
         </form>
       </div>

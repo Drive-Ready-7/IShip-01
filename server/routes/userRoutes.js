@@ -51,13 +51,26 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+    console.log(req.body);
+    const { usernameOrEmail, password } = req.body;
+
+    const isEmail = (str) => {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(str);
+    };
 
     try {
-        const user = await userHelper.findUser(email);
+        let user;
+        if(isEmail(usernameOrEmail)) {
+            user = await User.findOne({ email: usernameOrEmail });
+        } else {
+            user = await User.findOne({ username: usernameOrEmail });
+        }
+
+        console.log(isEmail(usernameOrEmail));
 
         if(!user) {
-            res.status(404).json({ error: 'User not exists' });
+            return res.status(404).json({ error: 'User not exists' });
         }
 
         const validPassword = await bcrypt.compare(password, user.password);
@@ -67,7 +80,7 @@ router.post('/login', async (req, res) => {
         }
 
         const token = jwt.sign(
-            { email, id: user._id },
+            { id: user._id },
             process.env.SECRET_KEY,
             { expiresIn: process.env.EXPIRES_IN, }
         );
