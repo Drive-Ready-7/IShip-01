@@ -14,9 +14,13 @@ config();
 
 const app = express();
 
-app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials:true}))
 
 app.get('', (req, res) => {
     res.status(200).send("<head> <title>LastLine Server</title> <body style='text-align: center' > <h1>LastLine</h1> <h6>Up 'N Running</h6> </body> </head>");

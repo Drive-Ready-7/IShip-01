@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import Logo from '../logo/Logo'
@@ -9,12 +9,13 @@ import {
   FaEye,
   FaEyeSlash
 } from "react-icons/fa";
+import { AppContext } from "../../../AppContext/AppProvider";
+import axios from "axios";
 
 export default function Register() {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
-    phone: "",
     password: "",
     confirmPassword: ""
   });
@@ -23,6 +24,8 @@ export default function Register() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const {backendUrl , setIsLogin} = useContext(AppContext);
 
   const togglePassword = () => {
     setShowPassword(prev => !prev);
@@ -41,14 +44,37 @@ export default function Register() {
    
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
+  console.log("form submitted");
     if (formData.password !== formData.confirmPassword) {
       alert('not match the passwords')
       return;
     }
+    
+    try {  
+      axios.defaults.withCredentials = true;
+      console.log(backendUrl)
+      console.log('hi')
+      const {data} = await axios.post(`${backendUrl}/api/user/register`,
+      {
+        name: formData.username,
+        email: formData.email,
+        password: formData.password,
+      })
+      
+        if(data.success){
+        setIsLogin(true)
+        navigate('/')
+      }else{
+        alert(data.message)
+      }
+    }
+    catch(e){
 
+      alert(e)
+    }
   };
 
   return (
@@ -122,7 +148,7 @@ export default function Register() {
             }
           </div>
     
-          <button type="submit" onClick={handleSubmit}>Register</button>
+          <button type="submit">Register</button>
 
           <p className="have-account">
             Already have an Account?
