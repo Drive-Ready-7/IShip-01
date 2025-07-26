@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
-
+import Logo from '../logo/Logo'
 import {
   FaUser,
   FaVoicemail,
@@ -55,8 +55,10 @@ export default function Register() {
     <section>
       <div className="mobile-register-div">
         <form className="register-box" onSubmit={handleSubmit}>
-          <h1><span style={{color:"blue"}}>L</span>ast <span style={{color:"red"}}> L</span>ine</h1>
-
+          <div className="logo">
+            <Logo />
+          </div>
+          
           <div className="mobile-register-input">
             <input
               type="text"
