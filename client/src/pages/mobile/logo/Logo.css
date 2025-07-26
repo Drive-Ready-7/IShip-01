@@ -1,0 +1,97 @@
+@import url("https://fonts.cdnfonts.com/css/technopollas");
+
+#mobile-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 160px;
+}
+
+#mobile-last {
+    width: auto;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#mobile-line {
+    width: auto;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0px;
+}
+
+#mobile-last-l, #mobile-line-l {
+    position: relative;
+    height: 45px;
+    width: 20px;
+    bottom: 5px;
+    left: 4px;
+}
+
+
+#mobile-last-long, #mobile-line-long {
+    height: 32px;
+    width: 12px;
+    position: absolute;
+    background-color: rgb(58, 160, 255);
+    transform: rotateX(180deg) skewX(30deg);
+    overflow: hidden;
+    left: 7.5px;
+}
+
+#mobile-last-small, #mobile-line-small {
+    height: 13px;
+    width: 12px;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    background-color: rgb(58, 160, 255); 
+    transform: skewX(35deg);
+}
+
+#mobile-line-long, #mobile-line-small {
+    background-color: rgb(255, 59, 59);
+}
+
+.mobile-suffix {
+    height: 45px;
+    width: 0;
+    transform: rotateX(180deg) skewX(30deg);
+    overflow: hidden;
+    animation: mobile-suffix-animation 2.5s ease-out forwards;
+}
+
+.mobile-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: auto;
+    color: black;
+    font-size: 20px;
+    font-family: 'Technopollas', sans-serif;
+    transform: translateX(-100px) skewX(-30deg) rotateX(-180deg);
+    animation: mobile-text-animation 2.5s ease-out forwards;
+}
+
+@keyframes mobile-suffix-animation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 60px;
+    }
+}
+
+@keyframes mobile-text-animation {
+    from {
+        transform: translateX(-60px) skewX(-30deg) rotateX(-180deg);
+    }
+    to {
+        transform: translateX(0px) skewX(-30deg) rotateX(-180deg);
+    }
+}

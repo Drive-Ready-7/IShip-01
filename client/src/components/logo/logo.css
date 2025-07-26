@@ -86,7 +86,7 @@ section {
     width:0;
     transform: rotateX(180deg) skewX(30deg) ;
     overflow: hidden;
-    animation: suffix-animation 2.5s ease-out ;
+    animation: suffix-animation 2.5s ease-out forwards ;
 }
 
 .text{
@@ -99,7 +99,7 @@ section {
     font-size: 100px;
     font-family: 'Technopollas', sans-serif;
     transform: translateX(-300px) skewX(-30deg) rotatex(-180deg) ;
-    animation: text-animation 2.5s ease-out ;
+    animation: text-animation 2.5s ease-out forwards ;
 }
 
 @keyframes suffix-animation {

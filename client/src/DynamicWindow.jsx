@@ -1,11 +1,9 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useMediaQuery } from "react-responsive";
 
-import Logo from "./components/logo/Logo.jsx";
 import DesktopRoutes from "./routes/DesktopRoutes.jsx";
 import MobileRoutes from './routes/MobileRoutes.jsx';
 import Loader from './components/loaders/simpleLoader/Loader.jsx';
-
 export default function DynamicWindow() {
 
     const isMobile = useMediaQuery({
