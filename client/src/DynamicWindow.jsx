@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import DesktopRoutes from "./routes/DesktopRoutes.jsx";
 import MobileRoutes from './routes/MobileRoutes.jsx';
 import Loader from './components/loaders/simpleLoader/Loader.jsx';
-import Logo from '../src/components/logo/Logo.jsx'
+import Logo from './components/logo/Logo.jsx';
 
 export default function DynamicWindow() {
 
