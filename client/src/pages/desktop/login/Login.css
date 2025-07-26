@@ -1,125 +1,119 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
+.login {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-html,body{
-  height:100%;
-  display: flex;
-  justify-content: center;
-  align-items:center;
-}
-.Login{
-  display: flex;
-}
-.LoginForm{
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  width:450px;
-  background-color: rgb(242, 236, 236);
+.login-form {
+    width: min(90%, 450px);
+    border-radius: 1.5rem;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
 }
 
-.LoginForm h1{
-  font-size: 36px;
-  text-align: center;
-  margin-top: 20px;
-}
-.Login-Input {
- 
-  position: relative;
-  width: 350px;
-  height:50px;
-  margin: 30px 0;
+.login-form h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: black;
 }
 
-.Login-Input input {
-  width: 100%;
-  padding: 14px 12px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 40px;
-  outline: none;
-  background: none;
+.login-input {
+    position: relative;
+    width: 90%;
 }
 
-.Login-Input label {
-  position: absolute;
-  left: 12px;
-  top: 14px;
-  font-size: 16px;
-  color: #999;
-  background-color: rgb(242, 236, 236);
-  padding: 0 4px;
-  transition: 0.2s ease;
-  pointer-events: none;
-  z-index:2;
-  
+.login-input input {
+    width: 100%;
+    padding: 15px;
+    font-size: 15px;
+    border: 1.5px solid rgba(163, 0, 0, 0.246);
+    border-radius: 5px;
+    outline: none;
+    background: transparent;
 }
 
-.Login-Input input:focus + label,
-.Login-Input input:not(:placeholder-shown) + label {
-  top: -8px;
-  font-size: 16px;
-  color: #1a73e8;
+.login-input label {
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    font-size: 16px;
+    background-color: white;
+    color: #2f3639a8;
+    padding: 0 4px;
+    transition: 0.2s ease;
+    pointer-events: none;
 }
 
-.Login-Input .icon{
-  position: absolute;
-  right:10px;
-  top: 30%;
-  font-size: 16px;
+.login-input input:focus + label,
+.login-input input:not(:placeholder-shown) + label {
+    top: -8px;
+    font-size: 13px;
+    color: rgb(119, 19, 10);
 }
 
-.Login-forget{
-  display: flex;
-  justify-content: space-between;
-  font-size: 14.5px;
-  margin: -15px 0 15px;
+.login-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    font-size: 13px;
+    color: #555;
 }
 
-.Login-forget label input{
-  margin-right: 4px;
+.login-actions > span {
+    text-decoration: none;
+    color: #000;
 }
 
-.Login-forget a{
-  text-decoration: none;
+.login-actions > span:hover {
+    text-decoration: underline;
 }
 
-.Login-forget a:hover{
-  text-decoration: underline;
+.login-btn {
+    background-color: #2f3639;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+    width: 90%;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
 }
 
-.LoginForm button{
-  width:90px;
-  height: 45px;
-  background-color: white;
-  border:none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0,0,0, .1);
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 400;
+.login-btn {
+    background-color: #1f2528;
 }
 
-.LoginForm .register-link{
-  font-size:14.5px;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 100px;
+.register-text {
+    font-size: 13px;
+    color: gray;
 }
 
-.register-link p a{
-  text-decoration: none;
-  font-weight: 600;
+.register-text span {
+    color: rgba(0, 140, 255, 0.771);
+    cursor: pointer;
+    margin-left: 5px;
+    text-decoration: underline;
 }
 
-.register-link p a:hover{
-  text-decoration: underline;
+.error {
+    color: red;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 0;
 }
 
-.Login-img img{
-  width:450px;
-  border: 1px solid black;
+.login-input .icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(163, 0, 0, 0.4);
+    font-size: 18px;
+    cursor: pointer;
 }
