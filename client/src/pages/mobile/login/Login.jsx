@@ -19,26 +19,28 @@ const Login = () => {
 
     const navigate = useNavigate()
     
-    const {backendUrl,setIsLogin} = useContext(AppContext);
+    const backendUrl = 'http://localhost:5000';
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
         try {  
             axios.defaults.withCredentials = true;
-            console.log(backendUrl)
-            console.log('hi')
-            const {data} = await axios.post(`${backendUrl}/api/user/login`,
+            const res = await axios.post(`${backendUrl}/api/user/login`,
             {
               usernameOrEmail : usernameOrGmail,
               password:password,
         })
-            console.log(data)
-            navigate('/')
-        
+        console.log(res.data);
+        if (res.data.success) {
+            localStorage.setItem('user', JSON.stringify(res.data.user));
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('isLoggedIn', 'true');
+            navigate('/');
+        }
         }
         catch(e){
 
-        alert(e)
+        alert('invalid details')
         }
     }
 

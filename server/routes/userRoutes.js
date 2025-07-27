@@ -85,7 +85,7 @@ router.post('/login', async (req, res) => {
             { expiresIn: process.env.EXPIRES_IN, }
         );
 
-        res.status(200).json({user, token});
+        res.status(200).json({success:true,user, token});
     } catch(err) {
         console.log(err);
 
