@@ -7,7 +7,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@api': path.resolve(__dirname, './src/auth/Axios')
+      '@api': path.resolve(__dirname, './src/auth/Axios'),
+      '@components': path.resolve(__dirname, './src/components'),
     }
   }
 })

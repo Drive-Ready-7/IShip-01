@@ -1,22 +1,36 @@
 import Axios from '@api'
 import './Main.css';
+import Nav from '@components/nav/Nav.jsx';
+import {useEffect, useState} from "react";
 
 export default function Main() {
 
-    const test = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === "true");
+    const [userMails, setUserMails] = useState([]);
+    
+    useEffect(() => {
         try {
-            const res = Axios.get('http://localhost:5000/am-i-alive');
-            console.log(res.data);
+            const id = localStorage.getItem('id');
+            const res = Axios.get(`/api/get-mails?id=${id}`);
+            setUserMails(res.data);
         } catch(err) {
-            console.error(err);
+            console.log(err);
         }
-    }
+    }, [])
 
     return (
-        <section>
-            Main Page
+        <>
+            <Nav />
+            <section className="main-container">
+                <aside className="main-aside">
+                    <ul className="aside-list">
+                        <li></li>
+                    </ul>
+                </aside>
+                <article className="main-content">
 
-            <button onClick={test}> Test Interceptors</button>
-        </section>
+                </article>
+            </section>
+        </>
     )
 }

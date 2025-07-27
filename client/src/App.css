@@ -4,8 +4,27 @@
   box-sizing: border-box;
 }
 
+:root {
+  --base-easing: cubic-bezier(0.3,0.1,0,1);
+  --base-easing-out: cubic-bezier(0.23,1.01,0.6,0.95);
+  --base-easing-in: cubic-bezier(0.585,-0.01,0.61,0.85);
+  --over-bounce-easing-out: cubic-bezier(0.315,1.85,0.63,0.795);
+  --ease-in-out-cubic: cubic-bezier(0.645,0.045,0.355,1);
+  --hd-font-family: Agrandir, Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
+  --body-font-family: Manrope, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 html, body {
-  height: 100%;
-  width: 100%;
-  font-family: 'Segoe UI', sans-serif;
+  font-synthesis: style;
+  font-family: var(--body-font-family), 'Times New Roman', Times, serif;
+}
+
+.dark-mode {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.light-mode {
+  background-color: #b9b0bf;;
+  color: #000000;
 }

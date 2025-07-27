@@ -1,6 +1,6 @@
 @import url("https://fonts.cdnfonts.com/css/technopollas");
 
-section {
+.logo-container {
     display: flex;
     justify-content: center;
     align-items: center;

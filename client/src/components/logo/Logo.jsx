@@ -5,7 +5,7 @@ import './Logo.css';
 const Logo = () => {
 
     return (
-        <section>
+        <section className="logo-container">
             <div id="last">
                 <div id="last-l">
                     <div className="letter-l" id="last-long"></div>

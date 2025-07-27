@@ -1,0 +1,113 @@
+nav, main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+}
+
+nav {
+    justify-content: space-between;
+    width: auto;
+    margin: 5vh 6vw 0 max(6vw, 26px);
+    border-radius: 16px;
+    box-shadow:
+            0 8px 16px -4px rgba(37, 8, 53, 0.06),
+            0 -4px 8px -4px rgba(37, 8, 53, 0.04);
+    transition: box-shadow 400ms cubic-bezier(0.3, 0.1, 0, 1);
+}
+
+nav:hover {
+    box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.25);
+}
+
+main {
+    margin-left: 24px;
+}
+
+.img-logo {
+    height: 56px;
+    width: 170px;
+    margin-right: 12px;
+}
+
+.divider {
+    height: 25px;
+    border-right: 1px solid #a69696;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    margin: 0 24px;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12px;
+    padding: 8px 12px;
+    transition: color 200ms;
+    border: none;
+    border-radius: 4px;
+}
+
+.nav-links li:hover {
+    cursor: pointer;
+    background-color: rgba(236, 236, 236, 0.3);
+}
+
+.nav-left-container {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    align-items: center;
+
+    margin-right: 24px;
+}
+
+.nav-button {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: transparent;
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.nav-login-btn {
+    border: none;
+}
+
+.nav-login-btn:hover {
+    background-color: blue;
+    color: white;
+}
+
+.nav-register-btn {
+    border-color: red;
+}
+
+.nav-register-btn:hover {
+    background-color: red;
+    color: white;
+}
+
+.profile-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-img:hover {
+    cursor: pointer;
+}

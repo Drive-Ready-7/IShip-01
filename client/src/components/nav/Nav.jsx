@@ -1,38 +1,52 @@
-import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import './Nav.css';
 
 const Nav = () => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true' || true;
+    const navigate = useNavigate();
 
-    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === "true");
+    const handleLogin = () => {
+        navigate('/login');
+    };
 
+    const handleRegister = () => {
+        navigate('/register');
+    };
 
     return (
         <nav>
-            <main>
-                <img alt="logo.png"/>
-                <h1>
-                    LastLine
-                </h1>
+            <main className="nav-logo-section">
+                <img
+                    src="/images/lastline-logo.png"
+                    alt="Lastline logo"
+                    className="img-logo"
+                />
+                <div className="divider" />
             </main>
-            <ul>
-                <li>About</li>
-                <li>DashBoard</li>
-                <li>Contact Us</li>
-                <li>Add Email</li>
+
+            <ul className="nav-links">
+                <li onClick={() => navigate('/dashboard')}>Dashboard</li>
+                <li onClick={() => navigate('/about')}>About</li>
+                <li onClick={() => navigate('/contact-us')}>Contact Us</li>
             </ul>
-            <main>
+
+            <main className="nav-left-container">
+                <div className="divider" />
                 {isLoggedIn ? (
-                    <img alt="profile.png"/>
-                ) :
-                    (
-                      <>
-                          <button onClick={handleLogin}>login</button>
-                          <button onClick={handleRegister}>register</button>
-                      </>
-                    )}
+                    <img
+                        src="/images/logo.png"
+                        alt="Profile"
+                        className="profile-img"
+                    />
+                ) : (
+                    <>
+                        <button onClick={handleLogin} className="nav-button nav-login-btn">Login</button>
+                        <button onClick={handleRegister} className="nav-button nav-register-btn">Register</button>
+                    </>
+                )}
             </main>
         </nav>
-    )
-}
+    );
+};
 
 export default Nav;
