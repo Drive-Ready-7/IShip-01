@@ -1,5 +1,32 @@
+#mobile-menu{
+}
+#mobile-top-menu-bar{
+    display: flex;
+    flex-direction : column;
+    position: absolute;
+    padding : 10px;
+    right : -160px;
+    top : 50px;
+    border-radius : 20px 0px 20px 20px ;
+    background-color: gainsboro;
+    transition : right 2s ease-out ;
+}
+#mobile-menu-button{
+    font-size : 25px;
+    padding : 5px 10px;
+} 
+#mobile-cancel-button {
+    font-size : 30px;
+    padding : 0px 15px 20px 10px;
+}
 
-li {
-    border-radius: 2px;
-    padding : 10px 20px ;
+.mobile-menu-options {
+    border-radius: 20px;
+    padding : 9px 15px ;
+    margin : 5px;
+    text-align: center;
+    list-style-type: none;
+}
+.mobile-menu-options:hover{
+    background-color : rgb(150,150,150);
 }

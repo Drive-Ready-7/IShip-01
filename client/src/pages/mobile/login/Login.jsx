@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './Login.css';
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
-
+import Menu from '../menu/menu';
 import { AppContext } from "../../../AppContext/AppProvider";
 import axios from "axios";
 
@@ -49,7 +49,7 @@ const Login = () => {
         
             <div id="M-navbar">
                 <img id="M-logo" src="/images/logo.png" alt="lastline_logo" />
-                <div id="M-menu">&#9776;</div>
+                <Menu/>
             </div>
             <div className="M-LoginForm">
                 <form  id="M-form" onSubmit={handleSubmit}>
