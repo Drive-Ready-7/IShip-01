@@ -30,7 +30,7 @@ const Login = () => {
               usernameOrEmail : usernameOrGmail,
               password:password,
         })
-        console.log(res.data);
+        console.log(res.data.user.name);
         if (res.data.success) {
             localStorage.setItem('user', JSON.stringify(res.data.user));
             localStorage.setItem('token', res.data.token);
