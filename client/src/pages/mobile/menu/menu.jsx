@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 import React ,{useState,useRef} from 'react'
+=======
+import React from 'react'
+>>>>>>> Stashed changes
 import './menu.css'
 export default function menu() {
   const [menuIsOpened , toggleMenu] = useState(0);
@@ -19,6 +23,7 @@ export default function menu() {
   };
   return (
     <div>
+<<<<<<< Updated upstream
       <div id="mobile-menu" onClick={openOrCloseMenu}>
             {menuIsOpened ? <div id="mobile-cancel-button">x</div> : <div id="mobile-menu-button">&#9776;</div>  }
       </div>
@@ -28,6 +33,17 @@ export default function menu() {
             <li className="mobile-menu-options">privacy policy</li>
             <li className="mobile-menu-options">logout</li>
       </ul>
+=======
+        <div id="menu">
+            &#9776;
+        </div>
+        <ul id="top-menu-bar">
+          <li class="menu-options" id="menu-profile">profile</li>
+          <li class="menu-options" id="menu-mails">mails</li>
+          <li class="menu-options" id="menu-privacy-policy">privacy policy</li>
+          <li class="menu-options" id="menu-logout">logout</li>
+        </ul>
+>>>>>>> Stashed changes
     </div>
   )
 }

@@ -48,8 +48,13 @@ const Login = () => {
         <div className="M-Login">
         
             <div id="M-navbar">
+<<<<<<< Updated upstream
                 <img id="M-logo" src="/images/logo.png" alt="lastline_logo" />
                 <Menu/>
+=======
+                <img id="M-logo" src="/images/ll-logo.png" alt="lastline_logo" />\
+                <menu/>
+>>>>>>> Stashed changes
             </div>
             <div className="M-LoginForm">
                 <form  id="M-form" onSubmit={handleSubmit}>
