@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './Login.css';
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
-import Menu from '../menu/menu';
+
 import { AppContext } from "../../../AppContext/AppProvider";
 import axios from "axios";
 import Logo  from '../logo/Logo';
@@ -40,8 +40,8 @@ const Login = () => {
         }
         }
         catch(e){
-
-        alert('invalid details')
+          console.error(e);
+          alert('invalid details')
         }
     }
 
