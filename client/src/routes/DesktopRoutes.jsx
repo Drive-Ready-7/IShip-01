@@ -4,13 +4,16 @@ import Register from "../pages/desktop/register/Register.jsx";
 import Main from "../pages/desktop/main/Main.jsx";
 import Logo from "../components/logo/Logo.jsx";
 import Nav from "../components/nav/Nav.jsx";
+import PrivacyPolicy from "../pages/desktop/privacypolicy/PrivacyPolicy.jsx";
+
 
 const router = createBrowserRouter([
     { path: '/', element: <Main /> },
     { path: '/register', element: <Register /> },
     { path: '/login', element: <Login /> },
     { path : '/logo' , element: <Logo/> },
-    { path: '/test', element: <Nav /> }
+    { path: '/test', element: <Nav /> },
+    { path: '/privacy-policy', element: <PrivacyPolicy/> }
 ])
 
 const DesktopRoutes = () => {

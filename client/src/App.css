@@ -17,6 +17,7 @@
 html, body {
   font-synthesis: style;
   font-family: var(--body-font-family), 'Times New Roman', Times, serif;
+  scroll-behavior: smooth;
 }
 
 .dark-mode {
