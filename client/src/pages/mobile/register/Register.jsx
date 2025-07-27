@@ -140,20 +140,20 @@ export default function Register() {
               placeholder=" "
             />
             <label htmlFor="register-confirm-password">Confirm Password</label>
-            <span onClick={toggleConfirmPassword} style={{ cursor: "pointer" }}>
+            <span onClick={toggleConfirmPassword} style={{ cursor: "pointer" }}  >
               {showConfirmPassword ? <FaEye className="icon" /> : <FaEyeSlash className="icon" />}
             </span>
-            {formData.password !== formData.confirmPassword?(
-               <p className="passwd">Passwords do not match</p> ) : null  
-            }
+           
           </div>
-    
+           {formData.password !== formData.confirmPassword?(
+               <p className="passwd">Passwords do not match</p> ) : null  
+          }
           <button type="submit">Register</button>
 
           <p className="have-account">
             Already have an Account?
             
-            <span onClick={() => navigate('/login') }>Login</span>
+            <span style={{textDecoration:"underline"}} onClick={() => navigate('/login') }>Login</span> Here.
           </p>
         </form>
       </div>

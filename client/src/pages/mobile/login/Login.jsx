@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Menu from '../menu/menu';
 import { AppContext } from "../../../AppContext/AppProvider";
 import axios from "axios";
+import Logo  from '../logo/Logo';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -46,74 +47,59 @@ const Login = () => {
 
 
     return (
+        <section>
+      <div className="mobile-login-div">
+        <form className="login-box" onSubmit={handleSubmit}>
+          <div className="logo">
+            <Logo />
+          </div>
+          
+          <div className="mobile-login-input">
+            <input
+              type="text"
+              id="login-username"
+              name="usernameOrGmail"
+              value={usernameOrGmail}
+              onChange={(e)=>setUsernameOrGmail(e.target.value)}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="login-username">Username</label>
+            <FaUser className="icon" />
+          </div>
 
-        <div className="M-Login">
-        
-            <div id="M-navbar">
-<<<<<<< Updated upstream
-                <img id="M-logo" src="/images/logo.png" alt="lastline_logo" />
-                <Menu/>
-=======
-                <img id="M-logo" src="/images/ll-logo.png" alt="lastline_logo" />\
-                <menu/>
->>>>>>> Stashed changes
+
+          <div className="mobile-login-input">
+            <input
+              type={showPassword ? "text" : "password"}
+              id="login-password"
+              name="password"
+              value={password}
+              onChange={(e)=>setPassword(e.target.value)}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="login-password">Enter Password</label>
+            <span onClick={togglePassword} style={{ cursor: "pointer" }}>
+              {showPassword ? <FaEye className="icon" /> : <FaEyeSlash className="icon" />}
+            </span>
+          </div>
+
+            <div className="M-Login-forget">
+                <label className="M-label" ><input type="checkbox" /> Remember me</label>
+                <span style={{color:"#08a3fcff", textDecoration:"underline",cursor:"pointer"}} onClick={() => navigate('/forgot-password')}>Forgot Password?</span>
             </div>
-            <div className="M-LoginForm">
-                <form  id="M-form" onSubmit={handleSubmit}>
-                    <h1>Login</h1>
-                    {/* Username Input */}
-                    <div className="M-Login-Input">
-                        <input
-                            type="text"
-                            id="username"
-                            name="username"
-                            value={usernameOrGmail}
-                            onChange={(e)=>setUsernameOrGmail(e.target.value)}
-                            required
-                            placeholder=" "
-                        />
-                        <label className="M-label" htmlFor="username">Username or Email</label>
-                        <FaUser className="M-icon" />
-                    </div>
+          
+          <button type="submit">Login</button>
 
-                    {/* Password Input with toggle */}
-                    <div className="M-Login-Input">
-                        <input
-                            type={showPassword ? "text" : "password"}
-                            id="M-password"
-                            name="password"
-                            value={password}
-                            onChange={(e)=>setPassword(e.target.value)}
-                            required
-                            placeholder=" "
-                        />
-                        <label className="M-label"  htmlFor="password">Password</label>
-                        <span onClick={togglePassword} style={{ cursor: 'pointer' }}>
-                            {showPassword ? (
-                                <FaEye className="M-icon" />
-                            ) : (
-
-                                <FaEyeSlash className="M-icon" />
-                            )}
-                        </span>
-                    </div>
-
-                    {/* Remember Me & Forgot */}
-                    <div className="M-Login-forget">
-                        <label className="M-label" ><input type="checkbox" /> Remember me</label>
-                        <span onClick={() => navigate('/forgot-password')}>Forgot Password?</span>
-                    </div>
-
-                    <button type="submit" className="M-Login-Button">Login</button>
-
-                    {/* Register Link */}
-                    <div className="M-register-link">
-                        <p>Don't have an account? <span onClick ={()=>{navigate('/register')}} >Register</span></p>
-                    </div>
-                </form>
-            </div>
-
-        </div>
+          <p className="have-account">
+            Hey, You Don't have an account?
+            
+            <span style={{textDecoration:"underline"}} onClick={() => navigate('/register') }>Register</span> Here.
+          </p>
+        </form>
+      </div>
+    </section>
     );
 };
 
