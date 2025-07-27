@@ -1,16 +1,47 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css';
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 
+import { AppContext } from "../../../AppContext/AppProvider";
+import axios from "axios";
+
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+
+    const [usernameOrGmail,setUsernameOrGmail] = useState("");
+    const [password,setPassword]=useState("");
+
 
     const togglePassword = () => {
         setShowPassword(prev => !prev);
     };
 
     const navigate = useNavigate()
+    
+    const {backendUrl,setIsLogin} = useContext(AppContext);
+
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+        try {  
+            axios.defaults.withCredentials = true;
+            console.log(backendUrl)
+            console.log('hi')
+            const {data} = await axios.post(`${backendUrl}/api/user/login`,
+            {
+              usernameOrEmail : usernameOrGmail,
+              password:password,
+        })
+            console.log(data)
+            navigate('/')
+        
+        }
+        catch(e){
+
+        alert(e)
+        }
+    }
+
 
     return (
 
@@ -21,7 +52,7 @@ const Login = () => {
                 <div id="M-menu">&#9776;</div>
             </div>
             <div className="M-LoginForm">
-                <form  id="M-form" action="">
+                <form  id="M-form" onSubmit={handleSubmit}>
                     <h1>Login</h1>
                     {/* Username Input */}
                     <div className="M-Login-Input">
@@ -29,6 +60,8 @@ const Login = () => {
                             type="text"
                             id="username"
                             name="username"
+                            value={usernameOrGmail}
+                            onChange={(e)=>setUsernameOrGmail(e.target.value)}
                             required
                             placeholder=" "
                         />
@@ -42,6 +75,8 @@ const Login = () => {
                             type={showPassword ? "text" : "password"}
                             id="M-password"
                             name="password"
+                            value={password}
+                            onChange={(e)=>setPassword(e.target.value)}
                             required
                             placeholder=" "
                         />
