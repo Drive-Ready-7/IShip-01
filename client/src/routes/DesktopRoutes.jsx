@@ -6,6 +6,8 @@ import Logo from "../components/logo/Logo.jsx";
 import Nav from "../components/nav/Nav.jsx";
 import PrivacyPolicy from "../pages/desktop/privacypolicy/PrivacyPolicy.jsx";
 import ForgotPassword from "../pages/desktop/forgot-password/ForgotPassword.jsx";
+import Profile from "../pages/desktop/profile/Profile.jsx";
+import Loader from "../components/loaders/simpleLoader/Loader.jsx";
 
 
 const router = createBrowserRouter([
@@ -15,7 +17,10 @@ const router = createBrowserRouter([
     { path : '/logo' , element: <Logo/> },
     { path: '/test', element: <Nav /> },
     { path: '/privacy-policy', element: <PrivacyPolicy/> },
-    { path: '/forgot-password', element: <ForgotPassword/> }
+    { path: '/forgot-password', element: <ForgotPassword/> },
+    { path: '/profile', element: <Profile/>},
+    { path: '/loader', element: <Loader/>}
+
 ])
 
 const DesktopRoutes = () => {
