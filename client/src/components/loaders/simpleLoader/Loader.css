@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+.simpleLoader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 7px;
+    height: 100svh;
+    overflow: hidden;
+}
+.dot1 {
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    background-color: black;
+}
+.dot1 {
+    background-color: navy;
+    animation: dot_to_last 0.8s infinite ease-in-out; 
+    position: relative;
+}
+.dot2 {
+    height: 17px;
+    width: 17px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.896);
+    animation: dot_to_front 0.8s infinite ease-in-out; 
+}
+.dot3 {
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.777);
+    animation: dot_to_front 0.8s infinite ease-in-out; 
+}
+.dot4 {
+    height: 13px;
+    width: 13px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.61);
+    animation: dot_to_front 0.8s infinite ease-in-out; 
+}
+.dot5 {
+    height: 11px;
+    width: 11px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.307);
+    animation: dot_to_front 0.8s infinite ease-in-out; 
+}
+@keyframes dot_to_last {
+    0% {
+        transform: translateX(0);
+        
+    }
+    20% {
+        transform: translateX(20px) translateY(-30px);
+        
+    }
+    50% {
+        transform: translateX(40px) translateY(-40px);
+        
+    }
+    80% {
+        transform: translateX(80px) translateY(-30px);
+        
+    }
+    100% {
+        transform: translateX(100px);
+        background-color: black;
+    }
+}
+@keyframes dot_to_front {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-27px);
+    }
+}
