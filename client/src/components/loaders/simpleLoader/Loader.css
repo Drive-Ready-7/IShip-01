@@ -20,7 +20,7 @@ body {
 }
 .dot1 {
     background-color: navy;
-    animation: dot_to_last 0.8s infinite ease-in-out; 
+    animation: dot_to_last 0.7s infinite ease-in-out; 
     position: relative;
 }
 .dot2 {
@@ -28,28 +28,28 @@ body {
     width: 17px;
     border-radius: 100%;
     background-color: rgba(0, 0, 0, 0.896);
-    animation: dot_to_front 0.8s infinite ease-in-out; 
+    animation: dot_to_front 0.7s infinite ease-in-out; 
 }
 .dot3 {
     height: 15px;
     width: 15px;
     border-radius: 100%;
     background-color: rgba(0, 0, 0, 0.777);
-    animation: dot_to_front 0.8s infinite ease-in-out; 
+    animation: dot_to_front 0.7s infinite ease-in-out; 
 }
 .dot4 {
     height: 13px;
     width: 13px;
     border-radius: 100%;
     background-color: rgba(0, 0, 0, 0.61);
-    animation: dot_to_front 0.8s infinite ease-in-out; 
+    animation: dot_to_front 0.7s infinite ease-in-out; 
 }
 .dot5 {
     height: 11px;
     width: 11px;
     border-radius: 100%;
     background-color: rgba(0, 0, 0, 0.307);
-    animation: dot_to_front 0.8s infinite ease-in-out; 
+    animation: dot_to_front 0.7s infinite ease-in-out; 
 }
 @keyframes dot_to_last {
     0% {
