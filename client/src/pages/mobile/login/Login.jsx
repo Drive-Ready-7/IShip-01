@@ -1,54 +1,64 @@
-import React, { useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Login.css';
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 
-import { AppContext } from "../../../AppContext/AppProvider";
-import axios from "axios";
+import Axios from "@api";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-
     const [usernameOrGmail,setUsernameOrGmail] = useState("");
     const [password,setPassword]=useState("");
-
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [rememberMe, setRememberMe] = useState(false);
 
     const togglePassword = () => {
         setShowPassword(prev => !prev);
     };
 
     const navigate = useNavigate()
-    
-    const backendUrl = 'http://localhost:5000';
 
-    const handleSubmit = async (e)=>{
-        e.preventDefault();
-        try {  
-            axios.defaults.withCredentials = true;
-            const res = await axios.post(`${backendUrl}/api/user/login`,
-            {
-              usernameOrEmail : usernameOrGmail,
-              password:password,
-        })
-        console.log(res.data);
-        if (res.data.success) {
-            localStorage.setItem('user', JSON.stringify(res.data.user));
-            localStorage.setItem('token', res.data.token);
-            localStorage.setItem('isLoggedIn', 'true');
-            navigate('/');
-        }
-        }
-        catch(e){
-
-        alert('invalid details')
-        }
+    const handleRememberMe = () => {
+        localStorage.setItem("rememberMe", JSON.stringify(true));
     }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (rememberMe) {
+            handleRememberMe();
+        }
+        setLoading(true);
+        setError("");
+        try {
+            const res = await Axios.post(`/api/user/login`, {
+                usernameOrEmail: usernameOrGmail,
+                password: password,
+            });
+            console.log(res);
+            localStorage.setItem('userData', JSON.stringify(res.data.user));
+            localStorage.setItem('accessToken', res.data.token);
+            localStorage.setItem('isLoggedIn', 'true');
+            navigate('/');
+        } catch (e) {
+            console.log(e);
+            const errMsg = e?.response?.data?.error || "Network error or server not reachable.";
+            setError(errMsg);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+
+    useEffect(() => {
+        const canRememberMe = localStorage.getItem("rememberMe");
+        if (canRememberMe) {
+            navigate("/");
+        }
+    }, []);
 
     return (
-
         <div className="M-Login">
-        
             <div id="M-navbar">
                 <img id="M-logo" src="/images/logo.png" alt="lastline_logo" />
                 <div id="M-menu">&#9776;</div>
@@ -93,9 +103,11 @@ const Login = () => {
                         </span>
                     </div>
 
+                    {error && <p className="error"> {error} </p>}
+
                     {/* Remember Me & Forgot */}
                     <div className="M-Login-forget">
-                        <label className="M-label" ><input type="checkbox" /> Remember me</label>
+                        <label className="M-label" onClick={() => setRememberMe(prev => !prev)} ><input type="checkbox" /> Remember me</label>
                         <span onClick={() => navigate('/forgot-password')}>Forgot Password?</span>
                     </div>
 

@@ -4,7 +4,6 @@ import bcrypt from "bcrypt";
 
 import User from '../models/user.js';
 import verifyToken from "../auth/verifyToken.js";
-import * as userHelper from '../helpers/userHelper.js';
 import sendVerificationMail from '../services/transporters/mailVerification.js';
 import sendForgetPasswordCode from '../services/transporters/forgot-password.js';
 
@@ -27,11 +26,10 @@ router.get('/get-users', verifyToken, async (req, res) => {
 
 router.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
-
     try {
-        const user = await userHelper.userExists(email);
+        const user = await User.findOne({ email: email });
         if (user) {
-            res.status(400).json({ error: 'User already exists' });
+            return res.status(400).json({ error: 'User already exists' });
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -40,13 +38,14 @@ router.post('/register', async (req, res) => {
             name,
             email,
             password: hashedPassword,
+
         });
 
-        await userHelper.saveUser(newUser);
-        res.status(200).json({ message: 'Registered Successfully' });
+        await newUser.save();
+        return res.status(200).json({ message: 'Registered Successfully' });
     } catch(err) {
         console.log(err);
-        res.status(500).json({ error: 'Internal Server Error' });
+        return res.status(500).json({ error: 'Internal Server Error' });
     }
 })
 
@@ -64,10 +63,8 @@ router.post('/login', async (req, res) => {
         if(isEmail(usernameOrEmail)) {
             user = await User.findOne({ email: usernameOrEmail });
         } else {
-            user = await User.findOne({ username: usernameOrEmail });
+            user = await User.findOne({ name: usernameOrEmail });
         }
-
-        console.log(isEmail(usernameOrEmail));
 
         if(!user) {
             return res.status(404).json({ error: 'User not exists' });
@@ -88,10 +85,6 @@ router.post('/login', async (req, res) => {
         res.status(200).json({success:true,user, token});
     } catch(err) {
         console.log(err);
-
-        if(err.message === "User not found") {
-            res.status(404).json({ error: 'User not found' });
-        }
         res.status(500).json({ error: 'Internal Server Error' });
     }
 })
@@ -99,7 +92,7 @@ router.post('/login', async (req, res) => {
 router.post('/change-password', async (req, res) => {
     const { userId, oldPassword, newPassword } = req.body;
     try {
-        const user = await User.findbyId(userId);
+        const user = await User.findById(userId);
         if(!user) return res.status(404).json({ error: 'User does not exist' });
         if(!bcrypt.compare(oldPassword, user.password)) {
             return res.status(400).json({
@@ -115,7 +108,6 @@ router.post('/change-password', async (req, res) => {
     }
 });
 
-// http://localhost:5000/api/user/send-verification-mail
 router.post('/send-verification-mail', async (req, res) => {
     try {
         const { email } = req.body;
@@ -143,8 +135,7 @@ router.post('/send-verification-mail', async (req, res) => {
     }
 });
 
-// http://localhost:5000/api/user/send-forgot-password-mail
-router.post('send-forgot-password-mail', async (req, res) => {
+router.post('/send-forgot-password-mail', async (req, res) => {
     const { email } = req.body;
     console.log(email)
     try {
@@ -166,20 +157,36 @@ router.post('send-forgot-password-mail', async (req, res) => {
     }
 });
 
-// http://localhost:5000/api/user/verify-reset-password?userId=12345&resetCode=12345
-router.get('/oauth/verify-reset-password', async (req, res) => {
-    const { userId, resetCode, password } = req.query;
+router.post('/oauth/verify-code', async (req, res) => {
+    const { email, resetCode } = req.body;
     try {
-        const user = await User.findById(userId);
-        if(!user) {
-            return res.status(404).json({
-                error: 'User does not exist'
-            });
-        }
+        const user = await User.findOne({ email: email});
+        if(!user) return res.status(404).json({
+            error: 'User does not exist'
+        })
         const unicode = user.unicode;
         if(unicode !== resetCode) {
             return res.status(400).json({
                 error: 'Invalid Reset Code'
+            });
+        }
+        res.status(200).json({
+            success:true,
+        })
+    } catch(err) {
+        console.log(err);
+        return res.status(500).json({error: 'Internal Server Error'});
+    }
+})
+
+// http://localhost:5000/api/user/verify-reset-password
+router.post('/oauth/reset-password', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({ email: email});
+        if(!user) {
+            return res.status(404).json({
+                error: 'User does not exist'
             });
         }
         user.password = await bcrypt.hash(password, 12);

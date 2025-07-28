@@ -3,7 +3,6 @@ import {Router} from 'express';
 import dotenv from 'dotenv';
 
 import User from '../../models/user.js';
-import { saveUser } from "../../helpers/userHelper.js";
 
 dotenv.config();
 
@@ -55,6 +54,12 @@ router.get('/google/callback', async (req, res) => {
             console.error("User info fetch failed:", error.response?.data || error.message);
         }
 
+        if (!userInfo) {
+            return res.status(401).json({
+                message: 'User not found',
+            })
+        }
+
         // dont forget to add if email already exists to avoid duplicates
 
         const user = await User.findById(state);
@@ -69,7 +74,7 @@ router.get('/google/callback', async (req, res) => {
 
         console.log(user);
 
-        await saveUser(user);
+        await user.save();
 
         res.send(`
               <script>

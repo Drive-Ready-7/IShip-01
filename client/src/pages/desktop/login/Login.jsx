@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "@api";
 
@@ -10,6 +10,7 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
     const [rememberMe, setRememberMe] = useState(false);
 
     const navigate = useNavigate();
@@ -20,10 +21,12 @@ export default function Login() {
             console.log(rememberMe);
             handleRememberMe();
         }
+        setLoading(true);
         try {
             const res = await Axios.post("/api/user/login", { usernameOrEmail, password });
-            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('accessToken', res.data.token);
             localStorage.setItem('userData', res.data.user);
+            localStorage.setItem('isLoggedIn', 'true');
             navigate('/');
         } catch (err) {
             console.error(err);
@@ -42,7 +45,7 @@ export default function Login() {
                 navigate("/");
             }
         })();
-    }, [navigate]);
+    }, []);
 
     return (
         <div className="login">

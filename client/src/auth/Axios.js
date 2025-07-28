@@ -31,6 +31,8 @@ Axios.interceptors.response.use(res => res,
                 logoutUser();
                 return Promise.reject(err);
             }
+        } else {
+            return Promise.reject(err);
         }
     }
 )
