@@ -32,7 +32,6 @@ router.get('/google/start', (req, res) => {
 })
 
 router.get('/google/callback', async (req, res) => {
-    console.log("Getting response from google");
     const { code, state } = req.query;
     try {
         const tokenRes = await axios.post('https://oauth2.googleapis.com/token', null, {
@@ -48,60 +47,69 @@ router.get('/google/callback', async (req, res) => {
         const accessToken = tokenRes.data.access_token;
         const refreshToken = tokenRes.data.refresh_token;
 
-        let userInfo = null;
-        try {
-            userInfo = await axios.get('https://www.googleapis.com/oauth2/v2/userinfo', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${accessToken}`
-                }
-            });
-        } catch (error) {
-            console.error("User info fetch failed:", error.response?.data || error.message);
-        }
-
-        if (!userInfo) {
-            return res.status(401).json({
-                message: 'User not found',
-            })
-        }
-
-        // dont forget to add if email already exists to avoid duplicates
-        const user = await User.findById(state);
-        curEmail = userInfo.data.email;
-        user.userMails.push({
-            email: curEmail,
-            picture: userInfo.data.picture,
-            googleAccessToken: accessToken,
-            googleRefreshToken: refreshToken | accessToken,
-            googleTokenExpiryDate: Date.now()
+        const userInfoRes = await axios.get('https://www.googleapis.com/oauth2/v2/userinfo', {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            }
         });
 
-        console.log(user);
-        await user.save();
+        const { email, picture } = userInfoRes.data;
 
-        console.log(accessToken);
+        const user = await User.findById(state);
+        if (!user) {
+            return res.status(404).send("User not found for given state ID");
+        }
 
-        res.status(200).send(`
+        const alreadyLinked = user.userMails.find(mail => mail.email === email);
+        if (alreadyLinked) {
+            return res.status(200).send(`
               <script>
                 window.opener.postMessage({
-                    email: ${curEmail},
-                    message: "oauth_success"
+                    email: "${email}",
+                    message: "oauth_already_linked"
                 }, '*');
                 window.close();
               </script>
             `);
+        }
+
+        user.userMails.push({
+            email,
+            picture,
+            googleAccessToken: accessToken,
+            googleRefreshToken: refreshToken || accessToken,
+            googleTokenExpiryDate: Date.now() + (tokenRes.data.expires_in * 1000) // save expiry if needed
+        });
+
+        await user.save();
+
+        res.status(200).send(`
+          <script>
+            window.opener.postMessage({
+                email: "${email}",
+                message: "oauth_success"
+            }, '*');
+            window.close();
+          </script>
+        `);
     } catch (error) {
-        console.error(error.response?.data || error.message);
-        res.send("Error during OAuth");
+        console.error("❌ Google OAuth error:", error.response?.data || error.message);
+        res.status(500).send("OAuth Error: Could not complete authentication.");
     }
 });
 
+
 router.post('/google/process', async (req, res) => {
     const { userId, email } = req.body;
+    console.log("Window Touched the endpoint")
     try {
         const user = await User.findById(userId);
-        await filterMails(userId, email, user.userMails[email]);
+        const targetMail = user?.userMails?.find(mail => mail.email === email);
+        const Mailres = await filterMails(userId, email, targetMail.googleAccessToken);
+        res.status(200).json({
+            message: 'User processed successfully',
+            data: Mailres
+        })
     } catch(err) {
         console.log(err);
     }

@@ -12,8 +12,8 @@ const Google = () => {
         );
 
         window.addEventListener('message', (event) => {
-            if (event.data === 'oauth_success') {
-                Axios.post("/api/auth/google/process", {
+            if (event.data?.message === 'oauth_success') {
+                Axios.post("/auth/google/process", {
                     userId: userId,
                     email: event.data.email,
                 });
