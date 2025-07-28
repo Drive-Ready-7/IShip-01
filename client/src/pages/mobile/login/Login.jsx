@@ -13,6 +13,9 @@ const Login = () => {
     const [usernameOrGmail,setUsernameOrGmail] = useState("");
     const [password,setPassword]=useState("");
 
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [rememberMe, setRememberMe] = useState(false);
 
     const togglePassword = () => {
         setShowPassword(prev => !prev);
@@ -20,7 +23,6 @@ const Login = () => {
 
     const navigate = useNavigate()
     
-    // const backendUrl = 'http://localhost:5000';
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
@@ -93,7 +95,7 @@ const Login = () => {
           <button type="submit">Login</button>
 
           <p className="have-account">
-            Hey, You Don't have an account?
+            Don't have an account?
             
             <span style={{textDecoration:"underline"}} onClick={() => navigate('/register') }>Register</span> Here.
           </p>
