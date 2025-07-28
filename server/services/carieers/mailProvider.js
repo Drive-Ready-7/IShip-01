@@ -102,6 +102,7 @@ function normalizeEmailBodies(emails) {
 
 
 const fetchRecentEmails = async (accessToken) => {
+    console.log(accessToken);
     const messages = await getMailsById(accessToken);
 
     const emails = [];
