@@ -4,7 +4,7 @@
     padding: 40px 20px;
     background-color: #fdfdfd;
     color: #222;
-
+    margin: 0 auto;
     border-radius: 5px;
     box-shadow:
             0 8px 16px -4px rgba(37, 8, 53, 0.06),
@@ -13,7 +13,8 @@
 }
 
 .privacy-wrapper::-webkit-scrollbar {
-    height: 8px;
+    height: 2px;
+    width: 8px;
 }
 
 .privacy-wrapper::-webkit-scrollbar-thumb {

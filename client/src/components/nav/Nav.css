@@ -28,6 +28,7 @@ main {
     height: 56px;
     width: 170px;
     margin-right: 12px;
+    padding: 7px;
 }
 
 .divider {
