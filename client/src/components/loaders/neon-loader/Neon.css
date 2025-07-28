@@ -1,0 +1,88 @@
+.dot-loader {
+      display: flex;
+      gap: 10px;
+      height: 15px;
+    }
+
+    .dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: rgb(0, 0, 0);
+    }
+
+    .d1 {
+        width: 15px;
+        height: 15px;
+       background:#ff0000;
+        box-shadow:
+        0 0 4px #ff0000,
+        0 0 10px #840e0e,
+        0 0 18px #ff0000;
+        position: relative;
+        animation: animi 1s infinite;
+    }
+
+    .second {
+      display: flex;
+      gap: 10px;
+      animation: bar 1s infinite;
+    }
+
+    @keyframes bar {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-25px);
+      }
+    }
+
+    @keyframes animi {
+      0% {
+        top: 0;
+        left: 0px;
+      }
+      10% {
+        top: -15px;
+        left: 7.5px;
+      }
+      20% {
+        top: -22px;
+        left: 15px;
+      }
+      30% {
+        top: -33px;
+        left: 22.5px;
+      }
+      40% {
+        top: -36px;
+        left: 29px;
+      }
+      50% {
+        top: -40px;
+        left: 36.5px;
+      }
+      60% {
+        top: -36px;
+        left: 44px;
+      }
+      70% {
+        top: -33px;
+        left: 51.5px;
+      }
+      80% {
+        top: -22px;
+        left: 59px;
+      }
+      90% {
+        top: -15px;
+        left: 66.5px;
+        background-color:#ff0000;
+      }
+      100% {
+        top: 0px;
+        left: 75px;
+        background-color: rgb(255, 0, 0);
+      }
+    }
