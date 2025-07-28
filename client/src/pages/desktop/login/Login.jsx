@@ -76,7 +76,7 @@ export default function Login() {
                     />
                     <label htmlFor="password">Password</label>
                     <span onClick={() => setShowPassword(prev => !prev)} style={{ cursor: "pointer" }}>
-            {showPassword ? <FaEyeSlash className="icon" /> : <FaEye className="icon" />}
+            {showPassword ? <FaEye className="icon" /> : <FaEyeSlash className="icon" />}
           </span>
                 </div>
 

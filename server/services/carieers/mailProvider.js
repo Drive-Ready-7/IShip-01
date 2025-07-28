@@ -1,5 +1,5 @@
 import axios from "axios";
-import {htmlToText} from "html-to-text";
+import { htmlToText } from "html-to-text";
 
 const getMailsById = async (accessToken) => {
     try {
@@ -9,7 +9,7 @@ const getMailsById = async (accessToken) => {
                 Authorization: `Bearer ${accessToken}`
             },
             params: {
-                maxResults: 2
+                maxResults: 1
             }
         });
 
@@ -124,6 +124,7 @@ const fetchRecentEmails = async (accessToken) => {
         emails.push(curEmail);
     }
 
+    console.log(emails)
     return normalizeEmailBodies(emails);
 };
 

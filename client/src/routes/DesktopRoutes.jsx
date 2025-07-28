@@ -6,6 +6,7 @@ import Logo from "../components/logo/Logo.jsx";
 import Nav from "../components/nav/Nav.jsx";
 import PrivacyPolicy from "../pages/desktop/privacypolicy/PrivacyPolicy.jsx";
 import ForgotPassword from "../pages/desktop/forgot-password/ForgotPassword.jsx";
+import Google from "../services/Google/Google.jsx";
 
 
 const router = createBrowserRouter([
@@ -15,7 +16,8 @@ const router = createBrowserRouter([
     { path : '/logo' , element: <Logo/> },
     { path: '/test', element: <Nav /> },
     { path: '/privacy-policy', element: <PrivacyPolicy/> },
-    { path: '/forgot-password', element: <ForgotPassword/> }
+    { path: '/forgot-password', element: <ForgotPassword/> },
+    { path: '/google', element: <Google/> },
 ])
 
 const DesktopRoutes = () => {

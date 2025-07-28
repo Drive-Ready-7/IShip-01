@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.M-bdy {
+    max-width: 100vw;
+    margin : 0;
+}
+
+.M-privacy-wrapper {
+    max-width: 100vw;
+    max-height: 100vh;
+    padding:20px;
+    background-color: #fdfdfd;
+    color: #222;
+    border-radius: 5px;
+    box-shadow:
+        0 8px 16px -4px rgba(37, 8, 53, 0.06),
+        0 -4px 8px -4px rgba(37, 8, 53, 0.04);
+    overflow-y: auto;
+}
+
+.M-privacy-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.M-privacy-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(100, 100, 100, 0.5);
+    border-radius: 4px;
+}
+
+.M-privacy-wrapper::-webkit-scrollbar-track {
+    background: rgba(240, 240, 240, 0.3);
+}
+
+.M-privacy-header {
+    margin-bottom: 30px;
+}
+
+.M-privacy-heading {
+    font-size: 2.5rem;
+    color: #2a4d9b;
+    margin-bottom: 0.5rem;
+}
+
+.M-privacy-effective-date {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.M-privacy-content {
+    line-height: 1.7;
+}
+
+.M-privacy-section {
+    margin-bottom: 30px;
+}
+
+.M-section-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 6px;
+    font-weight: bold;
+}
+
+.M-section-paragraph {
+    margin-bottom: 1rem;
+}
+
+.M-section-list {
+    margin-left: 1.2rem;
+    padding-left: 1rem;
+    list-style-type: disc;
+    margin-bottom: 1rem;
+}
+
+.M-external-link {
+    color: #2a4d9b;
+    text-decoration: none;
+}
+
+.M-external-link:hover {
+    text-decoration: underline;
+}
+
+.M-privacy-footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.85rem;
+    color: #999;
+}
+

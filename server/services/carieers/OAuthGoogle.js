@@ -1,8 +1,14 @@
 import axios from 'axios';
 import {Router} from 'express';
 import dotenv from 'dotenv';
+// import filterMails from "../../helpers/mailSorter.js";
 
 import User from '../../models/user.js';
+import fetchRecentEmails from "./mailProvider.js";
+
+// Security
+import verifyToken from "../../auth/verifyToken.js";
+import filterMails from "../../helpers/mailSorter.js";
 
 dotenv.config();
 
@@ -21,12 +27,12 @@ const SCOPE = [
 
 router.get('/google/start', (req, res) => {
     const { state } = req.query;
-    console.log(state);
     const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&&scope=${encodeURIComponent(SCOPE)}&access_type=offline&prompt=consent&state=${state}`;
     res.redirect(url);
 })
 
 router.get('/google/callback', async (req, res) => {
+    console.log("Getting response from google");
     const { code, state } = req.query;
     try {
         const tokenRes = await axios.post('https://oauth2.googleapis.com/token', null, {
@@ -61,30 +67,43 @@ router.get('/google/callback', async (req, res) => {
         }
 
         // dont forget to add if email already exists to avoid duplicates
-
         const user = await User.findById(state);
+        curEmail = userInfo.data.email;
         user.userMails.push({
-            email: userInfo.data.email,
+            email: curEmail,
             picture: userInfo.data.picture,
             googleAccessToken: accessToken,
             googleRefreshToken: refreshToken | accessToken,
             googleTokenExpiryDate: Date.now()
         });
 
-
         console.log(user);
-
         await user.save();
 
-        res.send(`
+        console.log(accessToken);
+
+        res.status(200).send(`
               <script>
-                window.opener.postMessage('oauth_success', '*');
+                window.opener.postMessage({
+                    email: ${curEmail},
+                    message: "oauth_success"
+                }, '*');
                 window.close();
               </script>
             `);
     } catch (error) {
         console.error(error.response?.data || error.message);
         res.send("Error during OAuth");
+    }
+});
+
+router.post('/google/process', async (req, res) => {
+    const { userId, email } = req.body;
+    try {
+        const user = await User.findById(userId);
+        await filterMails(userId, email, user.userMails[email]);
+    } catch(err) {
+        console.log(err);
     }
 });
 

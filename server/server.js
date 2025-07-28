@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import connectDB from './config/db.js';
 import transporter from "./services/transporters/mail.js";
+import filterMails from "./helpers/mailSorter.js";
 
 import userRoutes from './routes/userRoutes.js';
 import googleAuthRoutes from './services/carieers/OAuthGoogle.js';
