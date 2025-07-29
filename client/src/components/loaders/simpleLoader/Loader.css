@@ -84,4 +84,39 @@
         height: 10px;
         width: 10px;
     }
+    @keyframes dot_to_last {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(10px) translateY(-30px);
+        
+    }
+    50% {
+        transform: translateX(30px) translateY(-40px);
+        
+    }
+    80% {
+        transform: translateX(50px) translateY(-30px);
+        background-color: red;
+        
+    }
+    100% {
+        transform: translateX(60px);
+        background-color: black;
+    }
+}
+    @keyframes dot_to_front {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        height: 15px;
+        width: 15px;
+        background-color: rgb(34, 133, 172);
+    }
+    100% {
+        transform: translateX(-25px);
+    }
+  }
 }

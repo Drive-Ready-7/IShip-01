@@ -4,7 +4,9 @@ import Register from "../pages/mobile/register/Register.jsx";
 import Main from "../pages/mobile/main/Main.jsx";
 import Logo from "../pages/mobile/logo/Logo.jsx";
 import PrivacyPolicy from "../pages/mobile/privacypolicy/PrivacyPolicy.jsx";
-import ForgotPassword from "../pages/desktop/forgot-password/ForgotPassword.jsx"
+import ForgotPassword from "../pages/desktop/forgot-password/ForgotPassword.jsx";
+import Loader from "../components/loaders/simpleLoader/Loader.jsx";
+
 
 
 const router = createBrowserRouter([
@@ -13,7 +15,9 @@ const router = createBrowserRouter([
     { path: '/login', element: <Login /> },
     { path: '/logo' , element: <Logo/>},
     { path: '/privacy-policy', element: <PrivacyPolicy/> },
-    { path: '/forgot-password', element: <ForgotPassword/>}
+    { path: '/forgot-password', element: <ForgotPassword/>},
+    { path: '/loader', element: <Loader/>},
+
 ])
 
 const MobileRoutes = () => {
