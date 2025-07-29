@@ -4,12 +4,14 @@ const Loader = () => {
 
     return (
         <>
-        <div class='simpleLoader'>
-            <div class='dot1'></div>
-            <div class='dot2'></div>
-            <div class='dot3'></div>
-            <div class='dot4'></div>
-            <div class='dot5'></div>
+        <div className="loader-container">
+        <div className='simpleLoader'>
+            <div className='dot1'></div>
+            <div className='dot2'></div>
+            <div className='dot3'></div>
+            <div className='dot4'></div>
+            <div className='dot5'></div>
+        </div>
         </div>
         </>
     )
