@@ -9,11 +9,11 @@ import Logo from './components/logo/Logo.jsx';
 export default function DynamicWindow() {
 
     const isMobile = useMediaQuery({
-        maxWidth: 768,
+        maxWidth: 769,
     })
 
     const isDesktop = useMediaQuery({
-        minWidth: 768,
+        minWidth: 769,
     })
 
     const [deviceReady, setDeviceReady] = useState(false);
