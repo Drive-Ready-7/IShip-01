@@ -131,11 +131,11 @@ export default function Register() {
                         <span onClick={toggleConfirmPassword} style={{ cursor: "pointer" }}>
               {showConfirmPassword ? <FaEye className="icon" /> : <FaEyeSlash className="icon" />}
                 </span>
-                        {formData.password !== formData.confirmPassword && <p className="passwd">Passwords do not match</p>}
+                       
                     </div>
-
+                     {formData.password !== formData.confirmPassword && <p className="passwd">Passwords do not match</p>}
                     {error && <p className="error">{error}</p>}
-
+                    
                     <button type="submit">Register</button>
 
                     <p className="have-account">

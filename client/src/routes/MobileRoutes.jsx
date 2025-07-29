@@ -6,6 +6,7 @@ import Logo from "../pages/mobile/logo/Logo.jsx";
 import PrivacyPolicy from "../pages/mobile/privacypolicy/PrivacyPolicy.jsx";
 import ForgotPassword from "../pages/desktop/forgot-password/ForgotPassword.jsx";
 import Loader from "../components/loaders/simpleLoader/Loader.jsx";
+import Profile from "../pages/mobile/profile/Profile.jsx";
 
 
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     { path: '/privacy-policy', element: <PrivacyPolicy/> },
     { path: '/forgot-password', element: <ForgotPassword/>},
     { path: '/loader', element: <Loader/>},
+    { path:'/profile', element:<Profile/> }
 
 ])
 

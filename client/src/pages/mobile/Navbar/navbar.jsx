@@ -23,7 +23,7 @@ export default function Navbar(){
                         </p>
                         <div className={`menu-bar ${isOpen ? 'slide-in' : 'slide-out'}`}>
                             <ul className="top-menu-bar">
-                                <li>Profile</li>
+                                <li onClick={()=> navigate('/profile')}>Profile</li>
                                 <li>Jobs</li>
                                 <li>InternShips</li>
                                 <li>Hackathons</li>
