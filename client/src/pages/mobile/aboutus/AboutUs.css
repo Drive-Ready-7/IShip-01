@@ -10,7 +10,7 @@
       margin: 0 auto;
       padding: 2rem 1rem;
     }
-    header {
+    .M-about header {
       position: relative;
       text-align: center;
       padding: 5rem 1rem;
@@ -18,13 +18,13 @@
       color: #ffffff;
       margin-bottom: 2rem;
     }
-    header h1 {
+     .M-about header  h1 {
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 0.5rem;
       animation: fadeInDown 1s ease-out;
     }
-    header p {
+    .M-about header  p {
       font-size:22px;
       font-weight: 300;
       opacity: 0.95;
@@ -41,7 +41,7 @@
       position: relative;
       z-index: 1;
     }
-    .M-content h2 {
+    .M-content  h2 {
       color: rgba(177, 2, 2, 0.698);
       font-size: clamp(1.5rem, 4vw, 2.2rem);
       font-weight: 600;
@@ -49,7 +49,7 @@
       margin-bottom: 1.5rem;
       position: relative;
     }
-    .M-content h2::after {
+    .M-content  h2::after {
       content: '';
       width: 3rem;
       height: 0.25rem;
@@ -58,7 +58,7 @@
       margin: 0.5rem auto;
       border-radius: 0.125rem;
     }
-    .M-content p {
+    .M-content  p {
       font-size: 18px;
       color: #475569;
       margin-bottom: 1.25rem;
@@ -84,7 +84,7 @@
     .M-features:hover {
       transform: translateY(-0.3125rem);
     }
-    .M-features h2 {
+    .M-features  h2 {
       color: rgba(177, 2, 2, 0.698);
       text-align: center;
       margin-bottom: 1.5rem;
