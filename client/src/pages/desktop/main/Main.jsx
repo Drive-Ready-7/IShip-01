@@ -2,6 +2,7 @@ import Axios from '@api'
 import './Main.css';
 import Nav from '@components/nav/Nav.jsx';
 import {useEffect, useState} from "react";
+import Threads from "../../../splice/threads/Threads.jsx";
 
 export default function Main() {
 
@@ -19,8 +20,15 @@ export default function Main() {
     }, [])
 
     return (
-        <>
+        <section className="main-page">
             <Nav />
+            <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+                <Threads
+                    amplitude={1}
+                    distance={0}
+                    enableMouseInteraction={true}
+                />
+            </div>
             <section className="main-container">
                 <aside className="main-aside">
                     <ul className="aside-list">
@@ -31,6 +39,6 @@ export default function Main() {
 
                 </article>
             </section>
-        </>
+        </section>
     )
 }

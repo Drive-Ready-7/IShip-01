@@ -1,0 +1,21 @@
+.dark-mode {
+    transition: background-color 1.0s ease-in-out, color 1.0s;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.light-mode {
+    transition: background-color 1.0s ease-in-out, color 1.0s;
+    background-color: #f5f5f5;;
+    color: #000000;
+}
+
+.hide-scrollbar {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}

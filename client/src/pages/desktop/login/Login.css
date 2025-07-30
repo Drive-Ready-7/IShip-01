@@ -19,7 +19,7 @@
 .login-form h1 {
     font-size: 28px;
     font-weight: 700;
-    color: black;
+    /*color: black;*/
 }
 
 .login-input {
@@ -91,7 +91,7 @@
 
 .register-text {
     font-size: 13px;
-    color: gray;
+    /*color: gray;*/
 }
 
 .register-text span {

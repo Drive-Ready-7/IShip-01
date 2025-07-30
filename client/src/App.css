@@ -18,14 +18,5 @@ html, body {
   font-synthesis: style;
   font-family: var(--body-font-family), 'Times New Roman', Times, serif;
   scroll-behavior: smooth;
-}
-
-.dark-mode {
-  background-color: rgb(0, 0, 0);
-  color: white;
-}
-
-.light-mode {
-  background-color: #b9b0bf;;
-  color: #000000;
+  overflow: hidden;
 }
