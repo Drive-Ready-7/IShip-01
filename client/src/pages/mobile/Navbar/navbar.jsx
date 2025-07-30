@@ -29,8 +29,8 @@ export default function Navbar(){
                                 <li>Hackathons</li>
                                 <li>Privacy Policy</li>
                                 <li onClick={()=>{
-                                    localStorage.removeItem('token');
-                                    localStorage.removeItem('user');
+                                    localStorage.removeItem('accessToken');
+                                    localStorage.removeItem('userData');
                                     localStorage.removeItem('isLoggedIn');
                                     navigate('/')
                                 }}>LogOut</li>
