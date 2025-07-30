@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -10,12 +12,17 @@
   --base-easing-in: cubic-bezier(0.585,-0.01,0.61,0.85);
   --over-bounce-easing-out: cubic-bezier(0.315,1.85,0.63,0.795);
   --ease-in-out-cubic: cubic-bezier(0.645,0.045,0.355,1);
-  --hd-font-family: Agrandir, Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
-  --body-font-family: Manrope, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 html, body {
   font-synthesis: style;
-  font-family: var(--body-font-family), 'Times New Roman', Times, serif;
+  font-family: "Poppins", Agrandir, Manrope, sans-serif;
   scroll-behavior: smooth;
+}
+
+
+body {
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }

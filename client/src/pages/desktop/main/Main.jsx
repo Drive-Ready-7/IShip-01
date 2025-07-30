@@ -20,25 +20,28 @@ export default function Main() {
     }, [])
 
     return (
-        <section className="main-page">
+        <>
             <Nav />
-            <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+            <div className="main-container">
+
+                <div className="main-content">
+                    <aside className="main-aside">
+                        <ul className="aside-list">
+                            <li>afvn</li>
+                        </ul>
+                    </aside>
+                    <article className="main-content">
+                        <div className="mini-nav">mini nav</div>
+
+                    </article>
+                </div>
+
                 <Threads
                     amplitude={1}
                     distance={0}
                     enableMouseInteraction={true}
-                />
+                    />
             </div>
-            <section className="main-container">
-                <aside className="main-aside">
-                    <ul className="aside-list">
-                        <li></li>
-                    </ul>
-                </aside>
-                <article className="main-content">
-
-                </article>
-            </section>
-        </section>
+        </>
     )
 }

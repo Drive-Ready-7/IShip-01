@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import Loader from '../../../components/loaders/simpleLoader/Loader';
-// import { AppContext } from "../../../AppContext/AppProvider";
 import Axios from "@api";
 import Logo  from '../logo/Logo';
 

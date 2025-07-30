@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "@api";
+import Logo from "@components/logo/Logo.jsx";
 
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import './Login.css';
@@ -50,9 +51,9 @@ export default function Login() {
     return (
         <div className="login">
             <form className="login-form" onSubmit={handleLogin}>
-                <h1>
-                    <span style={{ color: "blue" }}>L</span>ast <span style={{ color: "red" }}>L</span>ine
-                </h1>
+                <div className="login-logo-animation">
+                    <Logo />
+                </div>
 
                 <div className="login-input">
                     <input

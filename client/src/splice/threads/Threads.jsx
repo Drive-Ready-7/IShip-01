@@ -121,12 +121,12 @@ void main() {
 const Threads = ({
                      color = [1, 1, 1],
                      amplitude = 1,
-                     distance = 0,
+                     distance = 1,
                      enableMouseInteraction = false,
                      ...rest
                  }) => {
     const containerRef = useRef(null);
-    const animationFrameId = useRef();
+    const animationFrameId = useRef(null);
 
     useEffect(() => {
         if (!containerRef.current) return;
@@ -221,9 +221,12 @@ const Threads = ({
     }, [color, amplitude, distance, enableMouseInteraction]);
 
     return <div ref={containerRef} className="threads-container" {...rest} style={{
-        position: "relative",
+        position: "absolute",
+        top: 0,
         height: "100vh",
-        width: "100svw"
+        width: "100vw",
+        zIndex: -1,
+        overflow: "hidden",
     }} />;
 };
 
