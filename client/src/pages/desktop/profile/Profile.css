@@ -1,22 +1,34 @@
 *{
     box-sizing: border-box;
+    overflow: hidden;
 }
 .parent{
     margin:0px;
     padding: 0px;
      width:100%;
-    height:100svh;
+    height:auto;
     display: flex;
-    flex-direction:row;
+    flex-direction:column;
+
+}
+.sidebardetails{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    height:max-content;
+    
 }
 .sidebar{
-   width:250px;
+   width:23%;
     /* border:1px solid black; */
-    height: 100svh;
+    height: auto;
     display: flex;
     flex-direction: column;
     background-color: #E3EBF7;
     justify-content: space-between;
+    align-items: center;
+    padding-left: 2%;
+ 
     
 }
 .sidebarchild1{
@@ -38,7 +50,7 @@
 
  /* side bar content */
 .sideBarContent{
-    font-size:18px;
+    font-size:1,5rem;
 }
 
 
@@ -48,25 +60,58 @@
     overflow: hidden;
     
 }
+
+.parentIconDetails1{
+    width:99.9%;
+    /* border:1px solid black; */
+    overflow: hidden;
+    
+}
+
 .iconDetails{
     padding-left: 20px;
-    width:90%;
-    height:35px;
+    width: 90%;
+    height:40px;
     display: flex;
     flex-direction: row;
     gap:10px;
     align-items: center;
+    /* border: 1px solid black; */
    
 }
+.logbtn{
+    padding-left: 15px;
+    height:44px;
+     display: flex;
+    flex-direction: row;
+    gap:10px;
+    align-items: center;;
+    margin-left:20px;
+    margin-bottom: 20px;
+    width:50%;
+    background-color: #FF3B30;
+    border-radius: 7px;
+    color:#FFFFFF;
+    cursor: pointer;
+   
+}
+
 
 .parentIconDetails:hover{
     /* background-color:#f0f0f0 ; */
     background-color: rgba(255, 255, 255, 0.6);
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
+    cursor: pointer;
     
 
 }
+.dusericon{
+    width:18px;
+    height:18px;
+    stroke-width: 1.5;
+}
+  
 
 
 
@@ -90,8 +135,9 @@
 
 }
 .pprofile{
+    /* border:1px solid black; */
     width:100%;
-    height:120px;
+    height:140px;
     border-bottom:3px solid #9CA3AF;
     display: flex;
     flex-direction: row;
@@ -99,7 +145,8 @@
     align-items: center;
     gap:50px;
     padding-bottom: 20px;
-    padding-right: 100px;
+     padding-left: 17%;
+     /* padding-right: 15%; */
 
 }
 .ppic{
@@ -113,108 +160,90 @@
     padding-top:30px;
     width:250px;
     /* border-bottom: 1px solid black;    */
-    font-size: 34px;
+    font-size: 2rem;
     font-weight: bold;
 }
+
 .details{
     width:100%;
-    height:100%;
-    flex:1;
-    display: flex;
-    /* flex-direction: column;
-    align-items: center;
-    gap:50px;
-    background-color:white; */ 
-    justify-content:center;
-    align-items:center;
-    padding-right:80px;
-
-}
-.ggparent{
-    width:50%;
-    height:90%;
-     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap:50px;
-    background-color:white;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    padding-top:60px;
-    padding-left:40px;
-    border-radius:8px;
-}
-.dgrandparent{
-    display: flex;
-    flex-direction: column;
-    height: max-content;
-    width:auto;
-     gap:5px; 
-     
-
-    
-}
-.dparent{
-    /* padding: 15px; */
-    min-width:600px;
-
-    height: 30px;
-    
-    /* height:90px; */
-    /* height: max-content; */
-    /* border: 1px solid black;  */
-    display: flex;
-    flex-direction:row;
-    gap:15px;
-}
-.dinput{
-    width:300px;
-    height:30px;
-    /* border-bottom: 1px solid black; */
-    font-size:18px;
-    display: flex;
-    flex-direction: column;
-    gap:15px;
-}
-
-.textDisplay{
-
-    width:300px;
-    height:20px;
-    border-bottom: 1px solid gray;
-    font-size: 18px;
-    display: flex;
-    flex-direction: column;
-    gap:15px;
-    padding: 4px;
-
-}
-.dinfo{
-    font-size:18px;
-    width:150px;
-    height:30px;
-    /* border:1px solid black */
-}
-.dicon{
-    width:80px;
-    /* border: 1px solid black; */
+    height:100svh;
+    /* border:1px solid black; */
     display: flex;
     justify-content: center;
-    height: fit-content;
+    
 }
-.parentInput{
-    width:fit-content;
-    height:fit-content;
-    display:flex;
+.ggparent{
+    padding-top: 30px;
+    width:50%;
+    height:100%;
+    /* border:1px solid blue; */
+    display: flex;
     flex-direction: column;
-    gap:20px;
-
+    gap:50px;
+}
+.dgrandparent{
+    /* border:1px solid black; */
+    padding-left:8%;
+    width:100%;
+    height:max-content;
+    display:flex;
+    gap:15px;
+    flex-direction: column;
+}
+.dparent{
+    display: flex;
+    gap:3%;
+}
+.dinput{
+    width:50%;
+    height:auto;
+}
+.editInput{
+    display: flex;
+     align-items: flex-end;
+    /* justify-content: end;  */
+    width:85%;
+    height:30px;
+    /* border-bottom: 1px solid black; */
+    font-size: 1rem;
+    
+}
+.textDisplay{
+    display:flex;
+    align-items: flex-end;
+    width:85%;
+    height:30px;
+    border-bottom: 1px solid black;
+    font-size:1rem;
+}
+.dinfo{
+    width:30%;
+    height:30px;
+    /* border:1px solid black; */
+    display: flex;
+    align-items:flex-end;
+    /* justify-content: ; */
+    font-size: 1rem;
+}
+.dicon{
+    width:6%;
+    height:30px;
+    /* border:1px solid black; */
+    display: flex;
+    align-items: flex-end;
+    justify-content:flex-start;
+    cursor: pointer;
+    
 }
 .savecancel{
+    /* width:100%;
+    height: max-content; */
     display: flex;
     flex-direction: row;
     gap:10px;
     justify-content: center;
     /* align-items: center; */
+    
 }
 .psave{
     width:50px;
@@ -222,10 +251,11 @@
     font-size: 16px;
     text-align: center;
     padding:2px;
-    background-color: #64b9f9;
-    border:1px solid  #64b9f9;;
+    background-color:#28a745;
+    border:1px solid #28a745;
     color:white;
     border-radius:4px;
+    cursor: pointer;
 }
 .pcancel{
     width:60px;
@@ -236,14 +266,33 @@
    color:black;
    border:1px solid rgb(207, 203, 203);
    border-radius: 4px;
-
+   cursor: pointer;
+}
+ .dicons{
+    width:19px;
+    height:19px;
+    color:white;
+    font-weight: bold;
+    stroke-width: 1.5;
+} 
+.minfo{
+    
+    width:20%;
+    height:30px;
+    /* border:1px solid black; */
+    display: flex;
+    align-items:flex-end;
+    /* justify-content: ; */
+    font-size: 1rem;
 
 }
-.editInput{
-    width:300px;
-    height:30px;
-    font-size:16px;
-    display: block;
-    
-    
+.ggparent1{
+    padding-top: 30px;
+    padding-left: 35px;
+    width:50%;
+    height:100%;
+    /* border:1px solid blue; */
+    display: flex;
+    flex-direction: column;
+    gap:50px;
 }
