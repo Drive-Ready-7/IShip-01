@@ -1,3 +1,81 @@
+*{
+    box-sizing: border-box;
+}
+.parent{
+    margin:0px;
+    padding: 0px;
+     width:100%;
+    height:100svh;
+    display: flex;
+    flex-direction:row;
+}
+.sidebar{
+   width:250px;
+    /* border:1px solid black; */
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    background-color: #E3EBF7;
+    justify-content: space-between;
+    
+}
+.sidebarchild1{
+    width:250px;
+    height:fit-content;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    
+}
+.sidebarchild2{
+    width:250px;
+    height:fit-content;
+    display: flex;
+    flex-direction: column;
+    padding-bottom:40px;
+}
+
+
+ /* side bar content */
+.sideBarContent{
+    font-size:18px;
+}
+
+
+.parentIconDetails{
+    width:99.9%;
+    /* border:1px solid black; */
+    overflow: hidden;
+    
+}
+.iconDetails{
+    padding-left: 20px;
+    width:90%;
+    height:35px;
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+    align-items: center;
+   
+}
+
+.parentIconDetails:hover{
+    /* background-color:#f0f0f0 ; */
+    background-color: rgba(255, 255, 255, 0.6);
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    
+
+}
+
+
+
+
+
+
+
+
+
 
 .profile-section{
     margin:0px;
@@ -8,26 +86,27 @@
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
-    gap:40px;
+    background-color:#F9FAFB;
 
 }
 .pprofile{
     width:100%;
     height:120px;
-    border-bottom:1px solid gray;
+    border-bottom:3px solid #9CA3AF;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap:30px;
+    gap:50px;
     padding-bottom: 20px;
+    padding-right: 100px;
 
 }
 .ppic{
     width:90px;
     height:90px;
     border-radius: 50%; 
-    border: 1px solid black;  
+    /* border: 1px solid black;   */
 
 }
 .pname{
@@ -39,48 +118,84 @@
 }
 .details{
     width:100%;
+    height:100%;
+    flex:1;
     display: flex;
+    /* flex-direction: column;
+    align-items: center;
+    gap:50px;
+    background-color:white; */ 
+    justify-content:center;
+    align-items:center;
+    padding-right:80px;
+
+}
+.ggparent{
+    width:50%;
+    height:90%;
+     display: flex;
     flex-direction: column;
     align-items: center;
-    /* gap:10px; */
+    gap:50px;
+    background-color:white;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    padding-top:60px;
+    padding-left:40px;
+    border-radius:8px;
 }
 .dgrandparent{
     display: flex;
     flex-direction: column;
     height: max-content;
     width:auto;
-    margin:30px;
+     gap:5px; 
+     
+
+    
 }
 .dparent{
     /* padding: 15px; */
-    min-width:650px;
+    min-width:600px;
 
-    height: 40px;
+    height: 30px;
     
     /* height:90px; */
     /* height: max-content; */
-    /* border: 1px solid black; */
+    /* border: 1px solid black;  */
     display: flex;
     flex-direction:row;
-    gap:20px;
+    gap:15px;
 }
 .dinput{
     width:300px;
-    height:20px;
-    border-bottom: 1px solid black;
-    font-size:20px;
+    height:30px;
+    /* border-bottom: 1px solid black; */
+    font-size:18px;
     display: flex;
     flex-direction: column;
     gap:15px;
 }
+
+.textDisplay{
+
+    width:300px;
+    height:20px;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    padding: 4px;
+
+}
 .dinfo{
     font-size:18px;
     width:150px;
-    height:40px;
+    height:30px;
     /* border:1px solid black */
 }
 .dicon{
-    width:90px;
+    width:80px;
     /* border: 1px solid black; */
     display: flex;
     justify-content: center;
@@ -119,7 +234,7 @@
     padding:2px;
    background-color:rgb(207, 203, 203);
    color:black;
-   border:1px solid rgb(207, 203, 203);;
+   border:1px solid rgb(207, 203, 203);
    border-radius: 4px;
 
 
@@ -127,7 +242,7 @@
 .editInput{
     width:300px;
     height:30px;
-    font-size:20px;
+    font-size:16px;
     display: block;
     
     
