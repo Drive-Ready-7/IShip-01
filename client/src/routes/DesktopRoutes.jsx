@@ -9,6 +9,8 @@ import PrivacyPolicy from "../pages/desktop/privacypolicy/PrivacyPolicy.jsx";
 import ForgotPassword from "../pages/desktop/forgot-password/ForgotPassword.jsx";
 import Google from "../services/Google/Google.jsx";
 import Loader from "../components/loaders/simpleLoader/Loader.jsx";
+import Profile from "../pages/desktop/profile/Profile.jsx";
+import AboutUs from "../pages/mobile/aboutus/AboutUs.jsx";
 
 
 const router = createBrowserRouter([
@@ -21,6 +23,8 @@ const router = createBrowserRouter([
     { path: '/forgot-password', element: <ForgotPassword/> },
     { path: '/google', element: <Google/> },
     { path: '/loader', element: <Loader/>},
+    { path: '/profile', element: <Profile/>},
+     { path: '/aboutus', element: <AboutUs/>},
 ])
 
 

@@ -59,6 +59,20 @@
     justify-content: space-between;
 }
 
+.add-mails{
+    width: 70%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.add-mails > .body{
+    width: 100%;
+}
+
 .body{
     display: flex;
     align-items: center;
@@ -68,3 +82,18 @@
     margin-top: 2px;
     border-bottom: 2px solid gray;
 }
+
+.add-mails > .body{
+    border: none;
+}
+
+.add-mails > .body >svg{
+    color: rgba(255, 0, 0, 0.894);
+}
+
+.add-button{
+    padding: 5px 0px;
+    width: 80px;
+}
+
+
