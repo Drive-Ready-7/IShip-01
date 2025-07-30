@@ -110,7 +110,7 @@ const Login = () => {
           <p className="have-account">
             Don't have an account?
             
-            <span style={{textDecoration:"underline"}} onClick={() => navigate('/register') }>Register</span> Here.
+            <span style={{textDecoration:"underline"}} onClick={() => navigate('/register') }>Register</span>
           </p>
          
         </form>
