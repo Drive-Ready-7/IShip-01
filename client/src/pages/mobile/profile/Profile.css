@@ -87,13 +87,16 @@
     border: none;
 }
 
-
-.add-mails > .body{
-    border: none;
-    
+.add-mails >ul{
+    width: 100%;
+    list-style: none;
+}
+.add-mails >ul>li> .body{
+    width: 100%;
 }
 
-.add-mails > .body >svg{
+.add-mails >ul>li> .body >svg{
+
     color: rgba(255, 0, 0, 0.894);
 }
 

@@ -38,7 +38,7 @@ const Login = () => {
               usernameOrEmail : usernameOrGmail,
               password:password,
         })
-        console.log(res.data.user.name);
+        console.log(res.data.user.userMails);
         if (res.data.success) {
             localStorage.setItem('userData', JSON.stringify(res.data.user));
             localStorage.setItem('accessToken', res.data.token);
