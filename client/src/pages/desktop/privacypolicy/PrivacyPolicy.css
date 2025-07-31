@@ -7,7 +7,7 @@
     max-width: 80vw;
     max-height: 100vh;
     padding: 40px 20px;
-    background-color: #fdfdfd;
+    background-color:#e5f0f5;
     color: #222;
     margin: 0 auto;
     border-radius: 5px;
@@ -37,7 +37,7 @@
 
 .privacy-heading {
     font-size: 2.5rem;
-    color: #2a4d9b;
+    color: #0b5975;
     margin-bottom: 0.5rem;
 }
 
