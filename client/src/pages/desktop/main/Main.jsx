@@ -1,51 +1,103 @@
-import Axios from '@api'
+import React, { useState } from 'react';
 import './Main.css';
 import Nav from '@components/nav/Nav.jsx';
-import {useEffect, useState} from "react";
-import Threads from "../../../splice/threads/Threads.jsx";
-import Footer from '../../../components/footer/Footer.jsx';
+
+const fakeMails = [
+    {
+        subject: 'Internship at Google',
+        type: 'Internships',
+        deadline: '2025-08-15',
+        confidence: 92.1,
+    },
+    {
+        subject: 'Software Engineer Position - Amazon',
+        type: 'Jobs',
+        deadline: '2025-08-10',
+        confidence: 95.5,
+    },
+    {
+        subject: 'Hackathon Invite - TechNova',
+        type: 'Hackathons',
+        deadline: '2025-08-20',
+        confidence: 88.0,
+    },
+    {
+        subject: 'Career Fair Registration',
+        type: 'Career',
+        deadline: '2025-08-05',
+        confidence: 80.0,
+    },
+    {
+        subject: 'Win a FREE iPhone - Click now!',
+        type: 'Spam',
+        deadline: '',
+        confidence: 5.2,
+    },
+];
+
+const getBadgeClass = (type) => {
+    switch (type?.toLowerCase()) {
+        case 'internships':
+            return 'badge-internship';
+        case 'jobs':
+            return 'badge-job';
+        case 'hackathons':
+            return 'badge-hackathon';
+        case 'career':
+            return 'badge-career';
+        case 'spam':
+            return 'badge-spam';
+        default:
+            return '';
+    }
+};
 
 export default function Main() {
-
-    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === "true");
-    const [userMails, setUserMails] = useState([]);
-    
-    useEffect(() => {
-        try {
-            const id = localStorage.getItem('id');
-            const res = Axios.get(`/api/get-mails?id=${id}`);
-            setUserMails(res.data);
-        } catch(err) {
-            console.log(err);
-        }
-    }, [])
+    const [theme, setTheme] = useState('light');
+    const [activeFilter, setActiveFilter] = useState('All');
+    const filteredMails = [...fakeMails, ...fakeMails, ...fakeMails];
 
     return (
         <>
             <Nav />
-            <div className="container">
+            <div className={`dashboard ${theme}`}>
+                <aside className="glass aside">
+                    <h2>Filters</h2>
+                    {['All', 'Internships', 'Jobs', 'Hackathons', 'Career', 'Spam'].map(
+                        (filter) => (
+                            <button
+                                key={filter}
+                                className={`filter-btn ${
+                                    activeFilter === filter ? 'active' : ''
+                                }`}
+                                onClick={() => setActiveFilter(filter)}
+                            >
+                                {filter}
+                            </button>
+                        )
+                    )}
+                </aside>
 
-                <div className="main-content">
-                    <aside className="main-aside">
-                        <ul className="aside-list">
-                            <li>afvn</li>
-                        </ul>
-                    </aside>
-                    <article className="main-content">
-                        <div className="mini-nav">mini nav</div>
-
-                    </article>
-                </div>
-
-                <Threads
-                    amplitude={1}
-                    distance={0}
-                    enableMouseInteraction={true}
-                    />
-            </div>
-            <div className='footer-section'>
-                <Footer/>
+                <main className="glass main">
+                    <h2>Inbox</h2>
+                    <div className="mail-list">
+                        {filteredMails.map((mail, index) => (
+                            <div key={index} className="mail-card">
+                                <span className={`mail-badge ${getBadgeClass(mail.type)}`}>
+                                  {mail.type}
+                                </span>
+                                <h3 className="mail-subject">{mail.subject}</h3>
+                                <p className="mail-deadline">
+                                    Deadline: {mail.deadline || 'N/A'}
+                                </p>
+                                <p className="mail-confidence">
+                                    Confidence: {mail.confidence}%
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </main>
             </div>
         </>
-    )
+    );
 }
