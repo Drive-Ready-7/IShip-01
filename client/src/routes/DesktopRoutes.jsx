@@ -12,6 +12,7 @@ import Loader from "../components/loaders/simpleLoader/Loader.jsx";
 import Profile from "../pages/desktop/profile/Profile.jsx";
 import AboutUs from "../pages/mobile/aboutus/AboutUs.jsx";
 import Footer from "../components/footer/Footer.jsx";
+import PopUp from  "../components/popup/PopUp.jsx";
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
     { path: '/profile', element: <Profile/>},
     { path: '/about', element: <AboutUs/>},
     { path: '/footer', element: <Footer/>},
+    {path: '/popup' , element:  <PopUp/>}
 ])
 
 

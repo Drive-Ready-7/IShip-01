@@ -2,12 +2,13 @@ import { useState,useRef,useEffect } from 'react';
 import './Profile.css'
 import { useNavigate } from 'react-router-dom'
 import Axios from "@api";
-
+import PopUp from '../PopUp/PopUp';
 export default function Profile(){
 
     const [userName,setUserName] = useState(false);
     const [email,setEmail] = useState(false);
     const [phone,setPhone] = useState(false);
+    const [popup, setPopup] = useState(false);
 
 
     const [userData, setUserData] = useState(() => {
@@ -42,6 +43,39 @@ export default function Profile(){
         }
 
     }
+    const changeEmail = async (e) => {
+        e.preventDefault();
+        try{
+            const res = await Axios.post('/api/user/change-email', {
+                userId: userData._id,
+                email: emailChange
+            }); 
+            
+        }catch(e){
+            console.log(e);
+        }
+        setPopup(true);
+
+    }
+
+    useEffect(() => {
+
+        const handleEmailVerification = async () => {
+            try {
+                const res = await Axios.post('/api/user/send-verification-email', {
+                    userId: userData._id,
+                    email: emailChange
+                });
+                
+            } catch (err) {
+                console.log(err);
+            }
+
+        };
+
+        if(popup) handleEmailVerification();
+
+    }, [popup]);
   
     
 
@@ -63,6 +97,8 @@ export default function Profile(){
 
     return(
         <>
+            <PopUp/>
+            { popup && <PopUp />}
             <div className="profile-page">
                 <div className="profile-image">
                     <img src="/images/profile-icon.jpg" alt="profile image" />
@@ -126,7 +162,7 @@ export default function Profile(){
                                     /> 
                                 </div>
                                 <div className="submit">
-                                    <button className='save' >
+                                    <button onClick={changeEmail} className='save' >
                                         Save
                                     </button>
                                     <button className="cancel" onClick={()=>setEmail(!email)}>

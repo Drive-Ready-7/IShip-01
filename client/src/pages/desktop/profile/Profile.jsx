@@ -31,9 +31,10 @@ const Profile = () => {
         return JSON.parse(localStorage.getItem('userData')) || {};
     });
 
+    console.log(personData)
 
-    const [userMails, setUserMails] = personData.userMails;
-    const [mail1, setMail1] = useState(userMails.length > 0 ? userMails[0] : null);
+    const userMails = personData?.userMails || [];
+    const [mail1, setMail1] = useState(userMails?.length > 0 ? userMails[0] : null);
     const [mail2, setMail2] = useState(userMails.length > 1 ? userMails[1] : null);
     const [mail3, setMail3] = useState(userMails.length > 2 ? userMails[2] : null);
 
