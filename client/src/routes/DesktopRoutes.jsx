@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     { path: '/google', element: <Google/> },
     { path: '/loader', element: <Loader/>},
     { path: '/profile', element: <Profile/>},
-    { path: '/aboutus', element: <AboutUs/>},
+    { path: '/about', element: <AboutUs/>},
     { path: '/footer', element: <Footer/>},
 ])
 
