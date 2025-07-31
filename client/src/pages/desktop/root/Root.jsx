@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Nav from '@components/nav/Nav.jsx';
 import Footer from '@components/footer/Footer.jsx';
 import Threads from "../../../splice/threads/Threads.jsx";
@@ -8,29 +9,35 @@ import './Root.css';
 
 
 export default function Root() {
+
+    const navigate = useNavigate();
+
     return (
         <div className="root-container">
-            <Nav />
+            <div className="root-nav">
+                <Nav type="root" />
+            </div>
 
             <div className="root-content">
 
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-                    Say goodbye to cluttered inboxes. LastLine uses smart machine learning to filter out spam and
-                    highlight what really matters—internships, job offers, hackathons, and deadline alerts—securely,
-                    without storing your email content.
-                </p>
+                <div className="root-article">
+                    <p className="root-title">
+                        Say goodbye to cluttered inboxes. LastLine uses smart machine learning to filter out spam and
+                        highlight what really matters—internships, job offers, hackathons, and deadline alerts—securely,
+                        without storing your email content.
+                    </p>
+                </div>
 
                 <Threads
-                    color={[1, 1, 1]}
-                    amplitude={1}
+                    color={[255, 255, 255]}
+                    amplitude={1.5}
                     distance={0}
                     enableMouseInteraction={true}
                 />
 
-
                 <div className="root-buttons">
-                    <button >Get Started</button>
-                    <button >Learn more</button>
+                    <button className="root-start" onClick={() => navigate('/login')} >Get Started</button>
+                    <button className="root-more" onClick={() => navigate('/about')} >Learn more</button>
                 </div>
 
             </div>

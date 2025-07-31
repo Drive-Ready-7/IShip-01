@@ -1,5 +1,7 @@
 import axios from 'axios';
 import fetchRecentEmails from "../services/carieers/mailProvider.js";
+import Mail from '../models/Mail.js';
+import mongoose from 'mongoose';
 
 const fetchMLResponse = async (mails) => {
     try {
@@ -13,19 +15,36 @@ const fetchMLResponse = async (mails) => {
             )
         );
 
-        console.log("✅ ML Responses:", responses.map(res => res.data));
         return responses.map(res => res.data);
     } catch (err) {
         console.error("❌ ML Request Failed:", err?.response?.data || err.message || err);
+        return [];
     }
 };
 
-
 const filterMails = async (userId, email, accessToken) => {
-    const res = await fetchRecentEmails(accessToken);
-    const MlRes = await fetchMLResponse(res);
-    console.log(MlRes);
-    return res;
-}
+    const rawMails = await fetchRecentEmails(accessToken);
+    const mlResults = await fetchMLResponse(rawMails);
+
+    const preparedMails = rawMails.map((mail, index) => {
+        const ml = mlResults[index] || {};
+        const deadline = ml.deadline || new Date(Date.now() + 3 * 24 * 60 * 60 * 1000); // 3 days from now
+
+        return {
+            _id: new mongoose.Types.ObjectId(userId),
+            subject: mail.subject,
+            type: ml.prediction || 'others',
+            deadline: deadline,
+            confidence: ml.confidence,
+            metaData: JSON.stringify({
+                from: mail.from,
+                to: email
+            })
+        };
+    });
+
+    // Save all mails to the database
+    await Mail.insertMany(preparedMails);
+};
 
 export default filterMails;

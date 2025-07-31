@@ -98,21 +98,25 @@ router.get('/google/callback', async (req, res) => {
     }
 });
 
-
 router.post('/google/process', async (req, res) => {
     const { userId, email } = req.body;
-    console.log("Window Touched the endpoint")
+
     try {
         const user = await User.findById(userId);
         const targetMail = user?.userMails?.find(mail => mail.email === email);
-        const Mailres = await filterMails(userId, email, targetMail.googleAccessToken);
-        res.status(200).json({
-            message: 'User processed successfully',
-            data: Mailres
-        })
-    } catch(err) {
-        console.log(err);
+
+        if (!targetMail) {
+            return res.status(404).json({ message: 'Target mail not found for user' });
+        }
+
+        await filterMails(userId, email, targetMail.googleAccessToken);
+
+        return res.status(200).json({ message: 'Emails processed and saved to DB' });
+    } catch (err) {
+        console.error("❌ Error during email processing:", err);
+        return res.status(500).json({ message: 'Internal server error', error: err.message });
     }
 });
+
 
 export default router;
