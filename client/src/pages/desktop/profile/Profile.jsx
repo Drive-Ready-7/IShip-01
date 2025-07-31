@@ -166,7 +166,9 @@ const Profile = () => {
                                                     name: e.target.value
                                                 })}
                                             />) : (
-                                                <div className="textDisplay">{personData.name}</div>
+                                                <div className="textDisplay">
+                                                     <span className="text-truncate">{personData.name}</span>
+                                                    </div>
                                             )
                                             }
 
@@ -200,7 +202,8 @@ const Profile = () => {
                                                         email: e.target.value
                                                     })}
                                                     className="editInput" />) : (
-                                                <div className="textDisplay">{personData.email}</div>
+                                                <div className="textDisplay">
+                                                    <span className="text-truncate">{personData.email}</span></div>
                                             )
                                             }
 
@@ -228,7 +231,10 @@ const Profile = () => {
                                                                 value={personData.phone || "Add your Number"}
                                                                 className="editInput" />) : (
                                                 <div className="textDisplay">
-                                                    {personData.phone || "Add your Number"}
+                                                     <span className="text-truncate">
+                                                         {personData.phone || "Add your Number"}
+                                                     </span>
+                                                   
                                                 </div>
                                             )
                                             }
@@ -252,9 +258,9 @@ const Profile = () => {
 
                                 <div className="dgrandparent">
                                     <div className="dparent">
-                                        <div className="dinfo">Change Password</div>
+                                        <div className="dinfo">Password</div>
 
-                                        <button onClick={handlePassChange} >Change Password</button>
+                                        <button className="chgPasswrd" onClick={handlePassChange} >Change Password</button>
 
                                     </div>
 
