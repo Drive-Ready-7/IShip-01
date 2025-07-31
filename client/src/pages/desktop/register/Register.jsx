@@ -97,7 +97,7 @@ export default function Register() {
                     />
                     <label>Password</label>
                     <span onClick={togglePassword} className="toggle-password">
-                        {showPassword ? <FaEye /> : <FaEyeSlash />}
+                        {showPassword ? <FaEye className="icon"/> : <FaEyeSlash className="icon"/>}
                     </span>
                 </div>
 
@@ -112,7 +112,7 @@ export default function Register() {
                     />
                     <label>Confirm Password</label>
                     <span onClick={toggleConfirmPassword} className="toggle-password">
-                        {showConfirmPassword ? <FaEye /> : <FaEyeSlash />}
+                        {showConfirmPassword ? <FaEye className="icon"/> : <FaEyeSlash className="icon"/>}
                     </span>
                     {formData.password &&
                         formData.confirmPassword &&

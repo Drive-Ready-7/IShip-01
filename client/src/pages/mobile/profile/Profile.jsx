@@ -1,12 +1,15 @@
 import { useState,useRef,useEffect } from 'react';
 import './Profile.css'
 import { useNavigate } from 'react-router-dom'
-
+import Axios from "@api";
+import PopUp from '../PopUp/PopUp';
 export default function Profile(){
 
     const [userName,setUserName] = useState(false);
     const [email,setEmail] = useState(false);
     const [phone,setPhone] = useState(false);
+    const [popup, setPopup] = useState(false);
+
 
     const [userData, setUserData] = useState(() => {
         return JSON.parse(localStorage.getItem('userData')) || {};
@@ -19,7 +22,59 @@ export default function Profile(){
     const userNameref = useRef(null);
     const emailref = useRef(null);
     const phoneref = useRef(null) 
-    
+     
+    const changeUserName = async (e) => {
+        e.preventDefault();
+        try{
+            const res = await Axios.post('/api/user/change-username', {
+                userId: userData._id,
+                username: usernameChange
+            });
+            if(res.status === 200) {
+                setUserData(prev => ({ ...prev, name: usernameChange }));
+                localStorage.setItem('userData', JSON.stringify({ ...userData, name: usernameChange }));
+                setUserName(false);
+            }else if(res.status === 400) {
+                alert("Username already exists");  
+            }
+        }catch(e){
+            console.log(e);
+        }
+
+    }
+    const changeEmail = async (e) => {
+        e.preventDefault();
+        try{
+            const res = await Axios.post('/api/user/change-email', {
+                userId: userData._id,
+                email: emailChange
+            }); 
+            
+        }catch(e){
+            console.log(e);
+        }
+        setPopup(true);
+
+    }
+
+    useEffect(() => {
+
+        const handleEmailVerification = async () => {
+            try {
+                const res = await Axios.post('/api/user/send-verification-email', {
+                    userId: userData._id,
+                    email: emailChange
+                });
+                
+            } catch (err) {
+                console.log(err);
+            }
+
+        };
+
+        if(popup) handleEmailVerification();
+
+    }, [popup]);
   
     
 
@@ -41,6 +96,8 @@ export default function Profile(){
 
     return(
         <>
+            <PopUp/>
+            { popup && <PopUp />}
             <div className="profile-page">
                 <div className="profile-image">
                     <img src="/images/profile-icon.jpg" alt="profile image" />
@@ -67,7 +124,7 @@ export default function Profile(){
                                     /> 
                                 </div>
                                 <div className="submit">
-                                    <button className='save'>
+                                    <button onClick={changeUserName} className='save'>
                                         Save
                                     </button>
                                     <button className="cancel" onClick={()=>setUserName(!userName)}>
@@ -81,8 +138,6 @@ export default function Profile(){
                                     {userData.name}
                                 </div>
                                 <svg onClick={()=>setUserName(()=>{
-                                    
-
                                     return !userName;
                                 })} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil" viewBox="0 0 16 16">
                                     <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
@@ -106,7 +161,7 @@ export default function Profile(){
                                     /> 
                                 </div>
                                 <div className="submit">
-                                    <button className='save'>
+                                    <button onClick={changeEmail} className='save' >
                                         Save
                                     </button>
                                     <button className="cancel" onClick={()=>setEmail(!email)}>

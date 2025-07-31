@@ -15,18 +15,18 @@
     flex-direction: row;
     width:100%;
     height:max-content;
-    
+
 }
 .sidebar{
-   width:23%;
+   width:26%;
     /* border:1px solid black; */
-    height: auto;
+    height:83svh;
     display: flex;
     flex-direction: column;
     background-color: #E3EBF7;
     justify-content: space-between;
     align-items: center;
-    padding-left: 2%;
+    padding-left: 1.5%;
  
     
 }
@@ -49,7 +49,7 @@
 
  /* side bar content */
 .sideBarContent{
-    font-size:1,5rem;
+    font-size:1rem;
 }
 
 
@@ -165,7 +165,7 @@
 
 .details{
     width:100%;
-    height:100svh;
+    height:83svh;
     /* border:1px solid black; */
     display: flex;
     justify-content: center;
@@ -205,6 +205,7 @@
     height:30px;
     /* border-bottom: 1px solid black; */
     font-size: 1rem;
+    border:none;
     
 }
 .textDisplay{
@@ -304,7 +305,7 @@
     background-color: #DBDBDB;
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
-    width:100%;
-    padding-left: 20px;
+    width:calc(100%-6%);
+    padding-left: 8%;
     cursor: pointer;
 }
