@@ -16,6 +16,8 @@
     flex-direction: column;
     gap: 25px;
     align-items: center;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
 }
 
 .login-form h1 {
