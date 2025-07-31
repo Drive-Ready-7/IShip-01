@@ -47,8 +47,8 @@ const Nav = () => {
                     />
                 ) : (
                     <>
-                        <button onClick={handleLogin} className="nav-button nav-login-btn">Login</button>
-                        <button onClick={handleRegister} className="nav-button nav-register-btn">Register</button>
+                        <button onClick={handleLogin} className={`nav-button nav-login-btn ${theme}`}>Login</button>
+                        <button onClick={handleRegister} className={`nav-button nav-register-btn ${theme}`}>Register</button>
                         <button onClick={toggleTheme}>Change Theme</button>
                     </>
                 )}
