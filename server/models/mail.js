@@ -1,7 +1,7 @@
-import mongoose, {Mongoose} from 'mongoose';
+import mongoose from 'mongoose';
 
 const MailSchema = new mongoose.Schema({
-    _id: { type: Mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    _id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
 
     subject: { type: String, required: true },
     type: String,
