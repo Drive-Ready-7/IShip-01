@@ -155,6 +155,11 @@
     cursor: pointer;
     width: 2.6svw;
 }
+@media (max-width: 769px) {
+    .footer-lastline-logo {
+        height: 3svh;
+    }
+}
 @media (max-width: 365px) {
     .footer-headings, .footer-middle, .footer-down {
         flex-direction: column;
