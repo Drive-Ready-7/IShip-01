@@ -9,6 +9,9 @@
     border-radius: 0px;
     padding: 10px 20px;
     box-shadow: 1px black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     
 }
 
@@ -24,6 +27,7 @@
     margin: 0px;
     width: 100px;
     height: 33px;
+    margin-top: 6px;
 }
 
 .menu-Burger{
