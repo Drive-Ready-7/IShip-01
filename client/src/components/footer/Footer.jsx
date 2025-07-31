@@ -1,4 +1,4 @@
-import './Footer.css';
+import './footer.css';
 import { useNavigate } from "react-router-dom";
 
 // React icons
