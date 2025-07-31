@@ -162,11 +162,13 @@
 .save{
     border: none;
     background-color: rgba(0, 255, 30, 0.686);
+    cursor: pointer;
 }
 
 .cancel{
     border: none;
     background-color: rgba(128, 128, 128, 0.414);
+    cursor: pointer;
 }
 
 .input-type{
@@ -183,3 +185,4 @@
     height: 24px;
     
 }
+

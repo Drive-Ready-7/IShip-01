@@ -51,10 +51,11 @@ export default function Profile(){
                 email: emailChange
             }); 
             
+             setPopup(true);
         }catch(e){
             console.log(e);
         }
-        setPopup(true);
+        
 
     }
 
@@ -62,8 +63,7 @@ export default function Profile(){
 
         const handleEmailVerification = async () => {
             try {
-                const res = await Axios.post('/api/user/send-verification-email', {
-                    userId: userData._id,
+                const res = await Axios.post('/api/user/send-verification-mail', {
                     email: emailChange
                 });
                 
@@ -97,8 +97,12 @@ export default function Profile(){
 
     return(
         <>
-            <PopUp/>
-            { popup && <PopUp />}
+            <div className="popup">
+                {popup && <PopUp email={emailChange} _id={userData._id} popup={popup} setPopup = {setPopup} emailShower={email} setEmailShower={setEmail}
+                userData={userData} setUserData={setUserData} />}
+                
+            </div> 
+            
             <div className="profile-page">
                 <div className="profile-image">
                     <img src="/images/profile-icon.jpg" alt="profile image" />

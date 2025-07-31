@@ -258,7 +258,10 @@ router.post('/change-email', async (req, res) => {
         user.verified = false;
         user.unicode = '';
         await user.save();
-        return res.status(200).send('Email successfully updated');
+        return res.status(200).json({
+            data : user,
+            message: 'Email successfully updated'
+        })
     } catch(err) {
         console.log(err);
         res.status(500).json({
