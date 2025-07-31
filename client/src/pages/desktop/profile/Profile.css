@@ -1,4 +1,6 @@
-
+*{
+    box-sizing: border-box;
+}
 .parent{
     margin:0px;
     padding: 0px;
@@ -281,6 +283,7 @@
     align-items:flex-end;
     /* justify-content: ; */
     font-size: 1rem;
+    padding-left:10px;
 
 }
 .ggparent1{
@@ -292,4 +295,16 @@
     display: flex;
     flex-direction: column;
     gap:50px;
+}
+.Mred{
+    color:red;
+}
+.active-side-element{
+    /* background-color: rgba(255, 253, 253, 0.6); */
+    background-color: #DBDBDB;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    width:100%;
+    padding-left: 20px;
+    cursor: pointer;
 }

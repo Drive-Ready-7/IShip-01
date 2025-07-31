@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import {
     MdEmail,
@@ -15,6 +14,7 @@ import { ImBin2 } from "react-icons/im";
 import './Profile.css';
 const Profile = () => {
 
+    const [path, setPath] = useState("user");
     const [profileEdit, setProfileEdit] = useState(false);
     const [user, setUser] = useState({
         name: "surekha",
@@ -22,6 +22,8 @@ const Profile = () => {
         phone: "123456",
         password: "ajfcnvo"
     })
+
+    console.log(`"iconDetails ${path === "user" && "active-side-element"}" `)
 
     const toggleEdit = () => {
         setProfileEdit(!profileEdit);
@@ -64,17 +66,21 @@ const Profile = () => {
 
                         <div className="sidebarchild1">
                             <div className="parentIconDetails">
-                                <div className="iconDetails">
+                                <div className={`iconDetails ${path === "user"?"active-side-element" : ""} `}>
                               <BsPersonFill class="dusericon"/>
-                                    <div className="sideBarContent">User Details</div>
+                                    <div 
+                                    onClick={() => setPath("user")}
+                                    className="sideBarContent">User Details</div>
 
                                 </div>
                             </div>
 
                             <div className="parentIconDetails">
-                                <div className="iconDetails">
+                                <div className={`iconDetails ${path === "mail"?"active-side-element":""}`}>
                                      <MdEmail />
-                                    <div className="sideBarContent">Mail Details</div>
+                                    <div 
+                                    onClick={() => setPath("mail")}
+                                    className="sideBarContent">Mail Details</div>
 
                                 </div>
                             </div>
@@ -104,8 +110,9 @@ const Profile = () => {
 
 
 
-{/* 
-                    <div className="details">
+ 
+                    { path === 'user' ? 
+                        <div className="details">
                         <div className="ggparent">
                             <div className="dgrandparent">
                                 <div className="dparent">
@@ -224,37 +231,40 @@ const Profile = () => {
 
 
                         </div>
-                    </div> */}
+                    </div> 
 
+                    : 
 
                     <div className="details">
                         <div className="ggparent1">
                             <div className="dgrandparent">
                                 <div className="dparent">
 
-                                    <div className="minfo">Email 1</div>
+                                    <div className="minfo">Mail 1</div>
 
 
                                     <div className="dinput">
-                                        {profileEdit ? (<input type="text" className="editInput"
+                                        {/* {profileEdit ? (<input type="text" className="editInput"
 
-                                        />) : (
-                                            <div className="textDisplay">surekha reddy gudimetla</div>
-                                        )
-                                        }
+                                        />) : ( */}
+                                            <div className="textDisplay"></div>
+                                        {/* )
+                                        } */}
 
                                     </div>
 
-                                    {!profileEdit && <div className="dicon" onClick={toggleEdit} id="nameclick">
-                                      <ImBin2 /> </div>}
+                                    {/* {!profileEdit && <div className="dicon" onClick={toggleEdit} id="nameclick">
+                                      <ImBin2  className="Mred"/> </div>} */}
+
+                                      <div className="dicon"><ImBin2  className="Mred"/> </div>
                                 </div>
-                                {
+                                {/* {
                                     profileEdit &&
                                     <div className="savecancel">
                                         <button className="psave">Save</button>
                                         <button className="pcancel" onClick={toggleEdit}>Cancel</button>
                                     </div>
-                                }
+                                } */}
                             </div>
 
 
@@ -264,50 +274,53 @@ const Profile = () => {
 
                                 <div className="dparent">
 
-                                    <div className="minfo">Email 2</div>
+                                    <div className="minfo">Mail 2</div>
                                     <div className="dinput">
-                                        {emailEdit ? (<input type="text" className="editInput"
+                                        {/* {emailEdit ? (<input type="text" className="editInput"
 
-                                        />) : (
+                                        />) : ( */}
                                             <div className="textDisplay"></div>
-                                        )
-                                        }
+                                        {/* )
+                                        } */}
 
                                     </div>
-                                    {!emailEdit && <div className="dicon" onClick={emailtoggle}  ><ImBin2 /></div>}
+                                    {/* {!emailEdit && <div className="dicon" onClick={emailtoggle}  ><ImBin2 /></div>} */}
+
+                                    <div className="dicon"><ImBin2 /></div>
                                 </div>
-                                {
+                                {/* {
                                     emailEdit &&
                                     <div className="savecancel">
                                         <button className="psave">Save</button>
                                         <button className="pcancel" onClick={emailtoggle}>Cancel</button>
                                     </div>
-                                }
+                                } */}
 
 
                             </div>
                             <div className="dgrandparent">
                                 <div className="dparent">
-                                    <div className="minfo">Email 3</div>
+                                    <div className="minfo">Mail 3</div>
                                     <div className="dinput">
-                                        {passwrdEdit ? (<input type="text" className="editInput"
+                                        {/* {passwrdEdit ? (<input type="text" className="editInput"
 
-                                        />) : (
+                                        />) : ( */}
                                             <div className="textDisplay"></div>
-                                        )
-                                        }
+                                        {/* ) */}
+                                        {/* } */}
 
                                     </div>
 
-                                    {!passwrdEdit && <div className="dicon" onClick={passwrdtoggle}><ImBin2 /></div>}
+                                    {/* {!passwrdEdit && <div className="dicon" onClick={passwrdtoggle}><ImBin2 /></div>} */}
+                                     <div className="dicon" ><ImBin2 /></div>
                                 </div>
-                                {
+                                 {/* { 
                                     passwrdEdit &&
                                     <div className="savecancel">
                                         <button className="psave">Save</button>
                                         <button className="pcancel" onClick={passwrdtoggle}>Cancel</button>
                                     </div>
-                                }
+                                } */}
 
                             </div>
                             
@@ -316,6 +329,7 @@ const Profile = () => {
                         </div>
                     </div>
 
+                    }
                 
 
                 </div>
