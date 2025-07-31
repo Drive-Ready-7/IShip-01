@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Axios from "@api";
 import './ForgotPassword.css';
 import { FaEnvelope, FaKey, FaLock } from "react-icons/fa";
+import Logo from "../../mobile/logo/Logo.jsx";
+
 
 export default function ForgotPassword() {
     const [step, setStep] = useState(1);
@@ -113,9 +115,7 @@ export default function ForgotPassword() {
     return (
         <div className="forgot">
             <form className="forgot-form" onSubmit={handleSubmit}>
-                <h1>
-                    <span style={{ color: "blue" }}>L</span>ast <span style={{ color: "red" }}>L</span>ine
-                </h1>
+                 <Logo />
 
                 {renderStepContent()}
 
