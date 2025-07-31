@@ -24,14 +24,20 @@ const fetchMLResponse = async (mails) => {
 
 const filterMails = async (userId, email, accessToken) => {
     const rawMails = await fetchRecentEmails(accessToken);
-    const mlResults = await fetchMLResponse(rawMails);
+    console.log(rawMails);
 
+    if (rawMails?.length === 0) {
+        return [];
+    }
+    const mlResults = await fetchMLResponse(rawMails);
+    console.log(mlResults);
     const preparedMails = rawMails.map((mail, index) => {
+
         const ml = mlResults[index] || {};
         const deadline = ml.deadline || new Date(Date.now() + 3 * 24 * 60 * 60 * 1000); // 3 days from now
 
         return {
-            _id: new mongoose.Types.ObjectId(userId),
+            userId: new mongoose.Types.ObjectId(userId),
             subject: mail.subject,
             type: ml.prediction || 'others',
             deadline: deadline,
@@ -39,7 +45,8 @@ const filterMails = async (userId, email, accessToken) => {
             metaData: JSON.stringify({
                 from: mail.from,
                 to: email
-            })
+            }),
+            to: email,
         };
     });
 

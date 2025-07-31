@@ -4,7 +4,7 @@ const Google = () => {
 
     const handleGmailLogin = () => {
         console.log(import.meta.env.VITE_BASE_URI)
-        const userId = localStorage.getItem('userId');
+        const userId = JSON.parse(localStorage.getItem("userData"))._id;
         window.open(
             `${import.meta.env.VITE_BASE_URI}/auth/google/start?state=${userId}`,
             'Login with Gmail',

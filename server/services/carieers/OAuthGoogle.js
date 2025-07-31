@@ -27,6 +27,7 @@ const SCOPE = [
 
 router.get('/google/start', (req, res) => {
     const { state } = req.query;
+    console.log(state)
     const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&&scope=${encodeURIComponent(SCOPE)}&access_type=offline&prompt=consent&state=${state}`;
     res.redirect(url);
 })
@@ -108,8 +109,11 @@ router.post('/google/process', async (req, res) => {
         if (!targetMail) {
             return res.status(404).json({ message: 'Target mail not found for user' });
         }
-
-        await filterMails(userId, email, targetMail.googleAccessToken);
+        console.log('Calling Process')
+        const mailRes = await filterMails(userId, email, targetMail.googleAccessToken);
+        if(mailRes?.length === 0) {
+            return res.status(404).json({ message: 'There are no mails found.' });
+        }
 
         return res.status(200).json({ message: 'Emails processed and saved to DB' });
     } catch (err) {

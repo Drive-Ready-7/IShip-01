@@ -1,28 +1,21 @@
 import { Router } from "express";
 import User from "../models/user.js";
-
-import fetchRecentEmails from '../services/carieers/mailProvider.js';
+import Mail from "../models/mail.js";
 
 const router = new Router();
 
-router.post('/get-google-mails', async (req, res) => {
-    const { userId, email } = req.body;
+router.post('/get-user-mails', async (req, res) => {
+    const { userId } = req.body;
 
     try {
-        const user = await User.findById(userId);
-        const mailData = user.userMails.filter(mail => mail.email === email);
-        if(!mailData.length) {
-            res.status(403).send("Mail Not Found");
-        }
-        const mails = await fetchRecentEmails(mailData[0].googleAccessToken);
-        res.send(mails);
+        const mails = await Mail.find({ userId: userId });
+
+        res.status(200).json({ data: mails });
     } catch (err) {
         console.error(err);
-        res.status(500).send({
-            error: "Internal Server Error",
-        })
+        res.status(500).json({ error: 'Internal Server Error' });
     }
-})
+});
 
 router.post('/add-mail-account', async (req, res) => {
     const { userId, email, picture, googleAccessToken, googleRefreshToken, googleTokenExpiryDate } = req.body;
