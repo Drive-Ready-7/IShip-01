@@ -26,7 +26,7 @@ export default function Login() {
         try {
             const res = await Axios.post("/api/user/login", { usernameOrEmail, password });
             localStorage.setItem('accessToken', res.data.token);
-            localStorage.setItem('userData', res.data.user);
+            localStorage.setItem('userData', JSON.stringify(res.data.user));
             localStorage.setItem('isLoggedIn', 'true');
             navigate('/');
         } catch (err) {
