@@ -88,10 +88,6 @@ const PrivacyPolicy = () => {
                             <Footer/>
                         </div>
                     </div>
-
-                    <footer className="M-privacy-footer">
-                        &copy; {new Date().getFullYear()} LastLine. All rights reserved.
-                    </footer>
                 </div>
             </div>
 

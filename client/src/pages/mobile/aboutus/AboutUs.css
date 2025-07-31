@@ -1,12 +1,11 @@
 
     .M-about {
       line-height: 1.8;
-      color: #1f2a44;
-      background-color: #f8fafc;
+      background: #f5f5f5bd;
       overflow-x: hidden;
     }
     .M-container {
-      width: 90svw;
+      width: 95svw;
       margin: 0 auto;
       padding: 2rem 1rem;
     }
@@ -14,7 +13,7 @@
       position: relative;
       text-align: center;
       padding: 5rem 1rem;
-      background: linear-gradient(135deg, rgba(201, 3, 3, 0.246) 0%, rgba(177, 2, 2, 0.698) 100%);
+      background-image: linear-gradient(90deg, #0a1418, #0b5975);
       color: #ffffff;
       margin-bottom: 2rem;
     }
@@ -42,7 +41,7 @@
       z-index: 1;
     }
     .M-content  h2 {
-      color: rgba(177, 2, 2, 0.698);
+      color: #0b5975;
       font-size: clamp(1.5rem, 4vw, 2.2rem);
       font-weight: 600;
       text-align: center;
@@ -53,7 +52,7 @@
       content: '';
       width: 3rem;
       height: 0.25rem;
-      background: rgba(177, 2, 2, 0.698);
+      background: #0b5975;
       display: block;
       margin: 0.5rem auto;
       border-radius: 0.125rem;
@@ -71,10 +70,10 @@
 
     .M-content-important{
         font-weight:600;
-        color:rgba(177, 2, 2, 0.698);
+        color:#0b5975;
     }
     .M-features {
-      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      background: linear-gradient(135deg, #f1f5f9 0%, #b3cae9 100%);
       padding: 2.5rem;
       border-radius: 1rem;
       margin: 2rem 0;
@@ -85,7 +84,7 @@
       transform: translateY(-0.3125rem);
     }
     .M-features  h2 {
-      color: rgba(177, 2, 2, 0.698);
+      color:#0b5975;
       text-align: center;
       margin-bottom: 1.5rem;
     }
@@ -110,6 +109,7 @@
     .M-features li:hover {
       transform: translateY(-0.1875rem);
       box-shadow: 0 0.375rem 1rem rgba(0, 0, 0, 0.1);
+      background-color: #b3cae9;
     }
     .M-features li::before {
       content: "✨";

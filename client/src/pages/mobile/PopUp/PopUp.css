@@ -1,0 +1,71 @@
+
+.popup-body{
+    width:min(90%, 450px);
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;  
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+   
+}
+
+.otp-form{
+    margin-top: 30px;
+    width: 100%;
+    height: max-content;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+   
+}
+
+
+.spaced-input {
+  font-size: 16px;
+  letter-spacing: 15px; /* creates spacing between digits */
+  padding: 10px 10px;
+  width: 220px;
+  text-align: center;
+  border-radius: 8px;
+
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  background: #007bff;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.cross{
+    position: absolute;
+    padding: 3px 10px;
+    border-radius: 0px;
+    top: 8px;
+    right: 12px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: red;
+}
+
+.cross:hover{
+    background-color: darkred;
+    color: white;
+}
