@@ -3,6 +3,7 @@ import './Main.css';
 import Nav from '@components/nav/Nav.jsx';
 import {useEffect, useState} from "react";
 import Threads from "../../../splice/threads/Threads.jsx";
+import Footer from '../../../components/footer/Footer.jsx';
 
 export default function Main() {
 
@@ -22,7 +23,7 @@ export default function Main() {
     return (
         <>
             <Nav />
-            <div className="main-container">
+            <div className="container">
 
                 <div className="main-content">
                     <aside className="main-aside">
@@ -41,6 +42,9 @@ export default function Main() {
                     distance={0}
                     enableMouseInteraction={true}
                     />
+            </div>
+            <div className='footer-section'>
+                <Footer/>
             </div>
         </>
     )

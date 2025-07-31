@@ -6,6 +6,7 @@
     justify-content: center;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 
 .main-content {
@@ -13,7 +14,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     height: max-content;
 }
 
@@ -21,3 +22,15 @@
 /*    height: 100vh;*/
 /*    background-color: black;*/
 /*}*/
+
+
+.footer-section {
+    width: 99vw;
+    height: 80svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}

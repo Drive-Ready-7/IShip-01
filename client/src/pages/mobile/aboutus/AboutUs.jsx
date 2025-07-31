@@ -1,4 +1,5 @@
 import './AboutUs.css';
+import Footer from '../../../components/footer/Footer.jsx';
 
 export default function AboutUs() {
     return (
@@ -44,6 +45,9 @@ export default function AboutUs() {
                         <li>Focused approach with limited, curated opportunities</li>
                     </ul>
                 </div>
+            </div>
+            <div className="about-mobile-footer-section">
+                <Footer/>
             </div>
         </div>
     )

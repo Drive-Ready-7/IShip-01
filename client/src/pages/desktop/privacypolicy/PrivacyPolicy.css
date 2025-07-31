@@ -1,3 +1,8 @@
+.main{
+    width: 100svh;
+    overflow: hidden;
+}
+
 .privacy-wrapper {
     max-width: 80vw;
     max-height: 100vh;
@@ -82,4 +87,10 @@
     margin-top: 50px;
     font-size: 0.85rem;
     color: #999;
+}
+.pp-desktop-footer-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
 }

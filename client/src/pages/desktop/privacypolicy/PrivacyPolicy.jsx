@@ -1,8 +1,10 @@
 import React from 'react';
 import './PrivacyPolicy.css';
+import Footer from '../../../components/footer/Footer.jsx';
 
 const PrivacyPolicy = () => {
     return (
+        <div className='main'>
         <div className="privacy-wrapper">
             <header className="privacy-header">
                 <h1 className="privacy-heading">Privacy Policy</h1>
@@ -83,10 +85,10 @@ const PrivacyPolicy = () => {
                     </ul>
                 </section>
             </div>
-
-            <footer className="privacy-footer">
-                &copy; {new Date().getFullYear()} LastLine. All rights reserved.
-            </footer>
+        </div>
+        <div className="pp-desktop-footer-section">
+            <Footer/>
+        </div>
         </div>
     );
 };

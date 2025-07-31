@@ -1,8 +1,159 @@
-
-
-.privacy-footer {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 0.85rem;
-    color: #999;
+.footer {
+    all:unset;
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    flex-direction: column; 
+    height: 60svh;
+    width: 84svw;
+    background-color: #FFFFFFE0;
+    border-radius: 20px;
+}
+.footer-headings {
+    all:unset;
+    height: 20svh;
+    width: 84svw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-middle {
+    all:unset;
+    height: 40svh;
+    width: 84svw;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+.footer-down {
+    all:unset;
+    height: 12svh;
+    width: 84svw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-icon {
+    width: 3svw;
+    
+}
+#big-logos {
+    width: 2.5svw;
+}
+.footer-icons {
+    all:unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+}
+.privacy-button {
+    all:unset;
+    border: none;
+    background-color: #FFFFFFE0;
+    color: color(display-p3 0.407843 0.360784 0.439216);
+    font-size: 1.08rem;
+}
+.privacy-button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.footer-privacy {
+    all:unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+.line-horizontal {
+    all:unset;
+    height: 1px;
+    width: 82svw;
+    background-color: rgb(207, 207, 207);
+}
+.line-vertical {
+    all:unset;
+    height: 4svh;
+    width: 1px;
+    background-color: rgb(207, 207, 207);
+}
+.footer-lastline-logo {
+    all:unset;
+    height: 6svh;
+    width: 14svw;
+    transition: all 0.5s ease-out;
+}
+.footer-lastline-logo:hover {
+    all:unset;
+    height: 7svh;
+    width: 15svw;
+    cursor: pointer;
+}
+.footer-copyright {
+    all:unset;
+    color: color(display-p3 0.560784 0.517647 0.592157);
+}
+.footer-services, .footer-getlastline, .footer-support {
+    all:unset;
+    padding-top: 5px;
+    gap: 2rem;
+}
+.footer-div-data {
+    border: 2rem;
+    all:unset;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding-top: 1.6rem;
+}
+/*#youtube-logo {
+    height: 7.4svh;
+}
+#youtube-logo:hover {
+    height: 7.5svh;
+    cursor: pointer;
+}
+#insta-logo {
+    height: 3rem;
+}
+#insta-logo:hover {
+    height: 3.1rem;
+    cursor: pointer;
+}*/
+.middle-heading {
+    all:unset;
+    font-size: 1.4rem;
+    color: color(display-p3 0.133333 0.0392157 0.2);
+}
+.middle-data {
+    all:unset;
+    text-decoration: none;
+    color: color(display-p3 0.407843 0.360784 0.439216);
+    font-size: 1.24rem;
+    transition: all;
+}
+.middle-data:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.footer-icon:hover {
+    cursor: pointer;
+    width: 3.1svw;
+}
+#big-logos:hover {
+    cursor: pointer;
+    width: 2.6svw;
+}
+@media (max-width: 365px) {
+    .footer-headings, .footer-middle, .footer-down {
+        flex-direction: column;
+    }
 }

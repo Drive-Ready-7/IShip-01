@@ -8,7 +8,7 @@ import ForgotPassword from "../pages/desktop/forgot-password/ForgotPassword.jsx"
 import Loader from "../components/loaders/simpleLoader/Loader.jsx";
 import Profile from "../pages/mobile/profile/Profile.jsx";
 import AboutUs from "../pages/mobile/aboutus/AboutUs.jsx";
-
+import Footer from "../components/footer/Footer.jsx";
 
 
 const router = createBrowserRouter([
@@ -20,7 +20,8 @@ const router = createBrowserRouter([
     { path: '/forgot-password', element: <ForgotPassword/>},
     { path: '/loader', element: <Loader/>},
     { path:'/profile', element:<Profile/> },
-    { path: '/aboutus', element:<AboutUs/>}
+    { path: '/aboutus', element:<AboutUs/>},
+    { path: '/footer', element: <Footer/>},
 
 ])
 

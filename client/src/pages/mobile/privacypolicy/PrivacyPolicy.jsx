@@ -1,4 +1,5 @@
 import './PrivacyPolicy.css';
+import Footer from '../../../components/footer/Footer.jsx';
 
 const PrivacyPolicy = () => {
     return (
@@ -83,6 +84,9 @@ const PrivacyPolicy = () => {
                                 <li>Website: <a href="https://lastline.life" className="M-external-link">https://lastline.life</a></li>
                             </ul>
                         </section>
+                        <div className="pp-footer-section-mobile">
+                            <Footer/>
+                        </div>
                     </div>
 
                     <footer className="M-privacy-footer">
