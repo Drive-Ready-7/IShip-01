@@ -221,12 +221,13 @@ const Threads = ({
     }, [color, amplitude, distance, enableMouseInteraction]);
 
     return <div ref={containerRef} className="threads-container" {...rest} style={{
-        position: "absolute",
-        top: 0,
+        // position: "absolute",
+        // top: 0,
         height: "100vh",
         width: "100vw",
-        zIndex: -1,
         overflow: "hidden",
+        // zIndex: -1,
+        // overflow: "hidden",
     }} />;
 };
 

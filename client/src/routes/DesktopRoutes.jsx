@@ -1,5 +1,6 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
+import Root from '../pages/desktop/root/Root.jsx'
 import Login from "../pages/desktop/login/Login.jsx";
 import Register from "../pages/desktop/register/Register.jsx";
 import Main from "../pages/desktop/main/Main.jsx";
@@ -15,8 +16,10 @@ import Footer from "../components/footer/Footer.jsx";
 import PopUp from  "../components/popup/PopUp.jsx";
 
 
+
 const router = createBrowserRouter([
-    { path: '/', element: <Main /> },
+    { path: '/', element: <Root /> },
+    { path: '/dashboard', element: <Main /> },
     { path: '/register', element: <Register /> },
     { path: '/login', element: <Login /> },
     { path : '/logo' , element: <Logo/> },
@@ -26,7 +29,7 @@ const router = createBrowserRouter([
     { path: '/google', element: <Google/> },
     { path: '/loader', element: <Loader/>},
     { path: '/profile', element: <Profile/>},
-    { path: '/aboutus', element: <AboutUs/>},
+    { path: '/about', element: <AboutUs/>},
     { path: '/footer', element: <Footer/>},
     {path: '/popup' , element:  <PopUp/>}
 ])

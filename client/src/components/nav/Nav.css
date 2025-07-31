@@ -6,14 +6,16 @@
 
 .navbar {
     justify-content: space-between;
-    width: auto;
+    width: 80vw;
     margin: 5vh 6vw 0 6vh;
     border-radius: 16px;
     box-shadow:
             0 8px 16px -4px rgba(37, 8, 53, 0.06),
             0 -4px 8px -4px rgba(37, 8, 53, 0.04);
     transition: box-shadow 400ms cubic-bezier(0.3, 0.1, 0, 1);
-    overflow: hidden;
+    overflow-x: hidden;
+    background-color: white;
+    color: black;
 }
 
 .navbar:hover {

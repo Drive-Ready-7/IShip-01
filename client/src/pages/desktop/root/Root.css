@@ -1,0 +1,48 @@
+.root-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: black;
+    color: white;
+}
+
+.root-content {
+    height: max-content;
+    overflow: hidden;
+
+    position: relative;
+}
+
+.root-buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+}
+
+.root-buttons > button {
+    border: 2px solid white;
+    background: none;
+    color: white;
+    cursor: pointer;
+
+    border-radius: 15px;
+    padding: 12px 24px;
+}
+
+.root-buttons > button:hover {
+    backdrop-filter: blur(10px);
+}
+
+.root-footer {
+    margin-bottom: 2rem;
+}

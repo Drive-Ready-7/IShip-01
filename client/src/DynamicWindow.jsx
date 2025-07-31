@@ -5,7 +5,6 @@ import DesktopRoutes from "./routes/DesktopRoutes.jsx";
 import MobileRoutes from './routes/MobileRoutes.jsx';
 import Loader from './components/loaders/simpleLoader/Loader.jsx';
 import Logo from './components/logo/Logo.jsx';
-import { ThemeProvider } from "./theme/Theme.jsx";
 
 export default function DynamicWindow() {
 
@@ -29,9 +28,7 @@ export default function DynamicWindow() {
 
     return (
         <Suspense fallback={ <Loader /> }>
-            <ThemeProvider>
                 { isDesktop ? <DesktopRoutes /> : <MobileRoutes /> }
-            </ThemeProvider>
         </Suspense>
     )
 }

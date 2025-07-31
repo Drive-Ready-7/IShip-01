@@ -1,16 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import './Nav.css';
 
-import { useContext } from "react";
-import { ThemeContext } from "../../theme/Theme.jsx";
-
 const Nav = () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const navigate = useNavigate();
-
-    const { theme, toggleTheme } = useContext(ThemeContext);
-
-    console.log(`"nav-button nav-login-btn ${theme}"`)
 
     const handleLogin = () => {
         navigate('/login');
@@ -41,7 +34,7 @@ const Nav = () => {
                 <div className="divider" />
                 {isLoggedIn ? (
                     <img
-                        src="/images/profile-icon.jpg"
+                        src="/images/profile-picture.jpeg"
                         alt="Profile"
                         className="profile-img"
                     />
@@ -49,7 +42,6 @@ const Nav = () => {
                     <>
                         <button onClick={handleLogin} className="nav-button nav-login-btn">Login</button>
                         <button onClick={handleRegister} className="nav-button nav-register-btn">Register</button>
-                        <button onClick={toggleTheme}>Change Theme</button>
                     </>
                 )}
             </main>

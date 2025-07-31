@@ -6,6 +6,8 @@
   box-sizing: border-box;
 }
 
+
+
 :root {
   --base-easing: cubic-bezier(0.3,0.1,0,1);
   --base-easing-out: cubic-bezier(0.23,1.01,0.6,0.95);
@@ -15,13 +17,17 @@
 }
 
 html, body {
-  font-synthesis: style;
   font-family: "Poppins", Agrandir, Manrope, sans-serif;
   scroll-behavior: smooth;
-}
+  overflow-x: hidden;
+  width: 100%;
 
-
-body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
