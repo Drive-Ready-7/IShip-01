@@ -4,7 +4,7 @@ import Footer from '../../../components/footer/Footer.jsx';
 
 const PrivacyPolicy = () => {
     return (
-        <div className='main'>
+        <div>
         <div className="privacy-wrapper">
             <header className="privacy-header">
                 <h1 className="privacy-heading">Privacy Policy</h1>

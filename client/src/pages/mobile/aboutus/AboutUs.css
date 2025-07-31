@@ -116,6 +116,11 @@
       margin-right: 0.75rem;
       font-size: 1.3em;
     }
+    .about-mobile-footer-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-1.25rem); }
