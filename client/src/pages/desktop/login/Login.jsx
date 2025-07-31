@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "@api";
-import Logo from "@components/logo/Logo.jsx";
+import Logo from "../../mobile/logo/Logo.jsx";
 
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import './Login.css';
