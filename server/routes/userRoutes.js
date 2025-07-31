@@ -24,6 +24,23 @@ router.get('/get-users', verifyToken, async (req, res) => {
     }
 })
 
+router.post('/get-user-by-id/', async (req, res) => {
+    const { userId } = req.body;
+    try {
+        const user = await User.findById(userId);
+        if (!user) {
+            res.status(404).json({
+                message: 'User not found',
+            })
+        }
+
+        return res.status(200).json(user);
+    } catch(err) {
+        console.log(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
 router.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
     try {
@@ -197,6 +214,77 @@ router.post('/oauth/reset-password', async (req, res) => {
         return res.status(500).json({
             error: 'Internal Server Error'
         });
+    }
+})
+
+router.post('/change-username', async (req, res) => {
+    const { userId, username } = req.body;
+    try {
+        const user = await User.findById(userId);
+        if(!user) return res.status(404).json({
+            error: 'User does not exist'
+        })
+        const existingUsername = await User.findOne({ name: username } );
+        if(existingUsername) {
+            return res.status(400).json({
+                error: 'Username already exist'
+            })
+        }
+        user.name = username;
+        await user.save();
+        return res.status(200).send('Username successfully updated');
+    } catch(err) {
+        console.log(err);
+        res.status(500).json({
+            error: 'Internal Server Error'
+        })
+    }
+})
+
+router.post('/change-email', async (req, res) => {
+    const { userId, email } = req.body;
+    try {
+        const user = await User.findById(userId);
+        if(!user) return res.status(404).json({
+            error: 'User does not exist'
+        })
+        const existingMail = await User.findOne({ email: email } );
+        if(existingMail) {
+            return res.status(400).json({
+                error: 'Email already exist'
+            })
+        }
+        user.email = email;
+        user.verified = false;
+        user.unicode = '';
+        await user.save();
+        return res.status(200).send('Email successfully updated');
+    } catch(err) {
+        console.log(err);
+        res.status(500).json({
+            error: 'Internal Server Error'
+        })
+    }
+})
+
+router.post('/change-phone', async (req, res) => {
+    const { userId, phone } = req.body;
+
+    try {
+        const user = await User.findById(userId);
+        if(!user) return res.status(404).json({
+            error: 'User does not exist'
+        })
+
+        user.phone = phone;
+        user.phoneVerified = false;
+
+
+    } catch(err) {
+        console.log(err);
+        res.status(500).json({
+            error: "Internal Server Error"
+        })
     }
 })
 

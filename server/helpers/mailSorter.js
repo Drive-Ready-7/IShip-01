@@ -14,7 +14,7 @@ const fetchMLResponse = async (mails) => {
         );
 
         console.log("✅ ML Responses:", responses.map(res => res.data));
-        return responses.map(res => res.data); // Return parsed results if needed
+        return responses.map(res => res.data);
     } catch (err) {
         console.error("❌ ML Request Failed:", err?.response?.data || err.message || err);
     }
@@ -25,7 +25,6 @@ const filterMails = async (userId, email, accessToken) => {
     const res = await fetchRecentEmails(accessToken);
     const MlRes = await fetchMLResponse(res);
     console.log(MlRes);
-    // console.log(res)
     return res;
 }
 
