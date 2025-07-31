@@ -1,6 +1,7 @@
-import { createContext, useState, useEffect } from 'react';
-import './Theme.css';
 
+import { createContext, useState, useEffect } from 'react';
+
+import "./theme.css";
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
@@ -8,13 +9,13 @@ export const ThemeProvider = ({ children }) => {
 
     useEffect(() => {
         localStorage.setItem("theme", theme);
-
-        document.body.classList.remove("light-mode", "dark-mode");
-        document.body.classList.add(`${theme}-mode`);
+        document.body.classList.toggle("dark-mode", theme === "dark");
+        document.body.classList.toggle("light-mode", theme === "light");
     }, [theme]);
 
     const toggleTheme = () => {
-        setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
     };
 
     return (
