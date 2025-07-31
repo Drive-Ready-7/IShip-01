@@ -13,6 +13,7 @@ const getUnicode = () => {
     return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
+// http://localhost:5000/api/user/
 
 router.get('/get-users', verifyToken, async (req, res) => {
     try {
@@ -196,7 +197,6 @@ router.post('/oauth/verify-code', async (req, res) => {
     }
 })
 
-// http://localhost:5000/api/user/verify-reset-password
 router.post('/oauth/reset-password', async (req, res) => {
     const { email, password } = req.body;
     try {
