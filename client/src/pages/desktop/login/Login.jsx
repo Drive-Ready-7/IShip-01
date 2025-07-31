@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "@api";
 import Logo from "../../mobile/logo/Logo.jsx";
-
+import Loader from "../../../components/loaders/simpleLoader/Loader";
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import './Login.css';
 
@@ -32,6 +32,8 @@ export default function Login() {
         } catch (err) {
             console.error(err);
             setError("Login failed. Please check your credentials.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -50,6 +52,10 @@ export default function Login() {
 
     return (
         <div className="login">
+            {loading?
+          <div className='loader'>
+            <Loader/>
+          </div>:
             <form className="login-form" onSubmit={handleLogin}>
                 <div className="login-logo-animation">
                     <Logo />
@@ -94,7 +100,7 @@ export default function Login() {
                     Don't have an account?
                     <span onClick={() => navigate("/register")}> Register</span>
                 </p>
-            </form>
+            </form>}
         </div>
     );
 }
