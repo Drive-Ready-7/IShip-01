@@ -1,6 +1,6 @@
 import axios from 'axios';
 import fetchRecentEmails from "../services/carieers/mailProvider.js";
-import Mail from '../models/Mail.js';
+import Mail from '../models/mail.js';
 import mongoose from 'mongoose';
 
 const fetchMLResponse = async (mails) => {
