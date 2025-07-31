@@ -37,6 +37,7 @@ const Nav = () => {
                         src="/images/profile-picture.jpeg"
                         alt="Profile"
                         className="profile-img"
+                        onClick={() => navigate('/profile')}
                     />
                 ) : (
                     <>

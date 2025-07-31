@@ -8,7 +8,9 @@ export default function Main() {
             <Navbar />
         
             <div className="M-BG-name">
-                Last Line
+                <span>
+                <span className='qutes'>"</span> Your future is waiting in your inbox. <span className='ll'>Last Line</span> makes sure you never miss it.<span className='qutes'>"</span>
+                </span>
             </div>
         </section>
     )
