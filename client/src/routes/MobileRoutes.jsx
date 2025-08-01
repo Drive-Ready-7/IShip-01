@@ -1,15 +1,18 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "../pages/mobile/login/Login.jsx";
-import Register from "../pages/mobile/register/Register.jsx";
-import Main from "../pages/mobile/main/Main.jsx";
-import Logo from "../pages/mobile/logo/Logo.jsx";
-import PrivacyPolicy from "../pages/mobile/privacypolicy/PrivacyPolicy.jsx";
-import ForgotPassword from "../pages/desktop/forgot-password/ForgotPassword.jsx";
-import Loader from "../components/loaders/simpleLoader/Loader.jsx";
-import Profile from "../pages/mobile/profile/Profile.jsx";
-import AboutUs from "../pages/mobile/aboutus/AboutUs.jsx";
-import Footer from "../components/footer/Footer.jsx";
-import Dashboard from "../pages/mobile/dashboard/Dashboard.jsx";
+import { lazy } from 'react';
+
+const Login = lazy(() => import("../pages/mobile/login/Login.jsx"));
+const Register = lazy(() => import("../pages/mobile/register/Register.jsx"));
+const Main = lazy(() => import("../pages/mobile/main/Main.jsx"));
+const Logo = lazy(() => import("../pages/mobile/logo/Logo.jsx"));
+const PrivacyPolicy = lazy(() => import("../pages/mobile/privacypolicy/PrivacyPolicy.jsx"));
+const ForgotPassword = lazy(() => import("../pages/desktop/forgot-password/ForgotPassword.jsx"));
+const Loader = lazy(() => import("../components/loaders/simpleLoader/Loader.jsx"));
+const Profile = lazy(() => import("../pages/mobile/profile/Profile.jsx"));
+const AboutUs = lazy(() => import("../pages/mobile/aboutus/AboutUs.jsx"));
+const Footer = lazy(() => import("../components/footer/Footer.jsx"));
+const Dashboard = lazy(() => import("../pages/mobile/dashboard/Dashboard.jsx"));
+
 
 const router = createBrowserRouter([
     { path: '/', element: <Main /> },

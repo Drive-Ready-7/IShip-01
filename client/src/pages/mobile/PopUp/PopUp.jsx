@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import './PopUp.css';
 import Axios from "@api";
+
 import Logo from '../logo/Logo';
 import { useNavigate } from 'react-router-dom';
+
 const PopUp = (props) => {
   const [otp, setOtp] = useState('');
   const navigate = useNavigate();
+
   const handleChange = (e) => {
-    const value = e.target.value.replace(/\D/g, ''); 
-    if (value.length <= 6) setOtp(value);
+      e.preventDefault();
+      const value = e.target.value.replace(/\D/g, '');
+      if (value.length <= 6) setOtp(value);
   };
 
    const handleSubmit = async (e) => {
@@ -40,7 +44,7 @@ const PopUp = (props) => {
             email: oldEmail
         });
         console.error('Error submitting OTP:', e);
-        navigate('/profile');
+        props.setPopup(prev => !prev);
     }    
   }
  return (

@@ -9,7 +9,6 @@ export default defineConfig({
     alias: {
       '@api': path.resolve(__dirname, './src/auth/Axios'),
       '@components': path.resolve(__dirname, './src/components'),
-      '@theme': path.resolve(__dirname, './src/theme'),
     }
   }
 })
