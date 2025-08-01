@@ -110,8 +110,13 @@ export default function Main() {
                                                 Confidence: {typeof mail.confidence === 'string'
                                                 ? mail.confidence
                                                 : `${mail.confidence?.toFixed(1)}%`}
+                                                
                                             </span>
+                                            
                                          )}
+                                         <span>
+                                            to : {mail.to}
+                                         </span>
                                         </div>
                                     </div>
                                 </div>
