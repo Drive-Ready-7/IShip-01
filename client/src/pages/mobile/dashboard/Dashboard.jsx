@@ -21,11 +21,9 @@ const getBadgeClass = (type) => {
 };
 
 export default function Main() {
+    const [theme, setTheme] = useState('light');
     const [activeFilter, setActiveFilter] = useState('All');
     const [mails, setMails] = useState([]);
-
-
-    const [filteredMails, setFilteredMails] = useState([]);
 
     const userId = JSON.parse(localStorage.getItem('userData'))?._id;
 
@@ -37,7 +35,6 @@ export default function Main() {
                     userId,
                 });
                 setMails(response.data.data || []);
-                setFilteredMails(response.data.data || []);
             } catch (error) {
                 console.error('Error fetching mails:', error);
             }
@@ -46,32 +43,16 @@ export default function Main() {
         fetchUserMails();
     }, [userId]);
 
-    useEffect(() => {
-        const filteredMails = mails.filter((mail) => {
-            const type = mail?.type?.toLowerCase();
-            const spamStatus = mail?.type?.toLowerCase();
+    const filteredMails = mails.filter((mail) => {
+        const type = mail?.type?.toLowerCase();
+        const spamStatus = mail?.spam;
 
-            if (activeFilter === 'All') {
-                return true;
-            }
-
-            if (activeFilter === 'Spam') {
-                return (
-                    spamStatus === 'others' || spamStatus === 'others'
-                );
-            }
-
-            return (
-                spamStatus === 'no_spam' || type === activeFilter.toLowerCase()
-            );
-        });
-
-        setFilteredMails(filteredMails);
-
-        console.log(filteredMails);
-
-
-    }, [activeFilter])
+        if (activeFilter === 'All') return true;
+        if (activeFilter === 'Spam') {
+            return ['jobs', 'internships', 'hackathons'].includes(type) && spamStatus === 'spam';
+        }
+        return spamStatus === 'no_spam' && type === activeFilter.toLowerCase();
+    });
 
     return (
         <section className="main-container">
@@ -79,8 +60,7 @@ export default function Main() {
                 <Navbar />
            
 
-            <div className={`M-dashboard`}>
-                {/* Mobile filter buttons */}
+            <div className={`M-dashboard ${theme}`}>
                 <div className="mobile-filters glass">
                     {['All', 'Jobs', 'Internships', 'Hackathons', 'Spam'].map((filter) => (
                         <button
@@ -119,6 +99,9 @@ export default function Main() {
                                                             : `${mail.confidence?.toFixed(1)}%`}
                                                     </span>
                                                 )}
+                                                <span>
+                                                    to : {mail.to}
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
