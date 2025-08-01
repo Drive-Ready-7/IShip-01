@@ -38,7 +38,7 @@ export default function Footer() {
                 </div>
                 <div className="footer-column">
                     <h4>Support</h4>
-                    <p>Contact us</p>
+                    <p onClick={() => navigate('/contact')}>Contact us</p>
                 </div>
             </section>
 
