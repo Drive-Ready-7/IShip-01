@@ -4,8 +4,8 @@
 .parent{
     margin:0px;
     padding: 0px;
-     width:100%;
-    height:auto;
+     width:100svw;
+    height:100svh;
     display: flex;
     flex-direction:column;
     background-image: linear-gradient(90deg, #0a1418, #0b5975);
@@ -132,7 +132,8 @@
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
-    background-color:#F9FAFB;
+    background-image: linear-gradient(90deg, #0a1418, #0b5975);
+   
 
 }
 .pprofile{
@@ -195,7 +196,7 @@
     gap:3%;
 }
 .dinput{
-    width:60%;
+    width:70%;
     height:auto;
     
   
@@ -239,6 +240,7 @@
     align-items:flex-end;
     /* justify-content: ; */
     font-size: 1rem;
+    color: white;
 }
 .dicon{
     width:6%;
@@ -337,4 +339,8 @@
     height:100%;
     font-size: 1rem;
     border-radius: 4px;
+    color: black;
+    cursor: pointer;
+    background-color: white;
+    border: none;
 }

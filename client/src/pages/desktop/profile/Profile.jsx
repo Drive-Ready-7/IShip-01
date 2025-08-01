@@ -92,7 +92,7 @@ const Profile = () => {
 
                 <div className="pprofile">
                     <img src="/images/profile-icon.jpg" className='ppic' alt="" />
-                    <div className="pname">{personData.name}
+                    <div style={{color:"white"}} className="pname">{personData.name}
                     </div>
                 </div>
 
