@@ -1,0 +1,132 @@
+/* Layout Base */
+.main-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.M-dashboard {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 60px;
+  
+}
+
+.navgar {
+  width: 100%;
+}
+
+/* Sidebar Filters (Desktop) */
+.aside {
+  width: 200px;
+  padding: 1rem;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Filter Button Styles */
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.filter-btn.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Main Mail Area */
+.main {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.mail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mail-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  align-items: center;
+}
+
+.mail-card .badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.badge-job { background-color: #d1e7dd; color: #0f5132; }
+.badge-internship { background-color: #cff4fc; color: #055160; }
+.badge-hackathon { background-color: #fce5cd; color: #783f04; }
+.badge-spam { background-color: #f8d7da; color: #842029; }
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .aside {
+    display: none; /* Hide sidebar on mobile */
+  }
+
+  .mobile-filters {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+    background-color: #f8f9fa;
+  }
+
+  .mobile-filters .filter-btn {
+    flex: 1 1 30%;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .main {
+    padding: 1rem;
+  }
+
+  .mail-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mail-card h3 {
+    font-size: 1rem;
+  }
+}

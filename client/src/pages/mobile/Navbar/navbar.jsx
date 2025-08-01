@@ -38,10 +38,11 @@ export default function Navbar(){
                         <div className={`menu-bar ${isOpen ? 'slide-in' : 'slide-out'}`}>
                             <ul className="top-menu-bar">
                                 <li onClick={()=> navigate('/profile')}>Profile</li>
-                                <li>Jobs</li>
-                                <li>InternShips</li>
-                                <li>Hackathons</li>
-                                <li>Privacy Policy</li>
+                                <li onClick={() => navigate('/dashboard')}>Dashboard</li>
+                               
+                                <li onClick={()=> navigate('/about')}>About Us</li>
+                                <li onClick={()=> navigate('/contact-us')}>Contact Us</li>
+                            
                                 <li onClick={()=>{
                                     localStorage.removeItem('accessToken');
                                     localStorage.removeItem('userData');
