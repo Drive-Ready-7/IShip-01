@@ -13,7 +13,7 @@ const AboutUs = lazy(() => import("../pages/mobile/aboutus/AboutUs.jsx"));
 const Footer = lazy(() => import("../components/footer/Footer.jsx"));
 const Dashboard = lazy(() => import("../pages/mobile/dashboard/Dashboard.jsx"));
 const ContactUs = lazy(() => import("../components/contact/ContactUs.jsx"));
-
+const ChangePassword = lazy(() => import("../components/changePassword/ChangePassword.jsx"));
 const router = createBrowserRouter([
     { path: '/', element: <Main /> },
     { path: '/register', element: <Register /> },
@@ -27,6 +27,8 @@ const router = createBrowserRouter([
     { path: '/footer', element: <Footer/>},
     { path: '/dashboard', element: <Dashboard/> },
     { path: '/contact', element: <ContactUs/>},
+    { path: '/change-password', element: <ChangePassword/> },
+
 ])
 
 const MobileRoutes = () => {

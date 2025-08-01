@@ -56,3 +56,26 @@
     background-color: darkred;
     color: white;
 }
+
+button{
+    cursor: pointer;
+}
+
+.verify{
+    width: max-content;
+    height: max-content;
+    padding: 5px 20px;
+    background-color: #0b5975;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+
+}
+
+.verify:hover{
+    background-color: #0a4b63;
+}

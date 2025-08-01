@@ -43,6 +43,7 @@ const PopUp = (props) => {
             userId: props._id,
             email: oldEmail
         });
+        props.setEmailChange(oldEmail);
         console.error('Error submitting OTP:', e);
         props.setPopup(prev => !prev);
     }    
@@ -50,11 +51,15 @@ const PopUp = (props) => {
  return (
      <div className="popup-body">
       <button onClick={()=>{
+        const oldEmail = localStorage.getItem('email');
+        props.setEmailChange(oldEmail);
         props.setPopup(!props.popup);
         props.setEmailShower(!props.emailShower);
+        
       }} className="cross">X</button>
       <form className="otp-form" onSubmit={handleSubmit}>
-        <label htmlFor="otp">Enter OTP:</label>
+        <div className="p-class">Are you sure to Change the Mail.</div>
+        <label htmlFor="otp" style={{color:'gray'}}>Enter OTP:</label>
         <input
           type="text"
           id="otp"
@@ -64,7 +69,7 @@ const PopUp = (props) => {
           className="spaced-input"
           autoComplete="one-time-code"
         />
-        <button type="submit">Verify</button>
+        <button  type="submit" className='verify'>Verify</button>
       </form>
      </div>
   );

@@ -263,7 +263,7 @@ const Profile = () => {
                                     <div className="dparent">
                                         <div className="dinfo">Password</div>
 
-                                        <button className="chgPasswrd" onClick={handlePassChange} >Change Password</button>
+                                        <button className="chgPasswrd" onClick={()=>navigate('/change-password')} >Change Password</button>
 
                                     </div>
 
