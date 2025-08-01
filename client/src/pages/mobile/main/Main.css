@@ -17,12 +17,13 @@
 }
 
 .qutes{
-    color: rgb(0, 0, 0);
+    color: rgba(255, 255, 255, 0.772);
     font-size: 50px;
     font-weight: 500;
 }
 .ll{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 50px;
-    font-weight: 500;
+    font-weight: 600;
+    
 }
