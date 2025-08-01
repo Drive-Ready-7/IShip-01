@@ -39,7 +39,7 @@ const filterMails = async (userId, email, accessToken) => {
         return {
             userId: new mongoose.Types.ObjectId(userId),
             subject: mail.subject,
-            type: ml.prediction || 'others',
+            type: ml.prediction,
             deadline: deadline,
             confidence: ml.confidence,
             metaData: JSON.stringify({
