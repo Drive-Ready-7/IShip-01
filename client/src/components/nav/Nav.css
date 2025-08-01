@@ -58,7 +58,8 @@
 
 .nav-links li:hover {
     cursor: pointer;
-    background-color: #b4aeae;
+    background-color: black
+;
 }
 
 .nav-left-container {

@@ -66,7 +66,6 @@ router.get('/google/callback', async (req, res) => {
             return res.status(200).send(`
               <script>
                 window.opener.postMessage({
-                    email: "${email}",
                     message: "oauth_already_linked"
                 }, '*');
                 window.close();

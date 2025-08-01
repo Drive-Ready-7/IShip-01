@@ -24,18 +24,21 @@ const fetchMLResponse = async (mails) => {
 
 const filterMails = async (userId, email, accessToken) => {
     const rawMails = await fetchRecentEmails(accessToken);
-    console.log(rawMails);
 
     if (rawMails?.length === 0) {
         return [];
     }
+
     const mlResults = await fetchMLResponse(rawMails);
-    console.log(mlResults);
+
+    mlResults.map(res => {
+      console.log(res.prediction)
+    });
+
     const preparedMails = rawMails.map((mail, index) => {
 
         const ml = mlResults[index] || {};
         const deadline = ml.deadline || new Date(Date.now() + 3 * 24 * 60 * 60 * 1000); // 3 days from now
-
         return {
             userId: new mongoose.Types.ObjectId(userId),
             subject: mail.subject,

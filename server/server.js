@@ -6,6 +6,8 @@ import connectDB from './config/db.js';
 import transporter from "./services/transporters/mail.js";
 import filterMails from "./helpers/mailSorter.js";
 
+import Mails from "./models/mail.js"
+
 import userRoutes from './routes/userRoutes.js';
 import googleAuthRoutes from './services/carieers/OAuthGoogle.js';
 import mailRoutes from './routes/mailRoutes.js';
@@ -42,3 +44,11 @@ app.listen(PORT, async (req, res) => {
     await connectDB();
     await connectWhatsapp();
 });
+
+(async () => {
+    try {
+        const allMails = await Mails.deleteMany({})
+    } catch (error) {
+        console.error(error);
+    }
+})();
