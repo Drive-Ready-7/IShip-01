@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import Nav from '@components/nav/Nav.jsx';
 import Footer from '@components/footer/Footer.jsx';
@@ -6,11 +6,30 @@ import Threads from "../../../splice/threads/Threads.jsx";
 
 
 import './Root.css';
+import Logo from "../../../components/logo/Logo.jsx";
 
 
 export default function Root() {
 
+    const [showAnimation, setShowAnimation] = React.useState(true);
+
+    useEffect(() => {
+
+        const animation = setTimeout(() => {
+            setShowAnimation(false);
+        }, 2500);
+
+        return () => {
+            clearTimeout(animation);
+        }
+
+    }, [])
+
     const navigate = useNavigate();
+
+    if(showAnimation) {
+        return <Logo />
+    }
 
     return (
         <div className="root-container">

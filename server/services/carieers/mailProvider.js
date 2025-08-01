@@ -9,7 +9,7 @@ const getMailsById = async (accessToken) => {
                 Authorization: `Bearer ${accessToken}`
             },
             params: {
-                maxResults: 5
+                maxResults: 200
             }
         });
 

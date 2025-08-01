@@ -21,9 +21,9 @@ const getBadgeClass = (type) => {
 };
 
 export default function Main() {
-    const [theme, setTheme] = useState('light');
     const [activeFilter, setActiveFilter] = useState('All');
     const [mails, setMails] = useState([]);
+    const [filteredMails, setFilteredMails] = useState([]);
 
     const userId = JSON.parse(localStorage.getItem('userData'))?._id;
 
@@ -35,6 +35,7 @@ export default function Main() {
                     userId,
                 });
                 setMails(response.data.data || []);
+                setFilteredMails(response.data.data || []);
             } catch (error) {
                 console.error('Error fetching mails:', error);
             }
@@ -43,33 +44,39 @@ export default function Main() {
         fetchUserMails();
     }, [userId]);
 
-    const filteredMails = mails.filter((mail) => {
-        const type = mail?.type?.toLowerCase();
-        const spamStatus = mail?.spam;
+    useEffect(() => {
+        const filteredMails = mails.filter((mail) => {
+            const type = mail?.type?.toLowerCase();
+            const spamStatus = mail?.type?.toLowerCase();
 
-        if (activeFilter === 'All') {
-            return true;
-        }
+            if (activeFilter === 'All') {
+                return true;
+            }
 
-        if (activeFilter === 'Spam') {
+            if (activeFilter === 'Spam') {
+                return (
+                    spamStatus === 'others' || spamStatus === 'others'
+                );
+            }
+
             return (
-                ['jobs', 'internships', 'hackathons'].includes(type) &&
-                spamStatus === 'spam'
+                spamStatus === 'no_spam' || type === activeFilter.toLowerCase()
             );
-        }
+        });
 
-        return (
-            spamStatus === 'no_spam' &&
-            type === activeFilter.toLowerCase()
-        );
-    });
+        setFilteredMails(filteredMails);
+
+        console.log(filteredMails);
+
+
+    }, [activeFilter])
 
     return (
         <section className="main-container">
             <div className="navgar">
                 <Nav />
             </div>
-            <div className={`dashboard ${theme}`}>
+            <div className="dashboard">
                 <aside className="glass aside">
                     <h2>Filters</h2>
                     {['All', 'Internships', 'Jobs', 'Hackathons', 'Spam'].map((filter) => (
