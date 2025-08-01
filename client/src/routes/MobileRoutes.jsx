@@ -9,9 +9,7 @@ import Loader from "../components/loaders/simpleLoader/Loader.jsx";
 import Profile from "../pages/mobile/profile/Profile.jsx";
 import AboutUs from "../pages/mobile/aboutus/AboutUs.jsx";
 import Footer from "../components/footer/Footer.jsx";
-import Jobs from "../pages/mobile/Jobs/Jobs.jsx";
-import Hackathons from "../pages/mobile/Hackathons/Hackathons.jsx";
-import Internships from "../pages/mobile/Internships/Internships.jsx";
+import Dashboard from "../pages/mobile/dashboard/Dashboard.jsx";
 
 const router = createBrowserRouter([
     { path: '/', element: <Main /> },
@@ -24,10 +22,7 @@ const router = createBrowserRouter([
     { path:'/profile', element:<Profile/> },
     { path: '/about', element:<AboutUs/>},
     { path: '/footer', element: <Footer/>},
-    { path: '/jobs', element: <Jobs/> },
-    { path: '/hackathons', element: <Hackathons/> },
-    { path : '/internships', element: <Internships/> },
-
+    { path: '/dashboard', element: <Dashboard/> }
 ])
 
 const MobileRoutes = () => {
