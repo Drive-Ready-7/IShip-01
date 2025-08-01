@@ -102,15 +102,6 @@
     animation: text-animation 2.5s ease-out forwards ;
 }
 
-.root-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    background: linear-gradient(to right, #7e7878, #ffffff); /* or any background */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Technopollas', sans-serif;
-}
-
 @keyframes suffix-animation {
     from {
         width: 0;

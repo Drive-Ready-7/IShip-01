@@ -33,10 +33,13 @@
 }
 
 .root-title {
-    color: white;
-    font-family: 'Technopolla', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #7e7878, #ffffff); /* or any background */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Technopollas', sans-serif;
 }
-
 .root-buttons {
     position: absolute;
     top: 59%;
