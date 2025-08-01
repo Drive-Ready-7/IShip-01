@@ -11,6 +11,12 @@
     background-image: linear-gradient(90deg, #0a1418, #0b5975);
 
 }
+#desktop-home-button{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color : white;
+}
 .sidebardetails{
     display: flex;
     flex-direction: row;
@@ -37,14 +43,14 @@
     display: flex;
     flex-direction: column;
     gap:20px;
-    
+    margin-top: 20px;
 }
 .sidebarchild2{
     width:250px;
     height:fit-content;
     display: flex;
     flex-direction: column;
-    padding-bottom:40px;
+    padding-bottom:20px;
 }
 
 
