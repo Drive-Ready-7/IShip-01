@@ -90,7 +90,7 @@ export default function Login() {
                 {error && <p className="error">{error}</p>}
 
                 <div className="login-actions">
-                    <label onClick={() => setRememberMe(prev => !prev)} ><input type="checkbox" /> Remember me</label>
+                    <label className="login-remember" onClick={() => setRememberMe(prev => !prev)} ><input type="checkbox" className="login-remember" /> Remember me</label>
                     <span onClick={() => navigate('/forgot-password')}>Forgot Password?</span>
                 </div>
 

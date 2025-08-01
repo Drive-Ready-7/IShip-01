@@ -51,6 +51,9 @@
     font-size: 1.rem;
     gap: 1rem;
 }
+.contact-details input {
+    font-size: 1rem;
+}
 #contact-para {
     font-size: 1.2rem;
     color: color(display-p3 0.403922 0.337255 0.337255 0.45098);
