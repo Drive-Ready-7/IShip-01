@@ -13,6 +13,10 @@ const Nav = () => {
         navigate('/register');
     };
 
+    const handleContact = () => {
+        navigate('/contact');
+    }
+
     return (
         <nav className="navbar">
             <main className="nav-logo-section">
@@ -27,7 +31,7 @@ const Nav = () => {
             <ul className="nav-links">
                 <li onClick={() => navigate('/dashboard')}>Dashboard</li>
                 <li onClick={() => navigate('/about')}>About</li>
-                <li onClick={() => navigate('/contact-us')}>Contact Us</li>
+                <li onClick={() => navigate('/contact')}>Contact Us</li>
             </ul>
 
             <main className="nav-left-container">

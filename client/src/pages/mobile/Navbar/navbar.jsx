@@ -41,7 +41,7 @@ export default function Navbar(){
                                 <li onClick={() => navigate('/dashboard')}>Dashboard</li>
                                
                                 <li onClick={()=> navigate('/about')}>About Us</li>
-                                <li onClick={()=> navigate('/contact-us')}>Contact Us</li>
+                                <li onClick={()=> navigate('/contact')}>Contact Us</li>
                             
                                 <li onClick={()=>{
                                     localStorage.removeItem('accessToken');

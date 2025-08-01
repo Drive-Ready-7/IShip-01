@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     { path:'/profile', element:<Profile/> },
     { path: '/about', element:<AboutUs/>},
     { path: '/footer', element: <Footer/>},
-    { path: '/dashboard', element: <Dashboard/> }
+    { path: '/dashboard', element: <Dashboard/> },
 ])
 
 const MobileRoutes = () => {
