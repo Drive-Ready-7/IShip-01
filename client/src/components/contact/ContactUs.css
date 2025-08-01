@@ -137,6 +137,12 @@
         max-height: 140svh;
         width: 70svw;
     }
+    .contact-divider {
+        width: 44svw;
+    }
+    .aboutus-contact {
+        font-size: 1rem;
+    }
     #contact-main-heading {
         font-size: 3rem;
     }
