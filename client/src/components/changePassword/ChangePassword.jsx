@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Axios from "@api";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
-import User from '../../../../server/models/user';
 
 
 export default function ChangePassword() {
