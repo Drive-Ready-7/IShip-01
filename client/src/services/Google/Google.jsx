@@ -1,5 +1,5 @@
 import Axios from "@api";
-
+import './Google.css';
 const Google = () => {
 
     const handleGmailLogin = () => {
@@ -23,7 +23,7 @@ const Google = () => {
     };
 
     return (
-        <button onClick={handleGmailLogin}>Connect Gmail</button>
+        <button onClick={handleGmailLogin} className="connect">Connect Gmail</button>
     );
 }
 

@@ -78,7 +78,7 @@ export default function Main() {
             </div>
             <div className="dashboard">
                 <aside className="glass aside">
-                    <h2>Filters</h2>
+                    <h2 style={{color:'burlywood'}}>Filters</h2>
                     {['All', 'Internships', 'Jobs', 'Hackathons', 'Spam'].map((filter) => (
                         <button
                             key={filter}
@@ -91,7 +91,7 @@ export default function Main() {
                 </aside>
 
                 <main className="glass main">
-                    <h2>Inbox</h2>
+                    <h2 style={{color:"burlywood"}}>Inbox</h2>
                     <div className="mail-list">
                         {filteredMails.length > 0 ? (
                             filteredMails.map((mail, index) => (
@@ -123,7 +123,7 @@ export default function Main() {
 
                             ))
                         ) : (
-                            <p>No mails found for this category.</p>
+                            <p style={{color:"white"}}>No mails found for this category.</p>
                         )}
                     </div>
                 </main>

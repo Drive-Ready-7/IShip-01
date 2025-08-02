@@ -1,0 +1,9 @@
+.connect{
+    background-color: #ffffff;
+    color:  #0b5975;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}

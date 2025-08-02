@@ -58,8 +58,7 @@ body.dark-mode .glass {
     height: 80svh;
     position: fixed;
     top: 15vh;
-    left: 3svw;  
-
+    left: 3svw; 
     z-index: 1000;
 }
 
@@ -73,11 +72,13 @@ body.dark-mode .glass {
     color: inherit;
     font-weight: 600;
     backdrop-filter: blur(6px);
+    color: white;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgb(255, 255, 255);
+    color: #0b5975;
 }
 
 /* Main Content */

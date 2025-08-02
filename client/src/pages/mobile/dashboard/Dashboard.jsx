@@ -78,7 +78,7 @@ export default function Main() {
                     
 
                     <main className="glass main">
-                        <h2>Inbox</h2>
+                        <h2 style={{color:"burlywood"}}>Inbox</h2>
                         <div className="mail-list">
                             {filteredMails.length > 0 ? (
                                 filteredMails.map((mail, index) => (
@@ -107,7 +107,8 @@ export default function Main() {
                                     </div>
                                 ))
                             ) : (
-                                <p>No mails found for this category.</p>
+                                <p style={{color:"white"}}>No mails found for this category.</p>
+                                
                             )}
                         </div>
                     </main>
