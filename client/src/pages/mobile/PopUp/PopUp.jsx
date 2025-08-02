@@ -43,7 +43,7 @@ const PopUp = (props) => {
             userId: props._id,
             email: oldEmail
         });
-        props.setEmailChange(oldEmail);
+        
         console.error('Error submitting OTP:', e);
         props.setPopup(prev => !prev);
     }    
@@ -52,7 +52,7 @@ const PopUp = (props) => {
      <div className="popup-body">
       <button onClick={()=>{
         const oldEmail = localStorage.getItem('email');
-        props.setEmailChange(oldEmail);
+        
         props.setPopup(!props.popup);
         props.setEmailShower(!props.emailShower);
         
