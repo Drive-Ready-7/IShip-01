@@ -11,12 +11,14 @@ import Logo from "../../../components/logo/Logo.jsx";
 
 export default function Root() {
 
-    const [showAnimation, setShowAnimation] = React.useState(true);
+    const canShow = sessionStorage.getItem("show");
+    const [showAnimation, setShowAnimation] = React.useState(canShow !== "false");
 
     useEffect(() => {
 
         const animation = setTimeout(() => {
             setShowAnimation(false);
+            sessionStorage.setItem("show", "false")
         }, 2500);
 
         return () => {
@@ -25,11 +27,17 @@ export default function Root() {
 
     }, [])
 
+    console.log(sessionStorage.getItem("show"));
+
     const navigate = useNavigate();
+    console.log(sessionStorage.getItem("show"));
 
     if(showAnimation) {
+
         return <Logo />
     }
+
+    console.log(sessionStorage.getItem("show"));
 
     return (
         <div className="root-container">

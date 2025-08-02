@@ -44,11 +44,3 @@ app.listen(PORT, async (req, res) => {
     await connectDB();
     await connectWhatsapp();
 });
-
-(async () => {
-    try {
-        const allMails = await Mails.deleteMany({})
-    } catch (error) {
-        console.error(error);
-    }
-})();

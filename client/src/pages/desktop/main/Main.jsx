@@ -3,6 +3,8 @@ import './Main.css';
 import Nav from '@components/nav/Nav.jsx';
 import Axios from '@api';
 
+import Google from "../../../services/Google/Google.jsx";
+
 const getBadgeClass = (type) => {
     switch (type?.toLowerCase()) {
         case 'internships':
@@ -78,6 +80,7 @@ export default function Main() {
             </div>
             <div className="dashboard">
                 <aside className="glass aside">
+                    <Google />
                     <h2 style={{color:'burlywood'}}>Filters</h2>
                     {['All', 'Internships', 'Jobs', 'Hackathons', 'Spam'].map((filter) => (
                         <button

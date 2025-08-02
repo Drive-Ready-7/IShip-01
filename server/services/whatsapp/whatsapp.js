@@ -36,6 +36,20 @@ export function connectWhatsapp() {
 
 }
 
+const getUnicode = () => {
+    return Math.floor(100000 + Math.random() * 900000).toString();
+}
+
+
+const sendMessage = async (number, message) => {
+    const cleanedNumber = number.replace(/\D/g, '');
+    const chatId = `91${cleanedNumber}@c.us`;
+    console.log(cleanedNumber)
+    console.log(chatId)
+
+    await client.sendMessage(chatId, message);
+}
+
 router.post("/notify", async (req, res) => {
     const { number, message } = req.body;
     console.log("📨 Incoming request:", req.body);
@@ -45,12 +59,7 @@ router.post("/notify", async (req, res) => {
     }
 
     try {
-        const cleanedNumber = number.replace(/\D/g, '');
-        const chatId = `91${cleanedNumber}@c.us`;
-        console.log(cleanedNumber)
-        console.log(chatId)
-
-        await client.sendMessage(chatId, message);
+        await sendMessage(number, message);
         return res.json({ success: true, message: "Message sent!" });
     } catch (error) {
         console.error("Error sending message:", error.message);
@@ -71,7 +80,10 @@ router.post('/verify-number', async (req, res) => {
             return res.status(404).json({ success: false, error: "User not found." });
         }
 
-        return res.json({ success: true, user });
+        const unicode = getUnicode();
+        await sendMessage(number, unicode.toString())
+
+        return res.json({ success: true });
     } catch (err) {
         console.error(err);
         res.status(500).json({ success: false, error: "Internal Server Error" });

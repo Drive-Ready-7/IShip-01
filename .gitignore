@@ -1,7 +1,7 @@
 
 /.idea
 .vs_code
+/node_modules
 
 package.json
-
-todo 
+/client/src
